@@ -26,7 +26,7 @@
             <Font name="System Bold" size="22.0" />
           </font>
         </Label>
-        <ImageView fitHeight="189.08665609745557" fitWidth="250.99998474121094" pickOnBounds="true" preserveRatio="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+        <ImageView fitHeight="189.08665609745557" fitWidth="250.99998474121094" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="90.89" AnchorPane.rightAnchor="9.11" AnchorPane.topAnchor="50.0">
           <image>
             <Image url="@logo.png" />
           </image>
