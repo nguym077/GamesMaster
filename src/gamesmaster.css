@@ -1,0 +1,8 @@
+.menuButton {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+.background {
+    -fx-background-color: black;
+}

@@ -1,8 +1,43 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="MainController">
+  <children>
+    <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: white;&#10;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+      <children>
+        <Button id="menuButton" layoutY="324.0" maxWidth="-1.0" mnemonicParsing="false" onAction="#handleMazeButton" prefWidth="250.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;" text="Maze" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+          <font>
+            <Font size="15.0" fx:id="x1" />
+          </font>
+        </Button>
+        <Button id="menuButton" disable="false" font="$x1" layoutY="408.0" mnemonicParsing="false" onAction="#handleMancalaButton" opacity="0.3" prefWidth="190.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;" text="Mancala" visible="true" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+        <Button id="menuButton" disable="false" font="$x1" layoutY="366.0" mnemonicParsing="false" onAction="#handleConcButton" opacity="0.3" prefWidth="190.00009999999747" style="-fx-background-color: black;&#10;-fx-text-fill: white;" text="Concentration" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+        <Label alignment="CENTER" layoutY="288.0" text="Select a Game:" textAlignment="CENTER" underline="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+          <font>
+            <Font name="System Bold" size="22.0" />
+          </font>
+        </Label>
+        <ImageView fitHeight="189.08665609745557" fitWidth="250.99998474121094" pickOnBounds="true" preserveRatio="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+          <image>
+            <Image url="@logo.png" />
+          </image>
+        </ImageView>
+      </children>
+    </AnchorPane>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+  </rowConstraints>
 </GridPane>
