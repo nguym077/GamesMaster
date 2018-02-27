@@ -2,10 +2,12 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="560.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="MainController">
@@ -15,6 +17,13 @@
     <Button layoutX="217.0" mnemonicParsing="false" onAction="#handleMazeRightButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="RIGHT" AnchorPane.bottomAnchor="120.0" />
     <Button layoutX="147.0" mnemonicParsing="false" onAction="#handleMazeDownButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="DOWN" AnchorPane.bottomAnchor="86.0" />
     <GridPane id="" fx:id="mazeGrid" gridLinesVisible="true" AnchorPane.leftAnchor="77.73" AnchorPane.rightAnchor="82.27" AnchorPane.topAnchor="101.0">
+      <children>
+        <Circle id="" fx:id="mazeUserLocation" centerX="0.0" centerY="10.0" fill="DODGERBLUE" opacity="0.74" pickOnBounds="false" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.rowIndex="0">
+          <GridPane.margin>
+            <Insets bottom="1.0" left="5.0" right="2.0" top="1.0" />
+          </GridPane.margin>
+        </Circle>
+      </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="30.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
@@ -43,6 +52,6 @@
         <Image url="@bird_logo.png" />
       </image>
     </ImageView>
-    <Text fx:id="moveLabel" scaleX="1.0327449266985587" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a button to start." textAlignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
+    <Text id="moveLabel" fx:id="mazeMoveLabel" scaleX="1.0327449266985587" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a button to start." textAlignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
   </children>
 </AnchorPane>
