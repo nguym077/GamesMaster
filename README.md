@@ -1,6 +1,6 @@
 ﻿# GamesMaster
 
-![Screenshot](Capture.png)
+![Screenshot](https://github.com/nguym077/GamesMaster/blob/master/Capture.PNG)
 
 
 
