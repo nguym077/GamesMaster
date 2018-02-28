@@ -4,13 +4,12 @@
 
 
 
-Means
 For example:
  way[0][0]= 200, from that point 0,0 it can only go to right 
-way[1][4]=34, from that point 14 it can only go to left and down
-way[1][4]= 4 from that point 14 it can only go to left
+ way[1][4]=34, from that point 14 it can only go to left and down
+ way[1][4]= 4 from that point 14 it can only go to left
  way[1][4]= 1000, from that point 14 it can only go to up
-way[1][4]= 1030, from that point 14 it can only go to up and down
+ way[1][4]= 1030, from that point 14 it can only go to up and down
  way[1][4]=1234, from that point 1,4 it can go all the 4 direction.
 
 So when user click moving button, there will be a calculation of way[I][j] to find out the allowable path, can use / and % or other way.
