@@ -1,23 +1,6 @@
 ﻿# GamesMaster
 
-The x and y with double array way[I][j]
 
-
-00 10
-01 11
-02 …(etc)
-03
-04
-05
-06
-07
-
-Now the way[I][j] will record 4 digit as 4 direction 
-
-
-    1(up)
-4(left)   2(right)
-    3(down)
 
 
 Means
