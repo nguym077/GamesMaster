@@ -1,5 +1,6 @@
 ﻿# GamesMaster
 
+![Screenshot](Capture.png)
 
 
 
