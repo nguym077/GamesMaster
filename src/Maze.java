@@ -58,12 +58,12 @@ public class Maze extends Application {
         int[][] way = new int[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                way[i][j] = 1;
+                way[i][j] = 0;
             }
         }
         //the initial path of index is 0,0
         //the end path of index is 7,7
-        way[0][0] = 0;
+       // way[0][0] = 0;
 
         Stack st = new Stack();
 
@@ -86,11 +86,12 @@ public class Maze extends Application {
                     case 1: {
                         mark1 = 1;
                         int ytry = yi - 1;
-                        if (ytry < 0 || way[xi][ytry] == 0) ;
+                        if (ytry < 0 || way[xi][ytry] != 0) ;
                         else {
                             check = true;
+                            way[xi][yi] = way[xi][yi]+1000;
                             yi = yi - 1;
-                            way[xi][yi] = 0;
+                            way[xi][yi] = way[xi][yi]+30;;
                             LineTo line1 = new LineTo(startx, starty = starty - 40);
                             path.getElements().add(line1);
                             countTotal++;
@@ -101,11 +102,12 @@ public class Maze extends Application {
                     case 2: {
                         mark2 = 1;
                         int xtry = xi + 1;
-                        if (xtry > 7 || way[xtry][yi] == 0) ;
+                        if (xtry > 7 || way[xtry][yi] != 0) ;
                         else {
                             check = true;
+                            way[xi][yi] = way[xi][yi]+200;
                             xi = xi + 1;
-                            way[xi][yi] = 0;
+                            way[xi][yi] = way[xi][yi]+4;
                             LineTo line1 = new LineTo(startx = startx + 40, starty);
                             path.getElements().add(line1);
                             countTotal++;
@@ -115,11 +117,12 @@ public class Maze extends Application {
                     case 3: {
                         mark3 = 1;
                         int ytry = yi + 1;
-                        if (ytry > 7 || way[xi][ytry] == 0) ;
+                        if (ytry > 7 || way[xi][ytry] != 0) ;
                         else {
                             check = true;
+                            way[xi][yi] = way[xi][yi]+30;
                             yi = yi + 1;
-                            way[xi][yi] = 0;
+                            way[xi][yi] = way[xi][yi]+1000;
                             LineTo line1 = new LineTo(startx, starty = starty + 40);
                             path.getElements().add(line1);
                             countTotal++;
@@ -129,11 +132,12 @@ public class Maze extends Application {
                     case 4: {
                         mark4 = 1;
                         int xtry = xi - 1;
-                        if (xtry < 0 || way[xtry][yi] == 0) ;
+                        if (xtry < 0 || way[xtry][yi] != 0) ;
                         else {
                             check = true;
+                            way[xi][yi] = way[xi][yi]+4;
                             xi = xi - 1;
-                            way[xi][yi] = 0;
+                            way[xi][yi] = way[xi][yi]+200;
                             LineTo line1 = new LineTo(startx = startx - 40, starty);
                             path.getElements().add(line1);
                             countTotal++;
@@ -222,6 +226,14 @@ public class Maze extends Application {
 
         //Displaying the contents of the stage
         stage.show();
+        
+        //this is for test output
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+            	System.out.println("x: "+i+" y: "+j+" "+way[i][j]);
+                way[i][j] = 0;
+            }
+        }
     }
 
     public Path getPath() {
@@ -231,8 +243,14 @@ public class Maze extends Application {
     public Path getPath1() {
         return path1;
     }
+<<<<<<< HEAD
 
     public static void main(String[] args) {
         launch(args);
     }
 }
+=======
+    
+    
+}
+>>>>>>> 908c4d184be33f016e156d645e26bc7aea81861b
