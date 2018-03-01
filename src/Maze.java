@@ -231,4 +231,8 @@ public class Maze extends Application {
     public Path getPath1() {
         return path1;
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
