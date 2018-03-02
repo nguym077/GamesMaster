@@ -15,8 +15,9 @@ import javafx.scene.shape.Path;
 import java.util.Stack;
 
 public class Maze extends Application {
-    Path path = new Path();
-    Path path1 = new Path();
+    private Path path = new Path();
+    private Path path1 = new Path();
+    private int[][] way;
 
     @Override
     public void start(Stage stage) {
@@ -55,7 +56,7 @@ public class Maze extends Application {
         MoveTo moveTo = new MoveTo(startx, starty);
         path.getElements().add(moveTo);
 
-        int[][] way = new int[8][8];
+        way = new int[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 way[i][j] = 0;
@@ -63,7 +64,7 @@ public class Maze extends Application {
         }
         //the initial path of index is 0,0
         //the end path of index is 7,7
-       // way[0][0] = 0;
+        // way[0][0] = 0;
 
         Stack st = new Stack();
 
@@ -89,9 +90,10 @@ public class Maze extends Application {
                         if (ytry < 0 || way[xi][ytry] != 0) ;
                         else {
                             check = true;
-                            way[xi][yi] = way[xi][yi]+1000;
+                            way[xi][yi] = way[xi][yi] + 1000;
                             yi = yi - 1;
-                            way[xi][yi] = way[xi][yi]+30;;
+                            way[xi][yi] = way[xi][yi] + 30;
+                            ;
                             LineTo line1 = new LineTo(startx, starty = starty - 40);
                             path.getElements().add(line1);
                             countTotal++;
@@ -105,9 +107,9 @@ public class Maze extends Application {
                         if (xtry > 7 || way[xtry][yi] != 0) ;
                         else {
                             check = true;
-                            way[xi][yi] = way[xi][yi]+200;
+                            way[xi][yi] = way[xi][yi] + 200;
                             xi = xi + 1;
-                            way[xi][yi] = way[xi][yi]+4;
+                            way[xi][yi] = way[xi][yi] + 4;
                             LineTo line1 = new LineTo(startx = startx + 40, starty);
                             path.getElements().add(line1);
                             countTotal++;
@@ -120,9 +122,9 @@ public class Maze extends Application {
                         if (ytry > 7 || way[xi][ytry] != 0) ;
                         else {
                             check = true;
-                            way[xi][yi] = way[xi][yi]+30;
+                            way[xi][yi] = way[xi][yi] + 30;
                             yi = yi + 1;
-                            way[xi][yi] = way[xi][yi]+1000;
+                            way[xi][yi] = way[xi][yi] + 1000;
                             LineTo line1 = new LineTo(startx, starty = starty + 40);
                             path.getElements().add(line1);
                             countTotal++;
@@ -135,9 +137,9 @@ public class Maze extends Application {
                         if (xtry < 0 || way[xtry][yi] != 0) ;
                         else {
                             check = true;
-                            way[xi][yi] = way[xi][yi]+4;
+                            way[xi][yi] = way[xi][yi] + 4;
                             xi = xi - 1;
-                            way[xi][yi] = way[xi][yi]+200;
+                            way[xi][yi] = way[xi][yi] + 200;
                             LineTo line1 = new LineTo(startx = startx - 40, starty);
                             path.getElements().add(line1);
                             countTotal++;
@@ -226,31 +228,17 @@ public class Maze extends Application {
 
         //Displaying the contents of the stage
         stage.show();
-        
+
         //this is for test output
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-            	System.out.println("x: "+i+" y: "+j+" "+way[i][j]);
+                System.out.println("x: " + i + " y: " + j + " " + way[i][j]);
                 way[i][j] = 0;
             }
         }
     }
 
-    public Path getPath() {
-        return path;
-    }
-
-    public Path getPath1() {
-        return path1;
-    }
-<<<<<<< HEAD
-
-    public static void main(String[] args) {
-        launch(args);
+    public int[][] getMazeArray() {
+        return way;
     }
 }
-=======
-    
-    
-}
->>>>>>> 908c4d184be33f016e156d645e26bc7aea81861b

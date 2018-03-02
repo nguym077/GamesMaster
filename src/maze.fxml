@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="560.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="MainController">
+<AnchorPane prefHeight="560.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
   <children>
     <Button layoutX="148.0" mnemonicParsing="false" onAction="#handleMazeUpButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="UP" AnchorPane.bottomAnchor="155.0" />
     <Button layoutX="77.0" mnemonicParsing="false" onAction="#handleMazeLeftButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="LEFT" AnchorPane.bottomAnchor="120.0" />
@@ -53,8 +53,11 @@
         <Image url="@bird_logo.png" />
       </image>
     </ImageView>
-    <Text id="moveLabel" fx:id="mazeMoveLabel" scaleX="1.0327449266985587" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a button to start." textAlignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
-    <Text layoutX="43.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start" textAlignment="RIGHT" />
-    <Text layoutX="325.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End" />
+    <Text id="moveLabel" fx:id="mazeMoveLabel" scaleX="1.0327449266985587" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Select a button to start." textAlignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
+    <Text layoutX="32.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Start" textAlignment="RIGHT" />
+    <Text layoutX="325.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="End">
+         <font>
+            <Font size="30.0" />
+         </font></Text>
   </children>
 </AnchorPane>

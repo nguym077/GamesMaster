@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 // handles all events on screen (listener)
 public class MainController {
+    // maze attributes
     @FXML
     private GridPane mazeGrid;
 
@@ -21,9 +22,11 @@ public class MainController {
     @FXML
     private Circle mazeUserLocation;
 
-    Maze mazeGame = new Maze();
-    int xCurrent = 0;
-    int yCurrent = 0;
+    private Maze mazeGame = new Maze();
+    private int[][] mazeArray = mazeGame.getMazeArray();
+    private int xCurrent = 0;
+    private int yCurrent = 0;
+
 
     public void handleMazeButton(ActionEvent e) throws Exception {
         Stage mazeStage = new Stage();
@@ -32,8 +35,6 @@ public class MainController {
         System.out.println("Start maze game.");
 
         Parent root = FXMLLoader.load(getClass().getResource("maze.fxml"));
-        Path p = mazeGame.getPath();
-        Path p1 = mazeGame.getPath1();
 
         mazeStage.setTitle("Maze");
         Scene scene = new Scene(root);
@@ -95,9 +96,5 @@ public class MainController {
 
     public void handleMancalaButton(ActionEvent e) {
         System.out.println("Mancala button clicked");
-    }
-
-    public void handleQuitButton(ActionEvent e) {
-        System.exit(0);
     }
 }
