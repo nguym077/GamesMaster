@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.geometry.*?>
@@ -10,14 +11,337 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="560.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<AnchorPane fx:id="maze" prefHeight="560.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MazeController">
   <children>
     <Button layoutX="148.0" mnemonicParsing="false" onAction="#handleMazeUpButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="UP" AnchorPane.bottomAnchor="155.0" />
     <Button layoutX="77.0" mnemonicParsing="false" onAction="#handleMazeLeftButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="LEFT" AnchorPane.bottomAnchor="120.0" />
     <Button layoutX="217.0" mnemonicParsing="false" onAction="#handleMazeRightButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="RIGHT" AnchorPane.bottomAnchor="120.0" />
     <Button layoutX="147.0" mnemonicParsing="false" onAction="#handleMazeDownButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="DOWN" AnchorPane.bottomAnchor="86.0" />
-    <GridPane id="" fx:id="mazeGrid" alignment="CENTER" layoutX="77.73" AnchorPane.topAnchor="102.0">
+    <GridPane id="" fx:id="mazeGrid" alignment="CENTER" layoutX="76.73" layoutY="102.0" style="-fx-border-color: black; -fx-background-color: #f2f2f2;" AnchorPane.topAnchor="102.0">
       <children>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="7" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="7" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="7" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="7" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="7" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="7" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="7" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="6" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="6" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="6" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="6" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="6" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="6" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="6" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="5" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="5" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="5" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="5" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="5" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="5" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="4" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="4" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="4" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="3" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region fx:id="grid01" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5;" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Region>
+            <Region fx:id="grid00" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c5c5c5; -fx-background-insets: 0 0 0 0;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Region>
         <Circle id="" fx:id="mazeUserLocation" centerX="0.0" centerY="10.0" fill="DODGERBLUE" opacity="0.74" pickOnBounds="false" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.rowIndex="0">
           <GridPane.margin>
             <Insets left="5.0" fx:id="x1" />
@@ -46,7 +370,7 @@
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
          <opaqueInsets>
-            <Insets top="1.0" />
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </opaqueInsets>
     </GridPane>
     <Text layoutX="160.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;&#10;-fx-font-size: 30px;&#10;-fx-font-weight: bold;" text="Maze" AnchorPane.topAnchor="40.0" />
