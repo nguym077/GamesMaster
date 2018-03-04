@@ -24,17 +24,53 @@ public class MazeController implements Initializable {
     @FXML
     private Circle mazeUserLocation;
 
-    @FXML
-    private Region grid00;
-
-    private Maze mazeGame = new Maze();
-    private int[][] mazeArray = mazeGame.getMazeArray();
+    private Maze mazeGame;
+    private int[][] mazeArray;
     private int xCurrent = 0;
     private int yCurrent = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle res) {
-        System.out.println(mazeMoveLabel);
+        Stage tempStage = new Stage();
+
+        mazeGame = new Maze();
+        mazeArray = mazeGame.getMazeArray();
+
+        for (int i = 0; i < mazeArray.length; i++) {
+            for (int j = 0; j < mazeArray.length; j++) {
+                Region r = new Region();
+
+                // 1 == UP, 2 == RIGHT, 3 == DOWN, 4 == LEFT
+                String directions =  Integer.toString(mazeArray[i][j]);
+                String css = "";
+                if (directions.contains(Character.toString('1'))) {
+                    css = css.concat("0 ");
+                } else {
+                    css = css.concat("3 ");
+                }
+
+                if (directions.contains(Character.toString('2'))) {
+                    css = css.concat("0 ");
+                } else {
+                    css = css.concat("3 ");
+                }
+
+                if (directions.contains(Character.toString('3'))) {
+                    css = css.concat("0 ");
+                } else {
+                    css = css.concat("3 ");
+                }
+
+                if (directions.contains(Character.toString('4'))) {
+                    css = css.concat("0;");
+                } else {
+                    css = css.concat("3;");
+                }
+
+                r.setStyle("-fx-background-color: #c5c5c5; -fx-background-insets: " + css);
+                mazeGrid.add(r, i, j);
+            }
+        }
     }
 
     public void handleMazeUpButton(ActionEvent e) {

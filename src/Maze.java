@@ -16,13 +16,12 @@ import javafx.scene.shape.Path;
 
 import java.util.Stack;
 
-public class Maze extends Application {
+public class Maze {
     private Path path = new Path();
     private Path path1 = new Path();
     private int[][] way;
 
-    @Override
-    public void start(Stage stage) {
+    public Maze() {
 
         //the starting point of path
         int startx = 40;
@@ -195,47 +194,28 @@ public class Maze extends Application {
 
         }
 
-	    	 
-	      
-	     
-			
-		  
-		  /*
-	      for(int i=0;i<300;i+=20)
-	      {
-	    	  
-	    	  LineTo line1 = new LineTo(i, i+10);  
-	    	  path.getElements().add(line1);
-	    	 // MoveTo moveTo1 = new MoveTo(i-10, i-5); 
-	         // path.getElements().add(moveTo1);
-	      }
-	      */
-        //Creating 1st line
-
-
-        //Creating a Group object
-        Group root = new Group();
-        root.getChildren().add(path1);
-        root.getChildren().add(path);
-
-        //Creating a scene object
-
-        Scene scene = new Scene(root, 600, 600);
-
-        //Setting title to the Stage
-        stage.setTitle("Drawing an arc through a path");
-
-        //Adding scene to the stage
-        stage.setScene(scene);
-
-        //Displaying the contents of the stage
-        stage.show();
-
+//        //Creating a Group object
+//        Group root = new Group();
+//        root.getChildren().add(path1);
+//        root.getChildren().add(path);
+//
+//        //Creating a scene object
+//
+//        Scene scene = new Scene(root, 600, 600);
+//
+//        //Setting title to the Stage
+//        stage.setTitle("Drawing an arc through a path");
+//
+//        //Adding scene to the stage
+//        stage.setScene(scene);
+//
+//        //Displaying the contents of the stage
+//        stage.show();
+//
         //this is for test output
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 System.out.println("x: " + i + " y: " + j + " " + way[i][j]);
-                way[i][j] = 0;
             }
         }
     }
