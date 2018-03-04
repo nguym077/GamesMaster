@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Circle;
@@ -22,18 +23,30 @@ public class MazeController implements Initializable {
     private Text mazeMoveLabel;
 
     @FXML
-    private Circle mazeUserLocation;
+    private Circle userLocation;
 
-    private Maze mazeGame;
+    @FXML
+    private Circle endLocation;
+
+    @FXML
+    private Button upButton;
+
+    @FXML
+    private Button rightButton;
+
+    @FXML
+    private Button downButton;
+
+    @FXML
+    private Button leftButton;
+
     private int[][] mazeArray;
     private int xCurrent = 0;
     private int yCurrent = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle res) {
-        Stage tempStage = new Stage();
-
-        mazeGame = new Maze();
+        Maze mazeGame = new Maze();
         mazeArray = mazeGame.getMazeArray();
 
         for (int i = 0; i < mazeArray.length; i++) {
@@ -71,55 +84,104 @@ public class MazeController implements Initializable {
                 mazeGrid.add(r, i, j);
             }
         }
+
+        userLocation.toFront();
+        endLocation.toFront();
     }
 
     public void handleMazeUpButton(ActionEvent e) {
-        System.out.println(mazeMoveLabel);
-
-        System.out.println("UP button was pushed.");
-
         if (xCurrent == 0) {
             mazeMoveLabel.setText("Illegal move. Try again!");
         } else {
-            mazeMoveLabel.setText("Moved UP one space.");
-            xCurrent -= 1;
-            GridPane.setRowIndex(mazeUserLocation, xCurrent);
+            String possibleMoves = Integer.toString(mazeArray[yCurrent][xCurrent]);
+            if (possibleMoves.contains(Character.toString('1'))) {
+                mazeMoveLabel.setText("Moved UP one space.");
+                xCurrent -= 1;
+                GridPane.setRowIndex(userLocation, xCurrent);
+            } else {
+                mazeMoveLabel.setText("Illegal move. Try again!");
+            }
         }
-    }
 
-    public void handleMazeLeftButton(ActionEvent e) {
-        System.out.println("LEFT button was pushed.");
+        if (xCurrent == 7 && yCurrent == 7) {
+            mazeMoveLabel.setText("CONGRATS! YOU WIN! :-)");
+            upButton.setDisable(true);
+            rightButton.setDisable(true);
+            downButton.setDisable(true);
+            leftButton.setDisable(true);
 
-        if (yCurrent == 0) {
-            mazeMoveLabel.setText("Illegal move. Try again!");
-        } else {
-            mazeMoveLabel.setText("Moved LEFT one space.");
-            yCurrent -= 1;
-            GridPane.setColumnIndex(mazeUserLocation, yCurrent);
         }
     }
 
     public void handleMazeRightButton(ActionEvent e) {
-        System.out.println("RIGHT button was pushed.");
-
         if (yCurrent == 7) {
             mazeMoveLabel.setText("Illegal move. Try again!");
         } else {
-            mazeMoveLabel.setText("Moved RIGHT one space.");
-            yCurrent += 1;
-            mazeUserLocation.setLayoutY(yCurrent);
-            GridPane.setColumnIndex(mazeUserLocation, yCurrent);
+            String possibleMoves = Integer.toString(mazeArray[yCurrent][xCurrent]);
+            if (possibleMoves.contains(Character.toString('2'))) {
+                mazeMoveLabel.setText("Moved RIGHT one space.");
+                yCurrent += 1;
+                GridPane.setColumnIndex(userLocation, yCurrent);
+            } else {
+                mazeMoveLabel.setText("Illegal move. Try again!");
+            }
+        }
+
+        if (xCurrent == 7 && yCurrent == 7) {
+            mazeMoveLabel.setText("CONGRATS! YOU WIN! :-)");
+            upButton.setDisable(true);
+            rightButton.setDisable(true);
+            downButton.setDisable(true);
+            leftButton.setDisable(true);
+
         }
     }
 
     public void handleMazeDownButton(ActionEvent e) {
-        System.out.println("DOWN button was pushed.");
         if (xCurrent == 7) {
             mazeMoveLabel.setText("Illegal move. Try again!");
         } else {
-            mazeMoveLabel.setText("Moved DOWN one space.");
-            xCurrent += 1;
-            GridPane.setRowIndex(mazeUserLocation, xCurrent);
+            String possibleMoves = Integer.toString(mazeArray[yCurrent][xCurrent]);
+            if (possibleMoves.contains(Character.toString('3'))) {
+                mazeMoveLabel.setText("Moved DOWN one space.");
+                xCurrent += 1;
+                GridPane.setRowIndex(userLocation, xCurrent);
+            } else {
+                mazeMoveLabel.setText("Illegal move. Try again!");
+            }
+        }
+
+        if (xCurrent == 7 && yCurrent == 7) {
+            mazeMoveLabel.setText("CONGRATS! YOU WIN! :-)");
+            upButton.setDisable(true);
+            rightButton.setDisable(true);
+            downButton.setDisable(true);
+            leftButton.setDisable(true);
+
+        }
+    }
+
+    public void handleMazeLeftButton(ActionEvent e) {
+        if (yCurrent == 0) {
+            mazeMoveLabel.setText("Illegal move. Try again!");
+        } else {
+            String possibleMoves = Integer.toString(mazeArray[yCurrent][xCurrent]);
+            if (possibleMoves.contains(Character.toString('4'))) {
+                mazeMoveLabel.setText("Moved LEFT one space.");
+                yCurrent -= 1;
+                GridPane.setColumnIndex(userLocation, yCurrent);
+            } else {
+                mazeMoveLabel.setText("Illegal move. Try again!");
+            }
+        }
+
+        if (xCurrent == 7 && yCurrent == 7) {
+            mazeMoveLabel.setText("CONGRATS! YOU WIN! :-)");
+            upButton.setDisable(true);
+            rightButton.setDisable(true);
+            downButton.setDisable(true);
+            leftButton.setDisable(true);
+
         }
     }
 }
