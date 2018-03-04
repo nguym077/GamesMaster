@@ -1,6 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -9,7 +10,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class MazeController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MazeController implements Initializable {
     // maze attributes
     @FXML
     private GridPane mazeGrid;
@@ -28,20 +32,14 @@ public class MazeController {
     private int xCurrent = 0;
     private int yCurrent = 0;
 
-    public void setUpMaze() throws Exception {
-        // -fx-background-insets: 0 0 0 0;
-        // top, right, bottom, left
-        Stage mazeStage = new Stage();
-
-        Parent root = FXMLLoader.load(getClass().getResource("maze.fxml"));
-
-        mazeStage.setTitle("Maze");
-        Scene scene = new Scene(root);
-        mazeStage.setScene(scene);
-        mazeStage.show();
+    @Override
+    public void initialize(URL url, ResourceBundle res) {
+        System.out.println(mazeMoveLabel);
     }
 
     public void handleMazeUpButton(ActionEvent e) {
+        System.out.println(mazeMoveLabel);
+
         System.out.println("UP button was pushed.");
 
         if (xCurrent == 0) {

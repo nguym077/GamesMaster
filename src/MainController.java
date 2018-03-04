@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Circle;
@@ -19,12 +20,22 @@ import java.util.ResourceBundle;
 // handles all events on screen (listener)
 public class MainController {
     @FXML
+    private Button mazeButton;
+
+    @FXML
     private MazeController mazeController = new MazeController();
 
     public void handleMazeButton() throws Exception {
         System.out.println("Maze button clicked");
         System.out.println("Start maze game.");
-        mazeController.setUpMaze();
+
+        Stage mazeStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("maze.fxml"));
+        Scene scene = new Scene(root);
+        mazeStage.setTitle("Maze");
+
+        mazeStage.setScene(scene);
+        mazeStage.show();
     }
 
     public void handleConcButton() {
