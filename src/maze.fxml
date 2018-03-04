@@ -16,7 +16,7 @@
     <Button layoutX="77.0" mnemonicParsing="false" onAction="#handleMazeLeftButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="LEFT" AnchorPane.bottomAnchor="120.0" />
     <Button layoutX="217.0" mnemonicParsing="false" onAction="#handleMazeRightButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="RIGHT" AnchorPane.bottomAnchor="120.0" />
     <Button layoutX="147.0" mnemonicParsing="false" onAction="#handleMazeDownButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="DOWN" AnchorPane.bottomAnchor="86.0" />
-    <GridPane id="" fx:id="mazeGrid" alignment="CENTER" gridLinesVisible="true" layoutX="77.73" AnchorPane.topAnchor="102.0">
+    <GridPane id="" fx:id="mazeGrid" alignment="CENTER" layoutX="77.73" AnchorPane.topAnchor="102.0">
       <children>
         <Circle id="" fx:id="mazeUserLocation" centerX="0.0" centerY="10.0" fill="DODGERBLUE" opacity="0.74" pickOnBounds="false" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.rowIndex="0">
           <GridPane.margin>
@@ -45,6 +45,9 @@
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
+         <opaqueInsets>
+            <Insets top="1.0" />
+         </opaqueInsets>
     </GridPane>
     <Text layoutX="160.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;&#10;-fx-font-size: 30px;&#10;-fx-font-weight: bold;" text="Maze" AnchorPane.topAnchor="40.0" />
     <Label id="banner" alignment="TOP_CENTER" prefWidth="350.0" style="-fx-background-color: gray;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;&#10;-fx-text-align: center;" text="BirdStufz" textAlignment="RIGHT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

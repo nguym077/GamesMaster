@@ -29,6 +29,7 @@ public class MainController {
 
 
     public void handleMazeButton(ActionEvent e) throws Exception {
+        mazeGrid.add();
         Stage mazeStage = new Stage();
 
         System.out.println("Maze button clicked");
