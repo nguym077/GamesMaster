@@ -24,6 +24,12 @@ public class MainController {
 
     @FXML
     private MazeController mazeController = new MazeController();
+    
+    @FXML
+    private Button mancalaButton;
+
+    @FXML
+    private MazeController mancalaController = new MazeController();
 
     public void handleMazeButton() throws Exception {
         System.out.println("Maze button clicked");
@@ -46,5 +52,13 @@ public class MainController {
     public void handleMancalaButton() {
         System.out.println("Mancala button clicked");
         System.out.println("Start mancala game.");
+        
+        Stage mazeStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("mancala.fxml"));
+        Scene scene = new Scene(root);
+        mazeStage.setTitle("Mancala");
+
+        mazeStage.setScene(scene);
+        mazeStage.show();
     }
 }
