@@ -64,4 +64,3 @@ If down button
 
 If left button
 Way[3][4]%10, if equals 4, it can go left
->>>>>>> 2a634619d8487b24d62e9632740b39239163e530

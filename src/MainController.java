@@ -49,7 +49,7 @@ public class MainController {
         System.out.println("Start concentration game.");
     }
 
-    public void handleMancalaButton() {
+    public void handleMancalaButton() throws Exception {
         System.out.println("Mancala button clicked");
         System.out.println("Start mancala game.");
         
