@@ -1,0 +1,38 @@
+.menuButton {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+
+.arrowButton {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+.background {
+    -fx-background-color: black;
+}
+
+.banner {
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-text-align: center;
+}
+
+.statusBar {
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-text-align: left;
+}
+
+.gameTitle {
+    -fx-text-fill: black;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}

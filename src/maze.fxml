@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="maze" prefHeight="560.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MazeController">
+  <children>
+    <Button fx:id="upButton" layoutX="148.0" mnemonicParsing="false" onAction="#handleMazeUpButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="UP" AnchorPane.bottomAnchor="155.0" />
+    <Button fx:id="leftButton" layoutX="77.0" mnemonicParsing="false" onAction="#handleMazeLeftButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="LEFT" AnchorPane.bottomAnchor="120.0" />
+    <Button fx:id="rightButton" layoutX="217.0" mnemonicParsing="false" onAction="#handleMazeRightButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="RIGHT" AnchorPane.bottomAnchor="120.0" />
+    <Button fx:id="downButton" layoutX="147.0" mnemonicParsing="false" onAction="#handleMazeDownButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;" text="DOWN" AnchorPane.bottomAnchor="86.0" />
+    <GridPane id="" fx:id="mazeGrid" alignment="CENTER" layoutX="76.73" layoutY="102.0" style="-fx-border-color: black; -fx-background-color: #f2f2f2;" AnchorPane.topAnchor="102.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="30.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+         <opaqueInsets>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </opaqueInsets>
+         <children>
+            <Circle fx:id="userLocation" fill="DODGERBLUE" radius="11.0" stroke="BLACK" strokeType="INSIDE">
+               <GridPane.margin>
+                  <Insets left="4.0" />
+               </GridPane.margin>
+            </Circle>
+            <Circle fx:id="endLocation" fill="#ff461f" opacity="0.53" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets left="4.0" />
+               </GridPane.margin>
+            </Circle>
+         </children>
+    </GridPane>
+    <Text layoutX="160.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;&#10;-fx-font-size: 30px;&#10;-fx-font-weight: bold;" text="Maze" AnchorPane.topAnchor="40.0" />
+    <Label id="banner" alignment="TOP_CENTER" prefWidth="350.0" style="-fx-background-color: gray;&#10;-fx-text-fill: white;&#10;-fx-font-weight: bold;&#10;-fx-font-size: 15px;&#10;-fx-text-align: center;" text="BirdStufz" textAlignment="RIGHT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    <ImageView fitHeight="20.697756518911138" fitWidth="25.611611230466224" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+        <Image url="@bird_logo.png" />
+      </image>
+    </ImageView>
+    <Text id="moveLabel" fx:id="mazeMoveLabel" scaleX="1.0327449266985587" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Select a button to start." textAlignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
+    <Text layoutX="32.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Start" textAlignment="RIGHT" />
+    <Text layoutX="325.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="End">
+         <font>
+            <Font size="30.0" />
+         </font></Text>
+  </children>
+</AnchorPane>
