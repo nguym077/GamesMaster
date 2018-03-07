@@ -24,7 +24,7 @@ public class MainController {
 
     @FXML
     private MazeController mazeController = new MazeController();
-    
+
     @FXML
     private Button mancalaButton;
 

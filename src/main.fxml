@@ -20,7 +20,7 @@
           </font>
         </Button>
         <Button id="menuButton" disable="false" font="$x1" mnemonicParsing="false" onAction="#handleMancalaButton" opacity="0.3" prefWidth="190.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;" text="Mancala" visible="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
-        <Button id="menuButton" disable="false" font="$x1" mnemonicParsing="false" onAction="#handleConcButton" opacity="0.3" prefWidth="190.00009999999747" style="-fx-background-color: black;&#10;-fx-text-fill: white;" text="Concentration" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+        <Button id="menuButton" disable="false" font="$x1" mnemonicParsing="false" onAction="#handleConcButton" prefWidth="190.00009999999747" style="-fx-background-color: black;&#10;-fx-text-fill: white;" text="Concentration" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
         <Label alignment="CENTER" layoutY="288.0" text="Select a Game:" textAlignment="CENTER" underline="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
           <font>
             <Font name="System Bold" size="22.0" />
