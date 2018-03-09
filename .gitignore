@@ -1,0 +1,7 @@
+/bin/
+.idea
+.gitignore
+/GamesMaster.iml
+.classpath
+.project
+/out
