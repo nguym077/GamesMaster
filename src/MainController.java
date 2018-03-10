@@ -1,21 +1,10 @@
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
+import Maze.MazeController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Path;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 // handles all events on screen (listener)
 public class MainController {
@@ -36,7 +25,7 @@ public class MainController {
         System.out.println("Start maze game.");
 
         Stage mazeStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("maze.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Maze/maze.fxml"));
         Scene scene = new Scene(root);
         mazeStage.setTitle("Maze");
 
@@ -54,7 +43,7 @@ public class MainController {
         System.out.println("Start mancala game.");
         
         Stage mazeStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("mancala.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Mancala/mancala.fxml"));
         Scene scene = new Scene(root);
         mazeStage.setTitle("Mancala");
 

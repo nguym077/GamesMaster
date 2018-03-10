@@ -1,3 +1,5 @@
+package Chess;
+
 public class Chess {
 
     private ChessPiece[][] chessboard = {

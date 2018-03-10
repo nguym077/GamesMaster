@@ -1,3 +1,5 @@
+package Chess;
+
 public class ChessPiece {
     private ChessPieceType PieceType;
     private int Player;

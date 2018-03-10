@@ -1,3 +1,5 @@
+package Maze;
+
 import java.util.Random;
 
 import javafx.application.Application;
