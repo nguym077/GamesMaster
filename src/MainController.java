@@ -33,9 +33,17 @@ public class MainController {
         mazeStage.show();
     }
 
-    public void handleConcButton() {
-        System.out.println("Concentration button clicked");
+    public void handleConcButton() throws Exception {
+        System.out.println("Concentration_code button clicked");
         System.out.println("Start concentration game.");
+
+        Stage mazeStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("Concentration/concentration.fxml"));
+        Scene scene = new Scene(root);
+        mazeStage.setTitle("Concentration");
+
+        mazeStage.setScene(scene);
+        mazeStage.show();
     }
 
     public void handleMancalaButton() throws Exception {
