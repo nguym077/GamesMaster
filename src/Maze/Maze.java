@@ -24,7 +24,6 @@ public class Maze {
     private int[][] way;
 
     public Maze() {
-
         //the starting point of path
         int startx = 40;
         int starty = 40;
@@ -82,7 +81,7 @@ public class Maze {
             boolean reachend = false;
             boolean check = false;
             int mark1 = 0, mark2 = 0, mark3 = 0, mark4 = 0;
-            System.out.println("startx:" + startx + "starty:" + starty);
+
             while (check == false) {
 
                 int dir = rand.nextInt(4) + 1;
@@ -190,34 +189,6 @@ public class Maze {
                 if (reachend == true && countTotal >= 30) {
                     running = false;
                 }
-                System.out.println("push: " + xy + " xi:" + xi + " yi" + yi);
-            }
-
-
-        }
-
-//        //Creating a Group object
-//        Group root = new Group();
-//        root.getChildren().add(path1);
-//        root.getChildren().add(path);
-//
-//        //Creating a scene object
-//
-//        Scene scene = new Scene(root, 600, 600);
-//
-//        //Setting title to the Stage
-//        stage.setTitle("Drawing an arc through a path");
-//
-//        //Adding scene to the stage
-//        stage.setScene(scene);
-//
-//        //Displaying the contents of the stage
-//        stage.show();
-//
-        //this is for test output
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                System.out.println("x: " + i + " y: " + j + " " + way[i][j]);
             }
         }
     }

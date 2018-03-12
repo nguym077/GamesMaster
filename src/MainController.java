@@ -9,18 +9,6 @@ import javafx.stage.Stage;
 
 // handles all events on screen (listener)
 public class MainController {
-    @FXML
-    private Button mazeButton;
-
-    @FXML
-    private MazeController mazeController = new MazeController();
-
-    @FXML
-    private Button mancalaButton;
-
-    @FXML
-    private MazeController mancalaController = new MazeController();
-
     public void handleMazeButton() throws Exception {
         System.out.println("Maze button clicked");
         System.out.println("Start maze game.");
