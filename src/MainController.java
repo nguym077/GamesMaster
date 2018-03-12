@@ -1,3 +1,4 @@
+import Concentration.Concentration;
 import Maze.MazeController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,28 +35,45 @@ public class MainController {
     }
 
     public void handleConcButton() throws Exception {
-        System.out.println("Concentration_code button clicked");
-        System.out.println("Start concentration game.");
+        Stage concStage = new Stage();
+        Concentration concGame = new Concentration();
+        concGame.start(concStage);
 
-        Stage mazeStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Concentration/concentration.fxml"));
-        Scene scene = new Scene(root);
-        mazeStage.setTitle("Concentration");
-
-        mazeStage.setScene(scene);
-        mazeStage.show();
+//        System.out.println("Concentration button clicked");
+//        System.out.println("Start concentration game.");
+//
+//        Stage concStage = new Stage();
+//        Parent root = FXMLLoader.load(getClass().getResource("Concentration/concentration.fxml"));
+//        Scene scene = new Scene(root);
+//        concStage.setTitle("Concentration");
+//
+//        concStage.setScene(scene);
+//        concStage.show();
     }
 
     public void handleMancalaButton() throws Exception {
         System.out.println("Mancala button clicked");
         System.out.println("Start mancala game.");
         
-        Stage mazeStage = new Stage();
+        Stage mancalaStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Mancala/mancala.fxml"));
         Scene scene = new Scene(root);
-        mazeStage.setTitle("Mancala");
+        mancalaStage.setTitle("Mancala");
 
-        mazeStage.setScene(scene);
-        mazeStage.show();
+        mancalaStage.setScene(scene);
+        mancalaStage.show();
+    }
+
+    public void handleChessButton() throws Exception {
+        System.out.println("Chess button clicked");
+        System.out.println("Start Chess game.");
+
+        Stage chessStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("Chess/chess.fxml"));
+        Scene scene = new Scene(root);
+        chessStage.setTitle("Chess");
+
+        chessStage.setScene(scene);
+        chessStage.show();
     }
 }
