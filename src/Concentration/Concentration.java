@@ -17,7 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
 
-public class Concentration_code extends Application {
+public class Concentration extends Application {
 
     private int pair = 32;  //32 pair in this game
     private int total = pair * 2;
@@ -131,7 +131,7 @@ public class Concentration_code extends Application {
                 index++;
             }
         }
-        primaryStage.setTitle("Find Pair Game");
+        primaryStage.setTitle("Concentration");
         primaryStage.setScene(scene);
         primaryStage.show();
 
