@@ -1,3 +1,5 @@
+package Chess;
+
 public class ChessMove {
 
     public BoardPosition StartPosition;

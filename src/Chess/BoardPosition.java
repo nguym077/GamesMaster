@@ -1,3 +1,5 @@
+package Chess;
+
 public class BoardPosition {
     public int Row;
     public int Col;
