@@ -1,5 +1,9 @@
+<<<<<<< HEAD:src/Chess.java
 import java.util.List;
 import java.util.ArrayList;
+=======
+package Chess;
+>>>>>>> e4aa2fa841aede0314fa191316502e01b53793dd:src/Chess/Chess.java
 
 public class Chess {
 

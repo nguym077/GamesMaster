@@ -1,3 +1,5 @@
+package Chess;
+
 public enum ChessPieceType {
     empty,
     pawn,
