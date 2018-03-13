@@ -31,6 +31,8 @@ public class MainController {
     @FXML
     private MazeController mancalaController = new MazeController();
 
+
+
     public void handleMazeButton() throws Exception {
         System.out.println("Maze button clicked");
         System.out.println("Start maze game.");
