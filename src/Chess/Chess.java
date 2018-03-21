@@ -11,26 +11,26 @@ public class Chess {
             {new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0)},
             {new ChessPiece(ChessPieceType.empty,0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0)},
             {new ChessPiece(ChessPieceType.pawn, 1), new ChessPiece(ChessPieceType.pawn, 1), new ChessPiece(ChessPieceType.pawn, 1), new ChessPiece(ChessPieceType.pawn, 1), new ChessPiece(ChessPieceType.pawn, 1), new ChessPiece(ChessPieceType.pawn, 1)},
-            {new ChessPiece(ChessPieceType.knight, 1), new ChessPiece(ChessPieceType.bishop, 1), new ChessPiece(ChessPieceType.queen, 1), new ChessPiece(ChessPieceType.king, 1), new ChessPiece(ChessPieceType.bishop, 1), new ChessPiece(ChessPieceType.knight, 1)} };
+            {new ChessPiece(ChessPieceType.knight, 1), new ChessPiece(ChessPieceType.bishop, 1), new ChessPiece(ChessPieceType.queen, 1), new ChessPiece(ChessPieceType.king, 1), new ChessPiece(ChessPieceType.bishop, 1), new ChessPiece(ChessPieceType.knight, 1)}
+    };
 
     private int mCurrentPlayer = 1;
 
     public Chess(){
-
+        /*
         do{
             List<ChessMove> possiblemoves = GetPossibleMoves();
             GetThreatenedPositions(possiblemoves);
             possiblemoves = GetCurrentPlayerMoves(possiblemoves);
-            BoardPosition pos = new BoardPosition(1, 1);
+            BoardPosition pos = new BoardPosition(1,1);
             GetMovesForPosition(possiblemoves, pos);
-            //Change this to get any of the moves
             ChessMove move = possiblemoves.get(0);
             ApplyMove(move);
         }while(CheckForBothKings());
-
+        */
     }
 
-    private List<ChessMove> GetPossibleMoves(){
+    public List<ChessMove> GetPossibleMoves(){
         List<ChessMove> moves = new ArrayList<>();
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 6; j++){
@@ -55,7 +55,7 @@ public class Chess {
         return moves;
     }
 
-    private List<ChessMove> GetCurrentPlayerMoves(List<ChessMove> moves){
+    public List<ChessMove> GetCurrentPlayerMoves(List<ChessMove> moves){
         List<ChessMove> currentplayermoves = new ArrayList<>();
         if(!IsCheck(moves)) {
             for (ChessMove move : moves) {
@@ -74,7 +74,7 @@ public class Chess {
         return currentplayermoves;
     }
 
-    private List<ChessMove> GetMovesForPosition(List<ChessMove> moves, BoardPosition pos){
+    public List<ChessMove> GetMovesForPosition(List<ChessMove> moves, BoardPosition pos){
         List<ChessMove> movesforposition = new ArrayList<>();
         for(ChessMove move: moves){
             if(move.getStartPosition() == pos) {
@@ -84,14 +84,14 @@ public class Chess {
         return movesforposition;
     }
 
-    private void ApplyMove(ChessMove m){
+    public void ApplyMove(ChessMove m){
         m.Player = getCurrentPlayer();
         SetPieceAtPosition(m.EndPosition, GetPieceAtPosition(m.StartPosition));
         SetStartToEmpty(m.StartPosition);
         mCurrentPlayer = -mCurrentPlayer;
     }
 
-    private List<BoardPosition> GetThreatenedPositions(List<ChessMove> moves){
+    public List<BoardPosition> GetThreatenedPositions(List<ChessMove> moves){
         List<BoardPosition> threatenedpositions = new ArrayList<>();
         for(ChessMove move: moves){
             if(move.Player != getCurrentPlayer()){
@@ -101,7 +101,7 @@ public class Chess {
         return threatenedpositions;
     }
 
-    private ChessPiece GetPieceAtPosition(BoardPosition pos) {
+    public ChessPiece GetPieceAtPosition(BoardPosition pos) {
         return chessboard[pos.getRow()][pos.getCol()];
     }
 
@@ -372,19 +372,19 @@ public class Chess {
         return mCurrentPlayer == 1 ? 1 : 2;
     }
 
-    private boolean CheckForBothKings(){
-        boolean blackking = false;
-        boolean whiteking = false;
+    public boolean CheckForBothKings(){
+        boolean black = false;
+        boolean white = false;
         for (int i = 0; i < 6; i++){
             for(int j = 0; j < 6; j++){
                if(chessboard[i][j].getPieceType() == ChessPieceType.king && chessboard[i][j].getPlayer() == 1){
-                   whiteking = true;
+                   white = true;
                }
                if(chessboard[i][j].getPieceType() == ChessPieceType.king && chessboard[i][j].getPlayer() == 2){
-                   blackking = true;
+                   black = true;
                }
             }
         }
-        return blackking && whiteking;
+        return black && white;
     }
 }
