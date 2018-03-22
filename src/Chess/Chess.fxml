@@ -157,7 +157,7 @@
                   <Image url="@pieces/knight_l.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="whiteKnight2" fitHeight="99.0" fitWidth="82.0" onMouseClicked="#handleWhiteBishop2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5">
+            <ImageView fx:id="whiteKnight2" fitHeight="99.0" fitWidth="82.0" onMouseClicked="#handleWhiteKnight2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5">
                <image>
                   <Image url="@pieces/knight_l.png" />
                </image>

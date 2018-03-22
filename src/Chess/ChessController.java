@@ -97,15 +97,42 @@ public class ChessController implements Initializable{
 
     private Chess mChess = new Chess();
     private List<ChessMove> possiblemoves = null;
+    private List<ImageView> Black = null;
+    private List<ImageView> White;
 
     @Override
     public void initialize(URL url, ResourceBundle res) {
-
+        /*
+        Black.add(blackPawn1);
+        Black.add(blackPawn2);
+        Black.add(blackPawn3);
+        Black.add(blackPawn4);
+        Black.add(blackPawn5);
+        Black.add(blackPawn6);
+        Black.add(blackKnight1);
+        Black.add(blackKnight2);
+        Black.add(blackBishop1);
+        Black.add(blackBishop2);
+        Black.add(blackQueen);
+        Black.add(blackKing);
+        White.add(whitePawn1);
+        White.add(whitePawn2);
+        White.add(whitePawn3);
+        White.add(whitePawn4);
+        White.add(whitePawn5);
+        White.add(whitePawn6);
+        White.add(whiteKnight1);
+        White.add(whiteKnight2);
+        White.add(whiteBishop1);
+        White.add(whiteBishop2);
+        White.add(whiteQueen);
+        White.add(whiteKing);
+        */
     }
     //
 
     //<editor-fold>
-    public void handleBlackPawn1(ActionEvent e) {
+    public void handleBlackPawn1() {
         if(false) {
             int row = GridPane.getRowIndex(blackPawn1);
             int col = GridPane.getColumnIndex(blackPawn1);
@@ -122,18 +149,13 @@ public class ChessController implements Initializable{
         }
     }
 
-    public void handleBlackPawn2(ActionEvent e) {
+    public void handleBlackPawn2() {
         int row = GridPane.getRowIndex(blackPawn2);
         int col = GridPane.getColumnIndex(blackPawn2);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
-        }
+
     }
 
-    public void handleBlackPawn3(ActionEvent e) {
+    public void handleBlackPawn3() {
         int row = GridPane.getRowIndex(blackPawn3);
         int col = GridPane.getColumnIndex(blackPawn3);
         BoardPosition position = new BoardPosition(row, col);
@@ -144,7 +166,7 @@ public class ChessController implements Initializable{
         }
     }
 
-    public void handleBlackPawn4(ActionEvent e) {
+    public void handleBlackPawn4() {
         int row = GridPane.getRowIndex(blackPawn4);
         int col = GridPane.getColumnIndex(blackPawn4);
         BoardPosition position = new BoardPosition(row, col);
@@ -155,7 +177,7 @@ public class ChessController implements Initializable{
         }
     }
 
-    public void handleBlackPawn5(ActionEvent e) {
+    public void handleBlackPawn5() {
         int row = GridPane.getRowIndex(blackPawn5);
         int col = GridPane.getColumnIndex(blackPawn5);
         BoardPosition position = new BoardPosition(row, col);
@@ -166,7 +188,7 @@ public class ChessController implements Initializable{
         }
     }
 
-    public void handleBlackPawn6(ActionEvent e) {
+    public void handleBlackPawn6() {
         int row =GridPane.getRowIndex(blackPawn6);
         int col = GridPane.getColumnIndex(blackPawn6);
         BoardPosition position = new BoardPosition(row, col);
@@ -177,12 +199,12 @@ public class ChessController implements Initializable{
         }
     }
 
-    public void handleBlackKnight1(ActionEvent e) {
+    public void handleBlackKnight1() {
             System.out.println("Hello");
             GridPane.setRowIndex(blackKnight1, 2);
     }
 
-    public void handleBlackBishop1(ActionEvent e) {
+    public void handleBlackBishop1() {
         int row =GridPane.getRowIndex(blackBishop1);
         int col = GridPane.getColumnIndex(blackBishop1);
         BoardPosition position = new BoardPosition(row, col);
@@ -193,7 +215,7 @@ public class ChessController implements Initializable{
         }
     }
 
-    public void handleBlackQueen(ActionEvent e) {
+    public void handleBlackQueen() {
         int row =GridPane.getRowIndex(blackQueen);
         int col = GridPane.getColumnIndex(blackQueen);
         BoardPosition position = new BoardPosition(row, col);
@@ -204,7 +226,7 @@ public class ChessController implements Initializable{
         }
     }
 
-    public void handleBlackKing(ActionEvent e) {
+    public void handleBlackKing() {
         int row = GridPane.getRowIndex(blackKing);
         int col = GridPane.getColumnIndex(blackKing);
         BoardPosition position = new BoardPosition(row, col);
@@ -215,7 +237,7 @@ public class ChessController implements Initializable{
         }
     }
 
-    public void handleBlackBishop2(ActionEvent e) {
+    public void handleBlackBishop2() {
         int row =GridPane.getRowIndex(blackBishop2);
         int col = GridPane.getColumnIndex(blackBishop2);
         BoardPosition position = new BoardPosition(row, col);
@@ -226,7 +248,7 @@ public class ChessController implements Initializable{
         }
     }
 
-    public void handleBlackKnight2(ActionEvent e) {
+    public void handleBlackKnight2() {
         int row =GridPane.getRowIndex(blackKnight2);
         int col = GridPane.getColumnIndex(blackKnight2);
         BoardPosition position = new BoardPosition(row, col);
@@ -238,134 +260,113 @@ public class ChessController implements Initializable{
     }
     //</editor-fold>
 
-
+        /*
+        possiblemoves = mChess.GetPossibleMoves();
+        possiblemoves = mChess.GetCurrentPlayerMoves(possiblemoves);
+        possiblemoves = mChess.GetMovesForPosition(possiblemoves, new BoardPosition(row, col));
+        */
 
     //<editor-fold>
     @FXML
-    public void handleWhitePawn1(ActionEvent e){
-        System.out.println("Hello");
-    }
+    public void handleWhitePawn1(){
+        int row = GridPane.getRowIndex(whitePawn1);
+        int col = GridPane.getColumnIndex(whitePawn1);
 
-    public void handleWhitePawn2(ActionEvent e){
-        int row =GridPane.getRowIndex(whitePawn2);
-        int col = GridPane.getColumnIndex(whitePawn2);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
+        if (GridPane.getRowIndex(blackPawn3) == row - 1 && GridPane.getColumnIndex(blackPawn3) == col+1) {
+            GridPane.setRowIndex(whitePawn2, row - 1);
+            GridPane.setColumnIndex(whitePawn2, col + 1);
+        } else if (GridPane.getRowIndex(blackPawn2) != row - 1 && GridPane.getColumnIndex(blackPawn2) == col) {
+            GridPane.setRowIndex(whitePawn2, row - 1);
         }
     }
 
-    public void handleWhitePawn3(ActionEvent e){
+    public void handleWhitePawn2(){
+        int row = GridPane.getRowIndex(whitePawn2);
+        int col = GridPane.getColumnIndex(whitePawn2);
+        /*
+        if(GridPane.getRowIndex(blackPawn2) != row -1 && GridPane.getColumnIndex(blackPawn2) == col) {
+            GridPane.setRowIndex(whitePawn2, row - 1);
+        }
+        */
+        if (GridPane.getRowIndex(blackPawn3) == row - 1 && GridPane.getColumnIndex(blackPawn3) == col+1) {
+            GridPane.setRowIndex(whitePawn2, row - 1);
+            GridPane.setColumnIndex(whitePawn2, col + 1);
+        } else if (GridPane.getRowIndex(blackPawn2) != row - 1 && GridPane.getColumnIndex(blackPawn2) == col) {
+            GridPane.setRowIndex(whitePawn2, row - 1);
+        }
+
+    }
+
+    public void handleWhitePawn3(){
         int row =GridPane.getRowIndex(whitePawn3);
         int col = GridPane.getColumnIndex(whitePawn3);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
+        if(GridPane.getRowIndex(blackPawn3) != row -1 && GridPane.getColumnIndex(blackPawn3) == col) {
+            GridPane.setRowIndex(whitePawn3, row - 1);
         }
     }
 
-    public void handleWhitePawn4(ActionEvent e){
+    public void handleWhitePawn4(){
         int row =GridPane.getRowIndex(whitePawn4);
         int col = GridPane.getColumnIndex(whitePawn4);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
+        if(GridPane.getRowIndex(blackPawn4) != row -1 && GridPane.getColumnIndex(blackPawn4) == col) {
+            GridPane.setRowIndex(whitePawn4, row - 1);
         }
     }
 
-    public void handleWhitePawn5(ActionEvent e){
+    public void handleWhitePawn5(){
         int row =GridPane.getRowIndex(whitePawn5);
         int col = GridPane.getColumnIndex(whitePawn5);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
+        if(GridPane.getRowIndex(blackPawn5) != row -1 && GridPane.getColumnIndex(blackPawn5) == col) {
+            GridPane.setRowIndex(whitePawn5, row - 1);
         }
     }
 
-    public void handleWhitePawn6(ActionEvent e){
+    public void handleWhitePawn6(){
         int row =GridPane.getRowIndex(whitePawn6);
         int col = GridPane.getColumnIndex(whitePawn6);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
+        if(GridPane.getRowIndex(blackPawn6) != row -1 && GridPane.getColumnIndex(blackPawn6) == col) {
+            GridPane.setRowIndex(whitePawn6, row - 1);
         }
     }
 
-    public void handleWhiteKnight1(ActionEvent e){
+    public void handleWhiteKnight1(){
         int row =GridPane.getRowIndex(whiteKnight1);
         int col = GridPane.getColumnIndex(whiteKnight1);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
-        }
+        //GridPane.setRowIndex(whiteKnight1, row-2);
+        GridPane.setColumnIndex(whiteKnight1,col+1);
     }
 
-    public void handleWhiteBishop1(ActionEvent e){
-        int row =GridPane.getRowIndex(whiteBishop1);
+    public void handleWhiteBishop1(){
+        int row = GridPane.getRowIndex(whiteBishop1);
         int col = GridPane.getColumnIndex(whiteBishop1);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
-        }
+        GridPane.setRowIndex(whiteBishop1, row-1);
+        GridPane.setColumnIndex(whiteBishop1,col+1);
     }
 
-    public void handleWhiteQueen(ActionEvent e){
-        int row =GridPane.getRowIndex(whiteQueen);
+    public void handleWhiteQueen(){
+        int row = GridPane.getRowIndex(whiteQueen);
         int col = GridPane.getColumnIndex(whiteQueen);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
-        }
+        GridPane.setRowIndex(whiteQueen, row-2);
     }
 
-    public void handleWhiteKing(ActionEvent e){
-        int row =GridPane.getRowIndex(whiteKing);
+    public void handleWhiteKing(){
+        int row = GridPane.getRowIndex(whiteKing);
         int col = GridPane.getColumnIndex(whiteKing);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
-        }
+        GridPane.setRowIndex(whiteKing, row-1);
     }
 
-    public void handleWhiteBishop2(ActionEvent e){
+    public void handleWhiteBishop2(){
         int row =GridPane.getRowIndex(whiteBishop2);
         int col = GridPane.getColumnIndex(whiteBishop2);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
-        }
+        GridPane.setRowIndex(whiteBishop2, row- 1);
+        GridPane.setColumnIndex(whiteBishop2,col-1);
     }
 
-    public void handleWhiteKnight2(ActionEvent e){
+    public void handleWhiteKnight2(){
         int row =GridPane.getRowIndex(whiteKnight2);
         int col = GridPane.getColumnIndex(whiteKnight2);
-        BoardPosition position = new BoardPosition(row, col);
-        List<ChessMove> moves = mChess.GetMovesForPosition(possiblemoves, position);
-        for(ChessMove move :moves){
-            //highlight square
-            move.getEndPosition();
-
-        }
+        GridPane.setRowIndex(whiteKnight2, row-2);
+        GridPane.setColumnIndex(whiteKnight2,col-1);
     }
 
     //</editor-fold>
