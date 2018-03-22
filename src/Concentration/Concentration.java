@@ -28,13 +28,21 @@ public class Concentration extends Application {
     private Button bt[] = new Button[total];  //create button array
     private int num[] = new int[total];
     private boolean one = false;
-
+    private boolean player1=true;
+    private boolean player2=false;
+    private int player1s=0;
+    private int player2s=0;
+    private boolean winer=false;
     private Timeline delayForCheck;
-
+    private Label label1,p1s,p2s,win;
+   
     public void start(Stage primaryStage) throws Exception {
         GridPane root = new GridPane();
+        
+        
         root.setStyle("-fx-background-color: #F0591E;");
         Scene scene = new Scene(root);
+        
 
         //this loop will assign the number from 100 to the button
         for (int i = 0; i < pair; i++) {
@@ -70,7 +78,9 @@ public class Concentration extends Application {
                     Button se = (Button) e.getSource();
                     System.out.println(se);
                     for (int i = 0; i < total; i++) {
-                        if (bt[i] == se) {
+                        if (bt[i] == se&&bt[i].getText()=="      ") {
+                        	boolean check=bt[i].getText().isEmpty();
+                        	System.out.println("ck "+check);
                             if (beAble == true) {
                                 if (one == false) {
                                     one = true;
@@ -96,22 +106,63 @@ public class Concentration extends Application {
 
 
             delayForCheck = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-
+            	
                 @Override
                 public void handle(ActionEvent event) {
+                	boolean match=false;
                     //if two number match, take them off
                     if (firstNum == secondNum) {
 
                         System.out.println("match" + " " + firstNum + " " + "secondNum");
                         bt[firstNumIndex].setVisible(false);
                         bt[secondNumIndex].setVisible(false);
+                        match=true;
                     }
                     //if not match clean the number
                     else {
                         bt[firstNumIndex].setText("      ");
                         bt[secondNumIndex].setText("      ");
                     }
-                    beAble = true;
+                    if(player1==true&&player2==false)
+                    {
+                    	if(match==true)
+                    	{
+                    		player1s++;
+                    	}
+                    	String s1=String.valueOf(player1s);
+                    	p1s.setText(" "+s1);
+                    	player1=false;
+                    	player2=true;
+                    	label1.setText("Player2 Turn");
+                    }
+                    else if(player1==false&&player2==true)
+                    {
+                    	if(match==true)
+                    	{
+                    		player2s++;
+                    	}
+                    	String s2=String.valueOf(player2s);
+                    	p2s.setText(" "+s2);
+                    	player1=true;
+                    	player2=false;
+                    	label1.setText("Player1 Turn");
+                    }
+                    if(player1s==32||player2s==32)
+                    {
+                    	winer=true;
+                    	if(player1s==32)
+                    	{
+                    		win.setText("Player1 win");
+                    	}
+                    	else if(player2s==32)
+                    	{
+                    		win.setText("Player2 win");
+                    	}
+                    }
+                    if(winer!=true)
+                    {	
+                    	beAble = true;
+                    }
                 }
             }));
 
@@ -130,10 +181,34 @@ public class Concentration extends Application {
                 index++;
             }
         }
+        label1 = new Label();
+        label1.setText("Player1 Turn");
+        root.add(label1,9,0);
+        
+        
+        Label p1 = new Label();
+        p1.setText("Player1 Score");
+        root.add(p1,9,2);
+        p1s = new Label();
+        p1s.setText(" 0");
+        root.add(p1s,9,3);
+        
+        Label p2 = new Label();
+        p2.setText("Player2 Score");
+        root.add(p2,9,4);
+        p2s = new Label();
+        p2s.setText(" 0");
+        root.add(p2s,9,5);
+        
+        win = new Label();
+        win.setText("Game Running");
+        root.add(win,9,7);
+        
+        
+        
         primaryStage.setTitle("Concentration");
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
 
