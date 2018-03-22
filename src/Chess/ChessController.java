@@ -21,7 +21,6 @@ import javafx.scene.text.Text;
 
 public class ChessController implements Initializable{
 
-    //<editor-fold Images>
     @FXML
     private ImageView blackKnight1;
 
@@ -93,7 +92,6 @@ public class ChessController implements Initializable{
 
     @FXML
     private ImageView whitePawn6;
-    //</editor-fold>
 
     private Chess mChess = new Chess();
     private List<ChessMove> possiblemoves = null;
@@ -129,9 +127,7 @@ public class ChessController implements Initializable{
         White.add(whiteKing);
         */
     }
-    //
 
-    //<editor-fold>
     public void handleBlackPawn1() {
         if(false) {
             int row = GridPane.getRowIndex(blackPawn1);
@@ -258,7 +254,6 @@ public class ChessController implements Initializable{
             move.getEndPosition();
         }
     }
-    //</editor-fold>
 
         /*
         possiblemoves = mChess.GetPossibleMoves();
@@ -266,8 +261,6 @@ public class ChessController implements Initializable{
         possiblemoves = mChess.GetMovesForPosition(possiblemoves, new BoardPosition(row, col));
         */
 
-    //<editor-fold>
-    @FXML
     public void handleWhitePawn1(){
         int row = GridPane.getRowIndex(whitePawn1);
         int col = GridPane.getColumnIndex(whitePawn1);
@@ -368,7 +361,4 @@ public class ChessController implements Initializable{
         GridPane.setRowIndex(whiteKnight2, row-2);
         GridPane.setColumnIndex(whiteKnight2,col-1);
     }
-
-    //</editor-fold>
-
 }
