@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Chess {
     //Constructor
+<<<<<<< HEAD
     public Chess(){
         /*
         for(int i = 0; i < 6; i++){
@@ -15,6 +16,9 @@ public class Chess {
         }
         */
     }
+=======
+    public Chess(){}
+>>>>>>> 218361ec8d26daf4a1df2a59efa8db370ff25517
 
     //<editor-folder Global Variables>
     private ChessPiece[][] chessboard = {
@@ -122,7 +126,11 @@ public class Chess {
         SetStartToEmpty(m.StartPosition);
     }
 
+<<<<<<< HEAD
     public void SetPieceAtPosition(BoardPosition pos, ChessPiece piece){
+=======
+    private void SetPieceAtPosition(BoardPosition pos, ChessPiece piece){
+>>>>>>> 218361ec8d26daf4a1df2a59efa8db370ff25517
         chessboard[pos.getRow()][pos.getCol()] = new ChessPiece(piece.getPieceType(), piece.getPlayer());
     }
 
