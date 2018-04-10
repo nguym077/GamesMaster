@@ -140,7 +140,6 @@ public class ChessController implements Initializable{
                 if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
                     System.out.println("King is in check, cannot move that piece");
                 }
-<<<<<<< HEAD
                 else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1))).getPieceType() == ChessPieceType.pawn){
                     List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)));
                     if(moves.size() > 0) {                                                   // Checks if piece has any moves, otherwise does nothing
@@ -209,12 +208,6 @@ public class ChessController implements Initializable{
                     List<ChessMove> moves = mChess.BishopMoves(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)));
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
-=======
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
->>>>>>> 218361ec8d26daf4a1df2a59efa8db370ff25517
                             Region region = new Region();
                             region.setStyle("-fx-background-color: black;");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
@@ -224,7 +217,6 @@ public class ChessController implements Initializable{
                         // Apply to Chess model
                         // Reset board colors
                         mChess.SwitchPlayers();
-<<<<<<< HEAD
                     } else {
                         System.out.println("That piece has no possible moves!");
                     }
@@ -243,10 +235,6 @@ public class ChessController implements Initializable{
                         // Reset board colors
                         mChess.SwitchPlayers();
                     } else {
-=======
-                    }
-                    else{
->>>>>>> 218361ec8d26daf4a1df2a59efa8db370ff25517
                         System.out.println("That piece has no possible moves!");
                     }
                 }
