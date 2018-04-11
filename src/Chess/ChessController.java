@@ -242,7 +242,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         if (GridPane.getRowIndex(image) == 0 && mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.pawn) {
@@ -258,7 +258,7 @@ public class ChessController implements Initializable{
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         mChess.SwitchPlayers();
@@ -271,7 +271,7 @@ public class ChessController implements Initializable{
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         mChess.SwitchPlayers();
@@ -284,7 +284,7 @@ public class ChessController implements Initializable{
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         mChess.SwitchPlayers();
@@ -297,7 +297,7 @@ public class ChessController implements Initializable{
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         mChess.SwitchPlayers();
