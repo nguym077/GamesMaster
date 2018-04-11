@@ -19,8 +19,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
 public class ChessController implements Initializable{
-
-    //<editor-folder Global Variables>
     @FXML
     private ImageView whitePawn1;
 
@@ -97,7 +95,6 @@ public class ChessController implements Initializable{
     private GridPane chessGrid;
 
     private Chess mChess = new Chess();
-    //</editor-folder>
 
     @Override
     public void initialize(URL url, ResourceBundle res) {
@@ -145,7 +142,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0) {                                                   // Checks if piece has any moves, otherwise does nothing
                         for (ChessMove move : moves) {
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -192,7 +189,7 @@ public class ChessController implements Initializable{
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -209,7 +206,7 @@ public class ChessController implements Initializable{
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -226,7 +223,7 @@ public class ChessController implements Initializable{
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -259,7 +256,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -288,7 +285,7 @@ public class ChessController implements Initializable{
             possiblemoves = mChess.GetMovesForPosition(allmoves, new BoardPosition(row, col));
             for(ChessMove moves: possiblemoves){
                 Region region = new Region();
-                region.setStyle("-fx-background-color: black;");
+                region.setStyle("-fx-background-color: #CCFF00;");
                 chessGrid.add(region, moves.EndPosition.getCol(), moves.EndPosition.getRow());
             }
             //Decide which move to make
@@ -296,7 +293,7 @@ public class ChessController implements Initializable{
 
         }
         Region region = new Region();
-        region.setStyle("-fx-background-color: black;");
+        region.setStyle("-fx-background-color: #CCFF00;");
         chessGrid.add(region, 3, 4);
         chessGrid.add(region, 2,3);
         if(mChess.getCurrentPlayer() == 1) {
@@ -329,7 +326,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -363,7 +360,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -397,7 +394,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -431,7 +428,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -465,7 +462,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -499,7 +496,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -533,7 +530,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -563,7 +560,7 @@ public class ChessController implements Initializable{
                 if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                     for(ChessMove move: moves){
                         Region region = new Region();
-                        region.setStyle("-fx-background-color: black;");
+                        region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                         chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                     }
                     // select move
@@ -596,7 +593,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -630,7 +627,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -666,7 +663,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -700,7 +697,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -734,7 +731,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -768,7 +765,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -802,7 +799,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -836,7 +833,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -870,7 +867,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -904,7 +901,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -938,7 +935,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -968,7 +965,7 @@ public class ChessController implements Initializable{
                 if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                     for(ChessMove move: moves){
                         Region region = new Region();
-                        region.setStyle("-fx-background-color: black;");
+                        region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                         chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                     }
                     // select move
@@ -1001,7 +998,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
@@ -1035,7 +1032,7 @@ public class ChessController implements Initializable{
                     if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
                         for(ChessMove move: moves){
                             Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
+                            region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         // select move
