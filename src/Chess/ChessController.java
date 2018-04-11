@@ -1,5 +1,4 @@
 package Chess;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +16,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-
 public class ChessController implements Initializable{
 
     //<editor-folder Global Variables>
@@ -135,921 +133,183 @@ public class ChessController implements Initializable{
 
     //<editor-fold White Chess Piece Handlers>
     public void handleWhitePawn1(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1))).getPieceType() == ChessPieceType.pawn){
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)));
-                    if(moves.size() > 0) {                                                   // Checks if piece has any moves, otherwise does nothing
-                        for (ChessMove move : moves) {
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-
-                        // Remove image if one was
-                        // if (mChess.GetPieceAtPosition().Player == 2)){
-                        //   mChess.SetPositionToEmpty();
-                        // }
-
-                        // Apply to Gui
-                        // GridPane.setRowIndex(whitePawn1, selectedmove.row());
-                        // GridPane.setColumnIndex(whitePawn1, selectedmove.col());
-
-                        // Apply to Chess model
-                        // mChess.ApplyMove(new ChessMove(new BoardPosition(selectedmove.row(), selectedmove.col()), new BoardPosition((int)whitePawn1.getX(), (int)whitePawn1.getY())));
-
-                        // Reset board color
-                        //
-                        if (GridPane.getRowIndex(whitePawn1) == 0 && mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1))).getPieceType() == ChessPieceType.pawn) {
-                            //Should open up window to choose what piece pawn wants to be promoted to
-                            /*
-                            if(selected == Knight){
-                                //Switch image for Knight image
-                                mChess.PawnPromotion(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)), ChessPieceType.knight);
-                            }
-                            else if (selected == Bishop){
-                                //Switch pawn image for Bishop image
-                                mChess.PawnPromotion(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)), ChessPieceType.bishop);
-                            }
-                            else if(selected == Queen){
-                                //Switch pawn image for queen image
-                                mChess.PawnPromotion(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)), ChessPieceType.queen);
-                            }
-                            */
-                        }
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1))).getPieceType() == ChessPieceType.knight) {
-                    List<ChessMove> moves = mChess.KnightMoves(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)));
-                    if (moves.size() > 0) {
-                        for (ChessMove move : moves) {
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    } else {
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1))).getPieceType() == ChessPieceType.bishop) {
-                    List<ChessMove> moves = mChess.BishopMoves(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)));
-                    if (moves.size() > 0) {
-                        for (ChessMove move : moves) {
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    } else {
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1))).getPieceType() == ChessPieceType.queen) {
-                    List<ChessMove> moves = mChess.QueenMoves(new BoardPosition(GridPane.getRowIndex(whitePawn1), GridPane.getColumnIndex(whitePawn1)));
-                    if (moves.size() > 0) {
-                        for (ChessMove move : moves) {
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    } else {
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whitePawn1, 1);
     }
 
     public void handleWhitePawn2(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(whitePawn2), GridPane.getColumnIndex(whitePawn2)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
-        /*
-        if(mChess.getCurrentPlayer() == 1) {
-            int row = GridPane.getRowIndex(whitePawn2);
-            int col = GridPane.getColumnIndex(whitePawn2);
-            List<ChessMove> allmoves = mChess.GetPossibleMoves();
-            possiblemoves = mChess.GetMovesForPosition(allmoves, new BoardPosition(row, col));
-            for(ChessMove moves: possiblemoves){
-                Region region = new Region();
-                region.setStyle("-fx-background-color: black;");
-                chessGrid.add(region, moves.EndPosition.getCol(), moves.EndPosition.getRow());
-            }
-            //Decide which move to make
-            // GridPane.setRowIndex(whitePawn1, row - 1);
-
-        }
-        Region region = new Region();
-        region.setStyle("-fx-background-color: black;");
-        chessGrid.add(region, 3, 4);
-        chessGrid.add(region, 2,3);
-        if(mChess.getCurrentPlayer() == 1) {
-            int row = GridPane.getRowIndex(whitePawn3);
-            int col = GridPane.getColumnIndex(whitePawn3);
-            List<ChessMove> allmoves = mChess.GetPossibleMoves();
-            possiblemoves = mChess.GetMovesForPosition(allmoves, new BoardPosition(row, col));
-        }
-        if(mChess.CheckForBothKings()){
-            if(mChess.GetCurrentPlayer() == 1){
-                System.out.println("Player 1");
-                mChess.SwitchPlayers();
-            }
-            else{
-                System.out.println("Player 2");
-                mChess.SwitchPlayers();
-            }
-        }
-        */
+        moves(whitePawn2, 1);
     }
 
     public void handleWhitePawn3(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(whitePawn3), GridPane.getColumnIndex(whitePawn3)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whitePawn3, 1);
     }
 
     public void handleWhitePawn4(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(whitePawn4), GridPane.getColumnIndex(whitePawn4)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whitePawn4, 1);
     }
 
     public void handleWhitePawn5(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(whitePawn5), GridPane.getColumnIndex(whitePawn5)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whitePawn5, 1);
     }
 
     public void handleWhitePawn6(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(whitePawn6), GridPane.getColumnIndex(whitePawn6)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whitePawn6, 1);
     }
 
     public void handleWhiteKnight1(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.KnightMoves(new BoardPosition(GridPane.getRowIndex(whiteKnight1), GridPane.getColumnIndex(whiteKnight1)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whiteKnight1, 1);
     }
 
     public void handleWhiteBishop1(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.BishopMoves(new BoardPosition(GridPane.getRowIndex(whiteBishop1), GridPane.getColumnIndex(whiteBishop1)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whiteBishop1, 1);
     }
 
     public void handleWhiteQueen(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.QueenMoves(new BoardPosition(GridPane.getRowIndex(whiteQueen), GridPane.getColumnIndex(whiteQueen)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whiteQueen, 1);
     }
 
     public void handleWhiteKing(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                List<ChessMove> moves = mChess.KingMoves(new BoardPosition(GridPane.getRowIndex(whiteKing), GridPane.getColumnIndex(whiteKing)));
-                if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                    for(ChessMove move: moves){
-                        Region region = new Region();
-                        region.setStyle("-fx-background-color: black;");
-                        chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                    }
-                    // select move
-                    // Apply to Gui
-                    // Apply to Chess model
-                    // Reset board colors
-                    mChess.SwitchPlayers();
-                }
-                else{
-                    System.out.println("That piece has no possible moves!");
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whiteKing, 1);
     }
 
     public void handleWhiteBishop2(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.BishopMoves(new BoardPosition(GridPane.getRowIndex(whiteBishop2), GridPane.getColumnIndex(whiteBishop2)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whiteBishop2, 1);
     }
 
     public void handleWhiteKnight2(){
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 1) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 1)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.KnightMoves(new BoardPosition(GridPane.getRowIndex(whiteKnight2), GridPane.getColumnIndex(whiteKnight2)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Blacks Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(whiteKnight2, 1);
     }
     //</editor-fold>
 
     //<editor-folder Black Chess Piece Handlers>
     public void handleBlackPawn1() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(blackPawn1), GridPane.getColumnIndex(blackPawn1)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackPawn1, 2);
     }
 
     public void handleBlackPawn2() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(blackPawn2), GridPane.getColumnIndex(blackPawn2)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackPawn2, 2);
     }
 
     public void handleBlackPawn3() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(blackPawn3), GridPane.getColumnIndex(blackPawn3)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackPawn3, 2);
     }
 
     public void handleBlackPawn4() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(blackPawn4), GridPane.getColumnIndex(blackPawn4)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackPawn4, 2);
     }
 
     public void handleBlackPawn5() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(blackPawn5), GridPane.getColumnIndex(blackPawn5)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackPawn5, 2);
     }
 
     public void handleBlackPawn6() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(blackPawn6), GridPane.getColumnIndex(blackPawn6)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackPawn6, 2);
     }
 
     public void handleBlackKnight1() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.KnightMoves(new BoardPosition(GridPane.getRowIndex(blackKnight1), GridPane.getColumnIndex(blackKnight1)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackKnight1, 2);
     }
 
     public void handleBlackBishop1() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.BishopMoves(new BoardPosition(GridPane.getRowIndex(blackBishop1), GridPane.getColumnIndex(blackBishop1)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackBishop1, 2);
     }
 
     public void handleBlackQueen() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.QueenMoves(new BoardPosition(GridPane.getRowIndex(blackQueen), GridPane.getColumnIndex(blackQueen)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackQueen, 2);
     }
 
     public void handleBlackKing() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                List<ChessMove> moves = mChess.KingMoves(new BoardPosition(GridPane.getRowIndex(blackKing), GridPane.getColumnIndex(blackKing)));
-                if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                    for(ChessMove move: moves){
-                        Region region = new Region();
-                        region.setStyle("-fx-background-color: black;");
-                        chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                    }
-                    // select move
-                    // Apply to Gui
-                    // Apply to Chess model
-                    // Reset board colors
-                    mChess.SwitchPlayers();
-                }
-                else{
-                    System.out.println("That piece has no possible moves!");
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackKing, 2);
     }
 
     public void handleBlackBishop2() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
-                    System.out.println("King is in check, cannot move that piece");
-                }
-                else{
-                    List<ChessMove> moves = mChess.BishopMoves(new BoardPosition(GridPane.getRowIndex(blackBishop2), GridPane.getColumnIndex(blackBishop2)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
-                            Region region = new Region();
-                            region.setStyle("-fx-background-color: black;");
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
-                        mChess.SwitchPlayers();
-                    }
-                    else{
-                        System.out.println("That piece has no possible moves!");
-                    }
-                }
-            }
-            else {
-                System.out.println("It's Whites Turn!");
-            }
-        }
-        else{
-            System.out.println("Game is over");
-        }
+        moves(blackBishop2, 2);
     }
 
     public void handleBlackKnight2() {
-        if(mChess.CheckForBothKings()){                                                     // Check if game is ongoing
-            if(mChess.GetCurrentPlayer() == 2) {                                            // Checks if it's the players turn
-                if(mChess.IsCheck(mChess.GetPossibleMoves(), 2)){                   // Checks if king is in check
+        moves(blackKnight2, 2);
+    }
+    //</editor-folder>
+
+    public void moves(ImageView image, int player){
+        if(mChess.CheckForBothKings()){
+            if(mChess.GetCurrentPlayer() == player) {
+                if(mChess.IsCheck(mChess.GetPossibleMoves(), player)){
                     System.out.println("King is in check, cannot move that piece");
                 }
-                else{
-                    List<ChessMove> moves = mChess.KnightMoves(new BoardPosition(GridPane.getRowIndex(blackKnight2), GridPane.getColumnIndex(blackKnight2)));
-                    if(moves.size() > 0){                                                   // Checks if piece has any moves, otherwise does nothing
-                        for(ChessMove move: moves){
+                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.pawn){
+                    List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
+                    if(moves.size() > 0) {
+                        for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: black;");
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
-                        // select move
-                        // Apply to Gui
-                        // Apply to Chess model
-                        // Reset board colors
+                        if (GridPane.getRowIndex(image) == 0 && mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.pawn) {
+                        }
                         mChess.SwitchPlayers();
                     }
                     else{
                         System.out.println("That piece has no possible moves!");
                     }
                 }
+                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.knight) {
+                    List<ChessMove> moves = mChess.KnightMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
+                    if (moves.size() > 0) {
+                        for (ChessMove move : moves) {
+                            Region region = new Region();
+                            region.setStyle("-fx-background-color: black;");
+                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
+                        }
+                        mChess.SwitchPlayers();
+                    } else {
+                        System.out.println("That piece has no possible moves!");
+                    }
+                }
+                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.bishop) {
+                    List<ChessMove> moves = mChess.BishopMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
+                    if (moves.size() > 0) {
+                        for (ChessMove move : moves) {
+                            Region region = new Region();
+                            region.setStyle("-fx-background-color: black;");
+                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
+                        }
+                        mChess.SwitchPlayers();
+                    } else {
+                        System.out.println("That piece has no possible moves!");
+                    }
+                }
+                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.queen) {
+                    List<ChessMove> moves = mChess.QueenMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
+                    if (moves.size() > 0) {
+                        for (ChessMove move : moves) {
+                            Region region = new Region();
+                            region.setStyle("-fx-background-color: black;");
+                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
+                        }
+                        mChess.SwitchPlayers();
+                    } else {
+                        System.out.println("That piece has no possible moves!");
+                    }
+                }
+                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.king) {
+                    List<ChessMove> moves = mChess.QueenMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
+                    if (moves.size() > 0) {
+                        for (ChessMove move : moves) {
+                            Region region = new Region();
+                            region.setStyle("-fx-background-color: black;");
+                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
+                        }
+                        mChess.SwitchPlayers();
+                    } else {
+                        System.out.println("That piece has no possible moves!");
+                    }
+                }
             }
-            else {
+            else if(player == 1){
+                System.out.println("It's Blacks Turn!");
+            }
+            else if (player == 2){
                 System.out.println("It's Whites Turn!");
             }
         }
@@ -1057,5 +317,4 @@ public class ChessController implements Initializable{
             System.out.println("Game is over");
         }
     }
-    //</editor-folder>
 }
