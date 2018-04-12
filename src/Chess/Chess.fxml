@@ -184,17 +184,17 @@
             </ImageView>
          </children>
       </GridPane>
-      <Text fill="WHITE" layoutX="25.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="6" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="25.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="5" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="26.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="4" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="25.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="0" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="25.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="1" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="26.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="2" textAlignment="CENTER" />
       <Text fill="WHITE" layoutX="25.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="3" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="27.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="2" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="27.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="1" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="81.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="A" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="168.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="B" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="252.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="C" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="335.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="D" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="416.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="E" textAlignment="CENTER" />
-      <Text fill="WHITE" layoutX="502.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="F" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="27.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="4" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="27.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="5" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="82.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="0" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="163.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="1" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="247.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="2" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="334.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="3" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="415.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="4" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="500.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="5" textAlignment="CENTER" />
    </children>
 </AnchorPane>

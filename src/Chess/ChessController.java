@@ -1,4 +1,5 @@
 package Chess;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,9 +17,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-public class ChessController implements Initializable{
 
-    //<editor-folder Global Variables>
+public class ChessController implements Initializable{
     @FXML
     private ImageView whitePawn1;
 
@@ -95,7 +95,8 @@ public class ChessController implements Initializable{
     private GridPane chessGrid;
 
     private Chess mChess = new Chess();
-    //</editor-folder>
+    private int newRowPosition = -1;
+    private int newColPosition = -1;
 
     @Override
     public void initialize(URL url, ResourceBundle res) {
@@ -131,7 +132,7 @@ public class ChessController implements Initializable{
         }
     }
 
-    //<editor-fold White Chess Piece Handlers>
+    // White Chess Piece Handlers
     public void handleWhitePawn1(){
         moves(whitePawn1, 1);
     }
@@ -179,9 +180,8 @@ public class ChessController implements Initializable{
     public void handleWhiteKnight2(){
         moves(whiteKnight2, 1);
     }
-    //</editor-fold>
 
-    //<editor-folder Black Chess Piece Handlers>
+    // Black Chess Piece Handlers
     public void handleBlackPawn1() {
         moves(blackPawn1, 2);
     }
@@ -229,75 +229,105 @@ public class ChessController implements Initializable{
     public void handleBlackKnight2() {
         moves(blackKnight2, 2);
     }
-    //</editor-folder>
 
-    public void moves(ImageView image, int player){
+    private void moves(ImageView image, int player){
         if(mChess.CheckForBothKings()){
             if(mChess.GetCurrentPlayer() == player) {
                 if(mChess.IsCheck(mChess.GetPossibleMoves(), player)){
                     System.out.println("King is in check, cannot move that piece");
-                }
-                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.pawn){
+                } else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.pawn){
                     List<ChessMove> moves = mChess.PawnMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
                     if(moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
+                            region.setOnMouseClicked(e -> {
+                                System.out.println("MOVE SELECTED.");
+                                newRowPosition = move.EndPosition.getRow();
+                                newColPosition = move.EndPosition.getCol();
+
+                                System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+                            });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
+
+                        // why is this empty?
                         if (GridPane.getRowIndex(image) == 0 && mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.pawn) {
                         }
                         mChess.SwitchPlayers();
-                    }
-                    else{
+                    } else{
                         System.out.println("That piece has no possible moves!");
                     }
-                }
-                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.knight) {
+                } else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.knight) {
                     List<ChessMove> moves = mChess.KnightMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
+                            region.setOnMouseClicked(e -> {
+                                System.out.println("MOVE SELECTED.");
+                                newRowPosition = move.EndPosition.getRow();
+                                newColPosition = move.EndPosition.getCol();
+
+                                System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+                            });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
                     }
-                }
-                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.bishop) {
+                } else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.bishop) {
                     List<ChessMove> moves = mChess.BishopMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
+                            region.setOnMouseClicked(e -> {
+                                System.out.println("MOVE SELECTED.");
+                                newRowPosition = move.EndPosition.getRow();
+                                newColPosition = move.EndPosition.getCol();
+
+                                System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+                            });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
                     }
-                }
-                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.queen) {
+                } else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.queen) {
                     List<ChessMove> moves = mChess.QueenMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
+                            region.setOnMouseClicked(e -> {
+                                System.out.println("MOVE SELECTED.");
+                                newRowPosition = move.EndPosition.getRow();
+                                newColPosition = move.EndPosition.getCol();
+
+                                System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+                            });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
                     }
-                }
-                else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.king) {
+                } else if(mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.king) {
                     List<ChessMove> moves = mChess.QueenMoves(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image)));
                     if (moves.size() > 0) {
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
+                            region.setOnMouseClicked(e -> {
+                                System.out.println("MOVE SELECTED.");
+                                newRowPosition = move.EndPosition.getRow();
+                                newColPosition = move.EndPosition.getCol();
+
+                                System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+                            });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
                         mChess.SwitchPlayers();
@@ -305,15 +335,12 @@ public class ChessController implements Initializable{
                         System.out.println("That piece has no possible moves!");
                     }
                 }
-            }
-            else if(player == 1){
+            } else if(player == 1){
                 System.out.println("It's Blacks Turn!");
-            }
-            else if (player == 2){
+            } else if (player == 2){
                 System.out.println("It's Whites Turn!");
             }
-        }
-        else{
+        } else{
             System.out.println("Game is over");
         }
     }
