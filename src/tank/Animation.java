@@ -5,7 +5,6 @@ import java.util.Random;
 import javafx.animation.AnimationTimer;
 
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.*;
 
 import javafx.scene.shape.Rectangle;
@@ -15,8 +14,13 @@ int animationCount;
 	Animation()
 	{
 		animationCount=0;
+		moveAnima(0);
+		/*
+		aiMoveAnima(aiRectangle[0],aiTank[0],0);
+		aiMoveAnima(aiRectangle[1],aiTank[1],0);
+		aiMoveAnima(aiRectangle[2],aiTank[2],0);
+		*/
 	}
-	
 	public void missileAnima(ImageView attacker,int CountN)
 	{
 		animationCount=CountN;
@@ -25,7 +29,7 @@ int animationCount;
 		if(degree==360||degree==-360)
 			degree=0;
 		missile[Count].setRotate(degree);
-		double X=attacker.getX()+10;
+		double X=attacker.getX()+attacker.getFitWidth()/2;
 		double Y=attacker.getY()+10;
 		boolean counterClock=false;
 		
@@ -117,11 +121,10 @@ int animationCount;
 				  
 			  }
 			 
-			  boolean hitboard=false,hitplayer=false,hitenemy=false;
-			  hitplayer=checkMissileCollision(attacker,missile[Count],playerTank,rectangle);
-			  hitenemy=checkMissileCollision(attacker,missile[Count],aiTank,aiRectangle);
-			  hitboard=checkMissileCollision(missile[Count],board);
-			  if(hitboard||hitplayer||hitenemy) 
+			  boolean hit=false;
+			  hit=checkMissileCollision(attacker,missile[Count]);
+			  
+			  if(hit) 
 			  {
 				  stopFireAnima(fireAnima[Count],missile[Count]);
 			  	  }
@@ -131,87 +134,143 @@ int animationCount;
 	  		fireAnima[Count].start();
 		 
 	}
-	public void moveAnima(Rectangle rec,ImageView view,double degree,KeyEvent key,int Counter)
+	boolean w,s,a,d,up,down,left,right;
+	int player;
+	public void keypressed(KeyEvent event)
 	{
-		final int moveCounter=Counter;
-		tankAnima[moveCounter]=new AnimationTimer()
+		KeyCode code=event.getCode();
+		boolean stop1=checkStop(0);
+		boolean stop2=checkStop(1);
+		switch(code)
 		{
-			public void handle(long now) {
-			KeyCode a=key.getCode();
-			switch(a)
-			{
-				case E:
-				case O:
-				{
-					rec.setRotate(degree+15);
-					view.setRotate(degree+15);
-				}
-				break;
-				case Q:
-				case U:
-				{
-					rec.setRotate(degree-15);
-					view.setRotate(degree-15);
-					
-				}
-				break;
-				case D:
-				case L:
-				{
-					rec.setRotate(degree+90);
-					view.setRotate(degree+90);
-				}
-				break;
-				case A:
-				case J:
-				{
-					rec.setRotate(degree-90);
-					view.setRotate(degree-90);
-				}
-				break;
-				case W:
-				case I:
-				{
-					boolean check1=false,check2=false;
-					double X=view.getX(), Y=view.getY();
-					rectangleForwardLogic(rec,degree,X,Y);
-					check1=checkMoveCollision(rec,rectangle);
-					check1=checkMoveCollision(rec,aiRectangle);
-					check2=checkMoveCollision(rec,board);
-					if(!check1&&!check2)
-						tankForwardLogic(view,degree,X,Y);
-					else
-						rectangleBackLogic(rec,degree,X,Y);
+		case W: if(!stop1)w=true; break;
+		case S: if(!stop1)s=true; break;
+		case A: if(!stop1)a=true; break;
+		case D: if(!stop1)d=true; break;
+		case UP: if(!stop2)up=true; break;
+		case DOWN: if(!stop2)down=true; break;
+		case LEFT: if(!stop2)left=true; break;
+		case RIGHT: if(!stop2)right=true; break;
+		}
+		//System.out.println("left: t "+left);
+	}
+	public void keyrelease(KeyEvent event)
+	{
 		
-					
-				}
-				break;
-				case S:
-				case K:
-				{
-					boolean check1=false,check2=false;
-					double X=view.getX(), Y=view.getY();
-					rectangleBackLogic(rec,degree,X,Y);
-					check1=checkMoveCollision(rec,rectangle);
-					check1=checkMoveCollision(rec,aiRectangle);
-					check2=checkMoveCollision(rec,board);
-					if(!check1&&!check2)
-						tankBackLogic(view,degree,X,Y);
-					else
-						rectangleForwardLogic(rec,degree,X,Y);
-
-				}
-				break;
+		KeyCode code=event.getCode();
+		
+		switch(code)
+		{
+		case W: w=false; break;
+		case S: s=false; break;
+		case A: a=false; break;
+		case D: d=false; break;
+		case UP: up=false; break;
+		case DOWN: down=false; break;
+		case LEFT: left=false; break;
+		case RIGHT: right=false; break;
+		}
+		
+	}
+	
+	public void moveAnima(int index)
+	{
+		int player=0;
+		//final int moveCounter=Counter;
+		tankAnima[player]=new AnimationTimer()
+		{	
+			public void handle(long now) {
 				
+			double degree=playerTank[player].getRotate();
+			if(degree==360)
+				degree=0;
+			if(degree==-360)
+				degree=0;
+			double X=playerTank[player].getX(), Y=playerTank[player].getY();
+			if(a) {
+				System.out.println("left");
+				rectangle[player].setRotate(degree-angle);
+				playerTank[player].setRotate(degree-angle);
 			}
-			stopAnima(tankAnima[moveCounter]);
+			if(d) {
+				rectangle[player].setRotate(degree+angle);
+				playerTank[player].setRotate(degree+angle);
+			}
+			if(w)
+			{
+				boolean check1=false,check2=false;
+				rectangleForwardLogic(rectangle[player],degree,X,Y);
+				check1=checkMoveCollision(rectangle[player]);
+				if(!check1)
+					tankForwardLogic(playerTank[player],degree,X,Y);
+				else
+					rectangleBackLogic(rectangle[player],degree,X,Y);
+			}
+			if(s)
+			{
+				boolean check1=false,check2=false;
+				
+				rectangleBackLogic(rectangle[player],degree,X,Y);
+				check1=checkMoveCollision(rectangle[player]);
+				if(!check1)
+					tankBackLogic(playerTank[player],degree,X,Y);
+				else
+					rectangleForwardLogic(rectangle[player],degree,X,Y);
+			}
+			
 			}
 		};
+		tankAnima[player].start();
 		
-		//moveCounter++;
-		tankAnima[moveCounter].start();
+		
+		int player2=1;
+		tankAnima[player2]=new AnimationTimer()
+		{	
+			public void handle(long now) {
+				
+			double degree=playerTank[player2].getRotate();
+			if(degree==360)
+				degree=0;
+			if(degree==-360)
+				degree=0;
+			double X=playerTank[player2].getX(), Y=playerTank[player2].getY();
+			if(left) {
+				System.out.println("left");
+				rectangle[player2].setRotate(degree-angle);
+				playerTank[player2].setRotate(degree-angle);
+			}
+			if(right) {
+				rectangle[player2].setRotate(degree+angle);
+				playerTank[player2].setRotate(degree+angle);
+			}
+			if(up)
+			{
+				boolean check1=false,check2=false;
+				rectangleForwardLogic(rectangle[player2],degree,X,Y);
+				check1=checkMoveCollision(rectangle[player2]);
+				if(!check1)
+					tankForwardLogic(playerTank[player2],degree,X,Y);
+				else
+					rectangleBackLogic(rectangle[player2],degree,X,Y);
+			}
+			if(down)
+			{
+				boolean check1=false,check2=false;
+				
+				rectangleBackLogic(rectangle[player2],degree,X,Y);
+				check1=checkMoveCollision(rectangle[player2]);
+				if(!check1)
+					tankBackLogic(playerTank[player2],degree,X,Y);
+				else
+					rectangleForwardLogic(rectangle[player2],degree,X,Y);
+			}
+			
+			}
+		};
+		tankAnima[player2].start();
 	}
 	int fireAnimaCounter=0;
+	
 	public void aiMoveAnima(Rectangle rec,ImageView view,int index)
 	{
 		Random r=new Random();
@@ -297,10 +356,9 @@ int animationCount;
 					boolean check1=false,check2=false,check3=false;
 					
 					rectangleForwardLogic(rec,degree,X,Y);
-					check1=checkMoveCollision(rec,rectangle);
-					check2=checkMoveCollision(rec,aiRectangle);
-					check3=checkMoveCollision(rec,board);
-					if(!check1&&!check2&&!check3)
+					check1=checkMoveCollision(rec);
+					
+					if(!check1)
 					{
 						tankForwardLogic(view,degree,X,Y);
 						up=true;
@@ -327,25 +385,4 @@ int animationCount;
 		aiTankAnima[index].start();
 	}
 	
-	public void startAnima(int c)
-	{
-		fireAnima[c].start();
-	}
-	
-	public void stopAnima(int c)
-	{
-		fireAnima[c].stop();
-		removeImage(missile[c]);
-	}
-	public void stopAnima(AnimationTimer anima)
-	{
-		anima.stop();
-	}
-	public void stopFireAnima(AnimationTimer anima,ImageView view)
-	{
-		anima.stop();
-		removeImage(view);
-		
-		
-	}
 }
