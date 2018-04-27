@@ -44,11 +44,11 @@ class Ui extends ActionLogic implements imageUi{
 	public void tank()
 	{
 		String []Tank=new String[4];
-		Tank[0]="Tank 1.png";
+		Tank[0]="tank/image/Tank 1.png";
 		//Tank[0]="green-tank-up.gif";
-		Tank[1]="yellow-tank-up.gif";
-		Tank[2]="yellow-tank-up.gif";
-		Tank[3]="white-tank-up.gif";
+		Tank[1]="tank/image/yellow-tank-up.gif";
+		Tank[2]="tank/image/yellow-tank-up.gif";
+		Tank[3]="tank/image/white-tank-up.gif";
 		Image []PtankImage=new Image[4];
 		
 		for(int i=0;i<playerTank.length;i++)
@@ -73,7 +73,7 @@ class Ui extends ActionLogic implements imageUi{
 	public void backGround()
 	{
 		String []url=new String[4];
-		url[0]="grass_background.jpg";
+		url[0]="tank/image/grass_background.jpg";
 		
 		Image []background=new Image[4];
 		background[0] = new Image(url[0]);
@@ -89,9 +89,9 @@ class Ui extends ActionLogic implements imageUi{
 	public void effect()
 	{
 		String []expl=new String[3];
-		expl[0]="explosion1.gif";
-		expl[1]="explosion2.gif";
-		expl[2]="explosion3.gif";
+		expl[0]="tank/image/explosion1.gif";
+		expl[1]="tank/image/explosion2.gif";
+		expl[2]="tank/image/explosion3.gif";
 		
 		Image []explosionImage=new Image[3];
 		for(int i=0;i<3;i++)
@@ -108,7 +108,7 @@ class Ui extends ActionLogic implements imageUi{
 	}
 	public void missile()
 	{
-		String missileGif="shell 1.png";
+		String missileGif="tank/image/shell 1.png";
 		Image missileImage = new Image(missileGif);
 		
 		for(int i=0;i<missile.length;i++)
@@ -151,7 +151,7 @@ class Ui extends ActionLogic implements imageUi{
 	public void setWall()
 	{
 		String []url=new String[4];
-		url[0]="wall 2.png";
+		url[0]="tank/image/wall 2.png";
 		
 		Image []image=new Image[4];
 		image[0] = new Image(url[0]);
@@ -214,7 +214,7 @@ class Ui extends ActionLogic implements imageUi{
 	public void setMap()
 	{
 		String []url=new String[4];
-		url[0]="ground 1.png";
+		url[0]="tank/image/ground 1.png";
 		
 		Image []image=new Image[4];
 		image[0] = new Image(url[0]);
@@ -237,8 +237,8 @@ class Ui extends ActionLogic implements imageUi{
 	public void setTree()
 	{
 		String []url=new String[4];
-		url[0]="tree 1.png";
-		url[1]="tree 2.png";
+		url[0]="tank/image/tree 1.png";
+		url[1]="tank/image/tree 2.png";
 		Image []image=new Image[4];
 		image[0] = new Image(url[0]);
 		image[1] = new Image(url[1]);
@@ -302,9 +302,9 @@ class Ui extends ActionLogic implements imageUi{
 	public void setRoad()
 	{
 		String []url=new String[4];
-		url[0]="road H 1.png";
-		url[1]="road CR 1.png";
-		url[2]="road V 1.png";
+		url[0]="tank/image/road H 1.png";
+		url[1]="tank/image/road CR 1.png";
+		url[2]="tank/image/road V 1.png";
 		Image []image=new Image[4];
 		image[0] = new Image(url[0]);
 		image[1] = new Image(url[1]);

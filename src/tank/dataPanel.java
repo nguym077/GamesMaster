@@ -129,7 +129,7 @@ class dataPanel extends Main implements imageUi{
 	}
 	public void shell()
 	{
-		String shell="shell pic 1.png";
+		String shell="tank/image/shellpic1.png";
 		Image []shellImage=new Image[1];
 		shellImage[0]=new Image(shell);
 		for(int i=0;i<shellLabel.length;i++)
