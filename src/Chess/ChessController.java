@@ -247,6 +247,10 @@ public class ChessController implements Initializable{
                                 newColPosition = move.EndPosition.getCol();
 
                                 System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+
+                                // updates chess move
+                                GridPane.setRowIndex(image, newRowPosition);
+                                GridPane.setColumnIndex(image, newColPosition);
                             });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
@@ -254,6 +258,7 @@ public class ChessController implements Initializable{
                         // why is this empty?
                         if (GridPane.getRowIndex(image) == 0 && mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.pawn) {
                         }
+
                         mChess.SwitchPlayers();
                     } else{
                         System.out.println("That piece has no possible moves!");
@@ -270,9 +275,14 @@ public class ChessController implements Initializable{
                                 newColPosition = move.EndPosition.getCol();
 
                                 System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+
+                                // updates chess move
+                                GridPane.setRowIndex(image, newRowPosition);
+                                GridPane.setColumnIndex(image, newColPosition);
                             });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
+
                         mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
@@ -289,9 +299,14 @@ public class ChessController implements Initializable{
                                 newColPosition = move.EndPosition.getCol();
 
                                 System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+
+                                // updates chess move
+                                GridPane.setRowIndex(image, newRowPosition);
+                                GridPane.setColumnIndex(image, newColPosition);
                             });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
+
                         mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
@@ -308,9 +323,14 @@ public class ChessController implements Initializable{
                                 newColPosition = move.EndPosition.getCol();
 
                                 System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+
+                                // updates chess move
+                                GridPane.setRowIndex(image, newRowPosition);
+                                GridPane.setColumnIndex(image, newColPosition);
                             });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
+
                         mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
@@ -327,9 +347,15 @@ public class ChessController implements Initializable{
                                 newColPosition = move.EndPosition.getCol();
 
                                 System.out.println("row: "  + newRowPosition + ", col: " + newColPosition);
+
+                                // updates chess move
+                                GridPane.setRowIndex(image, newRowPosition);
+                                GridPane.setColumnIndex(image, newColPosition);
                             });
                             chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
+
+
                         mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
