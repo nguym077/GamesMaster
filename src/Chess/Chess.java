@@ -17,7 +17,7 @@ public class Chess {
     }
 
     //<editor-folder Global Variables>
-    private ChessPiece[][] chessboard = {
+    public ChessPiece[][] chessboard = {
             {new ChessPiece(ChessPieceType.knight, 2), new ChessPiece(ChessPieceType.bishop, 2), new ChessPiece(ChessPieceType.queen, 2), new ChessPiece(ChessPieceType.king, 2), new ChessPiece(ChessPieceType.bishop, 2), new ChessPiece(ChessPieceType.knight, 2)},
             {new ChessPiece(ChessPieceType.pawn, 2) , new ChessPiece(ChessPieceType.pawn,2), new ChessPiece(ChessPieceType.pawn, 2), new ChessPiece(ChessPieceType.pawn, 2), new ChessPiece(ChessPieceType.pawn, 2), new ChessPiece(ChessPieceType.pawn, 2)},
             {new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0),  new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0), new ChessPiece(ChessPieceType.empty, 0)},
@@ -122,7 +122,7 @@ public class Chess {
         SetStartToEmpty(m.StartPosition);
     }
 
-    private void SetPieceAtPosition(BoardPosition pos, ChessPiece piece){
+    public void SetPieceAtPosition(BoardPosition pos, ChessPiece piece){
         chessboard[pos.getRow()][pos.getCol()] = new ChessPiece(piece.getPieceType(), piece.getPlayer());
     }
 

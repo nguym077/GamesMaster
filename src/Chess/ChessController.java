@@ -1,8 +1,11 @@
 package Chess;
 
+import com.sun.xml.internal.ws.api.model.CheckedException;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import java.awt.event.MouseEvent;
@@ -241,6 +244,7 @@ public class ChessController implements Initializable{
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
+                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                             region.setOnMouseClicked(e -> {
                                 System.out.println("MOVE SELECTED.");
                                 newRowPosition = move.EndPosition.getRow();
@@ -251,15 +255,21 @@ public class ChessController implements Initializable{
                                 // updates chess move
                                 GridPane.setRowIndex(image, newRowPosition);
                                 GridPane.setColumnIndex(image, newColPosition);
+
+                                chessGrid.getChildren().remove(region);
+
+                                // updates array with new piece locations
+                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
+                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
+                                mChess.SetPieceAtPosition(pos, chessPiece);
+
+                                mChess.SwitchPlayers();
                             });
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
 
                         // why is this empty?
                         if (GridPane.getRowIndex(image) == 0 && mChess.GetPieceAtPosition(new BoardPosition(GridPane.getRowIndex(image), GridPane.getColumnIndex(image))).getPieceType() == ChessPieceType.pawn) {
                         }
-
-                        mChess.SwitchPlayers();
                     } else{
                         System.out.println("That piece has no possible moves!");
                     }
@@ -269,6 +279,7 @@ public class ChessController implements Initializable{
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
+                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                             region.setOnMouseClicked(e -> {
                                 System.out.println("MOVE SELECTED.");
                                 newRowPosition = move.EndPosition.getRow();
@@ -279,11 +290,18 @@ public class ChessController implements Initializable{
                                 // updates chess move
                                 GridPane.setRowIndex(image, newRowPosition);
                                 GridPane.setColumnIndex(image, newColPosition);
+
+                                chessGrid.getChildren().removeAll(region);
+
+                                // updates array with new piece locations
+                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
+                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
+                                mChess.SetPieceAtPosition(pos, chessPiece);
+
+                                mChess.SwitchPlayers();
                             });
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
 
-                        mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
                     }
@@ -293,6 +311,7 @@ public class ChessController implements Initializable{
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3);");
+                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                             region.setOnMouseClicked(e -> {
                                 System.out.println("MOVE SELECTED.");
                                 newRowPosition = move.EndPosition.getRow();
@@ -303,11 +322,17 @@ public class ChessController implements Initializable{
                                 // updates chess move
                                 GridPane.setRowIndex(image, newRowPosition);
                                 GridPane.setColumnIndex(image, newColPosition);
-                            });
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
-                        }
 
-                        mChess.SwitchPlayers();
+                                chessGrid.getChildren().removeAll(region);
+
+                                // updates array with new piece locations
+                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
+                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
+                                mChess.SetPieceAtPosition(pos, chessPiece);
+
+                                mChess.SwitchPlayers();
+                            });
+                        }
                     } else {
                         System.out.println("That piece has no possible moves!");
                     }
@@ -317,6 +342,7 @@ public class ChessController implements Initializable{
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
+                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                             region.setOnMouseClicked(e -> {
                                 System.out.println("MOVE SELECTED.");
                                 newRowPosition = move.EndPosition.getRow();
@@ -327,11 +353,18 @@ public class ChessController implements Initializable{
                                 // updates chess move
                                 GridPane.setRowIndex(image, newRowPosition);
                                 GridPane.setColumnIndex(image, newColPosition);
+
+                                chessGrid.getChildren().removeAll(region);
+
+                                // updates array with new piece locations
+                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
+                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
+                                mChess.SetPieceAtPosition(pos, chessPiece);
+
+                                mChess.SwitchPlayers();
                             });
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
 
-                        mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
                     }
@@ -341,6 +374,7 @@ public class ChessController implements Initializable{
                         for (ChessMove move : moves) {
                             Region region = new Region();
                             region.setStyle("-fx-background-color: rgba(204, 255, 0, 0.3)");
+                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                             region.setOnMouseClicked(e -> {
                                 System.out.println("MOVE SELECTED.");
                                 newRowPosition = move.EndPosition.getRow();
@@ -351,12 +385,17 @@ public class ChessController implements Initializable{
                                 // updates chess move
                                 GridPane.setRowIndex(image, newRowPosition);
                                 GridPane.setColumnIndex(image, newColPosition);
+
+                                chessGrid.getChildren().removeAll(region);
+
+                                // updates array with new piece locations
+                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
+                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
+                                mChess.SetPieceAtPosition(pos, chessPiece);
+
+                                mChess.SwitchPlayers();
                             });
-                            chessGrid.add(region, move.EndPosition.getCol(), move.EndPosition.getRow());
                         }
-
-
-                        mChess.SwitchPlayers();
                     } else {
                         System.out.println("That piece has no possible moves!");
                     }
