@@ -39,7 +39,7 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 				{
 					 if (missile.getBoundsInLocal().intersects(wallRec[i].getBoundsInLocal())) 
 				        {
-						 crossingBunny(attack,wallRec[i]);
+						 
 				        //destory(playerTank[i],rectangle[i]);
 						removeImage(missile);
 				        collison=true;
@@ -81,7 +81,7 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 						 if(checkStop(i))
 							 tankAnima[0].stop();
 							 stopAnima(tankAnima[i]);
-						 System.out.println("stop "+checkStop(i));
+						 //System.out.println("stop "+checkStop(i));
 				        //destory(playerTank[i],rectangle[i]);
 				        collison=true;
 				        break;
@@ -153,6 +153,7 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 	public boolean checkMoveCollision(Rectangle a) {
 		
 		boolean collison=false;
+		
 		if(!collison) {
 			for(int i=0;i<board.length;i++)
 			{
@@ -216,9 +217,73 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 				}
 			}
 		}
+		 
 	    return collison;
+	   
 	}
-	
+	public boolean checkFrogCollision(Rectangle a) {
+			boolean collison=false;
+			if(!collison) {
+				for(int i=0;i<coliFrog.length;i++)
+				{
+					if(coliFrog[i]!=null)
+					{
+						if(a!=coliFrog[i])
+						{
+						 if (a.getBoundsInLocal().intersects(coliFrog[i].getBoundsInLocal())) {
+						    
+						         {
+						        	 if(coliFrogType[0]==4) {
+						        		 if(a==rectangle[0]) {
+						        		 crossingBunny(playerTank[0],coliFrog[0]);
+						        		 halfHealth(0);
+						        		 }
+						        		 else if(a==rectangle[1])
+						        		 {
+							        		 crossingBunny(playerTank[1],coliFrog[0]);
+							        		 halfHealth(1);
+						        		 }
+						        	 }
+						        	 else
+						        	 {
+						        		 if(a==rectangle[0]) {
+						        			 newHealth(0,50);
+						        			 changeShell1(10);
+							        		 }
+						        		 else if(a==rectangle[1])
+						        		 {
+						        			 newHealth(1,50);
+						        			 changeShell2(10);
+						        		 }
+						        	 }
+						        		 
+						        collison=true;break;}
+						    }
+						}
+					}
+				}
+				
+				if (a.getBoundsInLocal().intersects(bunnyLeft[15].getBoundsInLocal())||
+						a.getBoundsInLocal().intersects(bunnyRight[15].getBoundsInLocal())||
+						a.getBoundsInLocal().intersects(bunnyUp[15].getBoundsInLocal())||
+						a.getBoundsInLocal().intersects(bunnyDown[15].getBoundsInLocal())) {
+				    
+			         
+			        		 if(a==rectangle[0])
+			        		 halfHealth(0);
+			        		 
+			        		 else if(a==rectangle[1])
+			        		 {
+
+				        		 halfHealth(1);
+			        		 }
+			        	
+			         
+			    }
+			}
+			
+			return collison;
+	}
 	int animaIndex=0;
 	public void destory(ImageView a,Rectangle rec)
 	{
@@ -279,6 +344,12 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 	}
 	public void tankForwardLogic(ImageView view,double degree,double X,double Y)
 	{
+		double forwardDistance=0;
+		if(view==playerTank[0]) {
+			forwardDistance=playerTankSpeed[0];}
+		else if(view==playerTank[1]) {
+			forwardDistance=playerTankSpeed[1];}
+		
 		boolean counterClock=false;
 		double distance=1;
     	if(degree<0)
@@ -342,6 +413,11 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 	}
 	public void tankBackLogic(ImageView view,double degree,double X,double Y)
 	{
+		double backwardDistance=0;
+		if(view==playerTank[0]) {
+			backwardDistance=playerTankSpeed[0];}
+		else if(view==playerTank[1]) {
+			backwardDistance=playerTankSpeed[1];}
 		
 		boolean counterClock=false;
     	if(degree<0)
@@ -408,7 +484,11 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 	
 	public void rectangleForwardLogic(Rectangle view,double degree,double X,double Y)
 	{
-		double distance=forwardDistance;
+		double distance=0;
+		if(view==rectangle[0]) {
+			distance=playerTankSpeed[0];}
+		else if(view==rectangle[1]) {
+			distance=playerTankSpeed[1];}
 		boolean counterClock=false;
     	if(degree<0)
     	{
@@ -472,7 +552,11 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 	}
 	public void rectangleBackLogic(Rectangle view,double degree,double X,double Y)
 	{
-		double distance=backwardDistance;
+		double distance=0;
+		if(view==rectangle[0]) {
+			distance=playerTankSpeed[0];}
+		else if(view==rectangle[1]) {
+			distance=playerTankSpeed[1];}
 		boolean counterClock=false;
     	if(degree<0)
     	{

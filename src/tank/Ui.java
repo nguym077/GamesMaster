@@ -12,7 +12,7 @@ class Ui extends ActionLogic implements imageUi{
 	Ui()
 	{
 		tank();
-		backGround();
+		//backGround();
 		effect();
 		missile();
 		rectangle();
@@ -20,23 +20,23 @@ class Ui extends ActionLogic implements imageUi{
 		setTank();
 		setWall();
 		setPath();
-		setMap();
-		setTree();
-		setRoad();
+		//setMap();
+		//setTree();
+		//setRoad();
 	}
 	public void setTank()
 	{
-		playerTank[0].setX(100);
-		playerTank[0].setY(300);
-		playerTank[1].setX(50);
-		playerTank[1].setY(300);
+		playerTank[0].setX(50);
+		playerTank[0].setY(20);
+		playerTank[1].setX(1100);
+		playerTank[1].setY(600);
 		
 		
 		
-		rectangle[0].setX(10);
-		rectangle[0].setY(300);
-		rectangle[1].setX(50);
-		rectangle[1].setY(300);
+		rectangle[0].setX(50);
+		rectangle[0].setY(20);
+		rectangle[1].setX(1100);
+		rectangle[1].setY(600);
 		
 		
 	}
@@ -44,11 +44,11 @@ class Ui extends ActionLogic implements imageUi{
 	public void tank()
 	{
 		String []Tank=new String[4];
-		Tank[0]="tank/image/Tank 1.png";
+		Tank[0]="Tank 1.png";
 		//Tank[0]="green-tank-up.gif";
-		Tank[1]="tank/image/yellow-tank-up.gif";
-		Tank[2]="tank/image/yellow-tank-up.gif";
-		Tank[3]="tank/image/white-tank-up.gif";
+		Tank[1]="yellow-tank-up.gif";
+		Tank[2]="yellow-tank-up.gif";
+		Tank[3]="white-tank-up.gif";
 		Image []PtankImage=new Image[4];
 		
 		for(int i=0;i<playerTank.length;i++)
@@ -73,7 +73,7 @@ class Ui extends ActionLogic implements imageUi{
 	public void backGround()
 	{
 		String []url=new String[4];
-		url[0]="tank/image/grass_background.jpg";
+		url[0]="grass_background.jpg";
 		
 		Image []background=new Image[4];
 		background[0] = new Image(url[0]);
@@ -83,15 +83,16 @@ class Ui extends ActionLogic implements imageUi{
 			backGround[i]=new ImageView(background[0]);
 			backGround[i].setFitHeight(100);
 			backGround[i].setFitWidth(200);
+			removeImage(backGround[i]);
 		}
 		
 	}
 	public void effect()
 	{
 		String []expl=new String[3];
-		expl[0]="tank/image/explosion1.gif";
-		expl[1]="tank/image/explosion2.gif";
-		expl[2]="tank/image/explosion3.gif";
+		expl[0]="explosion1.gif";
+		expl[1]="explosion2.gif";
+		expl[2]="explosion3.gif";
 		
 		Image []explosionImage=new Image[3];
 		for(int i=0;i<3;i++)
@@ -108,7 +109,7 @@ class Ui extends ActionLogic implements imageUi{
 	}
 	public void missile()
 	{
-		String missileGif="tank/image/shell 1.png";
+		String missileGif="shell 1.png";
 		Image missileImage = new Image(missileGif);
 		
 		for(int i=0;i<missile.length;i++)
@@ -151,7 +152,7 @@ class Ui extends ActionLogic implements imageUi{
 	public void setWall()
 	{
 		String []url=new String[4];
-		url[0]="tank/image/wall 2.png";
+		url[0]="wall 2.png";
 		
 		Image []image=new Image[4];
 		image[0] = new Image(url[0]);
@@ -163,23 +164,26 @@ class Ui extends ActionLogic implements imageUi{
 			wall[i].setFitHeight(10);
 			
 			wallRec[i]=new Rectangle(wall[i].getFitWidth()-4,wall[i].getFitHeight()-4);
-			
+			removeImage(wall[i]);
+			removeRectangle(wallRec[i]);
+			/*
 			while(true) {
 				int x=Rand.nextInt((int)(sizeX-10));
 				int y=Rand.nextInt((int)(sizeY-10));
-			wall[i].setX(x);
-			wall[i].setY(y);
-			wallRec[i].setX(x+2);
-			wallRec[i].setY(y+2);
+			//wall[i].setX(x);
+			//wall[i].setY(y);
+			//wallRec[i].setX(x+2);
+			//wallRec[i].setY(y+2);
 			System.out.println("here i "+i+" x "+x+" y "+y);
 			if(!setWallCollision(wall[i]))
 				break;
 			}
+			*/
 		}
 	}
 	public void setPath()
 	{
-		double x=70,y=70;
+		double x=60,y=60;
 		path[0]=new Rectangle(sizeX,y);
 		path[0].setX(0);path[0].setY(0);
 		path[1]=new Rectangle(sizeX,y);
@@ -198,23 +202,31 @@ class Ui extends ActionLogic implements imageUi{
 		double innerX=12,innerY=12;
 		path[6]=new Rectangle((sizeX-3*x)/2-2*innerX,(sizeY-3*y)/2-2*innerY);
 		path[6].setX(x+innerX);path[6].setY(y+innerY);
+		setMaze(x+innerX,y+innerY,0);
+		
 		path[7]=new Rectangle((sizeX-3*x)/2-2*innerX,(sizeY-3*y)/2-2*innerY);
 		path[7].setX((sizeX-3*x)/2+2*x+innerX);path[7].setY(y+innerY);
+		//setMaze((sizeX-3*x)/2+2*x+innerX,y+innerY,1);
 		
 		path[8]=new Rectangle((sizeX-3*x)/2-2*innerX,(sizeY-3*y)/2-2*innerY);
 		path[8].setX(x+innerX);path[8].setY((sizeY-3*y)/2+2*y+innerY);
+		//setMaze(x+innerX,(sizeY-3*y)/2+2*y+innerY,2);
+		
 		path[9]=new Rectangle((sizeX-3*x)/2-2*innerX,(sizeY-3*y)/2-2*innerY);
 		path[9].setX((sizeX-3*x)/2+2*x+innerX);path[9].setY((sizeY-3*y)/2+2*y+innerY);
-		
+		//setMaze((sizeX-3*x)/2+2*x+innerX,(sizeY-3*y)/2+2*y+innerY,3);
 		for(int i=0;i<10;i++)
 		{
-			path[i].setFill(Color.RED);
+			//path[i].setFill(Color.RED);
 		}
+		
+		
 	}
+	
 	public void setMap()
 	{
 		String []url=new String[4];
-		url[0]="tank/image/ground 1.png";
+		url[0]="ground 1.png";
 		
 		Image []image=new Image[4];
 		image[0] = new Image(url[0]);
@@ -237,8 +249,8 @@ class Ui extends ActionLogic implements imageUi{
 	public void setTree()
 	{
 		String []url=new String[4];
-		url[0]="tank/image/tree 1.png";
-		url[1]="tank/image/tree 2.png";
+		url[0]="tree 1.png";
+		url[1]="tree 2.png";
 		Image []image=new Image[4];
 		image[0] = new Image(url[0]);
 		image[1] = new Image(url[1]);
@@ -302,9 +314,9 @@ class Ui extends ActionLogic implements imageUi{
 	public void setRoad()
 	{
 		String []url=new String[4];
-		url[0]="tank/image/road H 1.png";
-		url[1]="tank/image/road CR 1.png";
-		url[2]="tank/image/road V 1.png";
+		url[0]="road H 1.png";
+		url[1]="road CR 1.png";
+		url[2]="road V 1.png";
 		Image []image=new Image[4];
 		image[0] = new Image(url[0]);
 		image[1] = new Image(url[1]);
@@ -312,16 +324,19 @@ class Ui extends ActionLogic implements imageUi{
 		for(int i=0;i<yellowRoadH.length;i++)
 		{
 			yellowRoadH[i]=new ImageView(image[0]);
+			removeImage(yellowRoadH[i]);
 			
 		}
 		for(int i=0;i<yellowRoadCR.length;i++)
 		{
 			yellowRoadCR[i]=new ImageView(image[1]);
+			removeImage(yellowRoadCR[i]);
 			
 		}
 		for(int i=0;i<yellowRoadV.length;i++)
 		{
 			yellowRoadV[i]=new ImageView(image[2]);
+			removeImage(yellowRoadV[i]);
 			
 		}
 		for(int i=0;i<35;i++)

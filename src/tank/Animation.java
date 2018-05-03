@@ -188,34 +188,97 @@ int animationCount;
 				degree=0;
 			double X=playerTank[player].getX(), Y=playerTank[player].getY();
 			if(a) {
-				System.out.println("left");
+				//System.out.println("left");
+				boolean check2=false;
 				rectangle[player].setRotate(degree-angle);
 				playerTank[player].setRotate(degree-angle);
+				check2=checkFrogCollision(rectangle[player]);
+				if(check2)
+				{
+					if(coliFrogType[0]==4)
+					{
+						if(playerTank[player]==playerTank[0])
+						{
+							playerTank[0].setX(50);
+							playerTank[0].setY(20);
+						}
+						
+					}
+				}
 			}
 			if(d) {
+				boolean check2=false;
 				rectangle[player].setRotate(degree+angle);
 				playerTank[player].setRotate(degree+angle);
+				check2=checkFrogCollision(rectangle[player]);
+				if(check2)
+				{
+					if(coliFrogType[0]==4)
+					{
+						if(playerTank[player]==playerTank[0])
+						{
+							playerTank[0].setX(50);
+							playerTank[0].setY(20);
+						}
+						
+					}
+				}
 			}
 			if(w)
 			{
 				boolean check1=false,check2=false;
 				rectangleForwardLogic(rectangle[player],degree,X,Y);
 				check1=checkMoveCollision(rectangle[player]);
-				if(!check1)
-					tankForwardLogic(playerTank[player],degree,X,Y);
+				check2=checkFrogCollision(rectangle[player]);
+				if(check2)
+				{
+					if(coliFrogType[0]==4)
+					{
+						if(playerTank[player]==playerTank[0])
+						{
+							playerTank[0].setX(50);
+							playerTank[0].setY(20);
+						}
+						
+					}
+				}
 				else
-					rectangleBackLogic(rectangle[player],degree,X,Y);
+				{
+					if(!check1)
+						tankForwardLogic(playerTank[player],degree,X,Y);
+					else
+						rectangleBackLogic(rectangle[player],degree,X,Y);
+				}
+				
 			}
 			if(s)
 			{
 				boolean check1=false,check2=false;
 				
+				
 				rectangleBackLogic(rectangle[player],degree,X,Y);
 				check1=checkMoveCollision(rectangle[player]);
-				if(!check1)
-					tankBackLogic(playerTank[player],degree,X,Y);
+				check2=checkFrogCollision(rectangle[player]);
+				check2=checkFrogCollision(rectangle[player]);
+				if(check2)
+				{
+					if(coliFrogType[0]==4)
+					{
+						if(playerTank[player]==playerTank[0])
+						{
+							playerTank[0].setX(50);
+							playerTank[0].setY(20);
+						}
+					}
+				}
 				else
-					rectangleForwardLogic(rectangle[player],degree,X,Y);
+				{
+					if(!check1)
+						tankBackLogic(playerTank[player],degree,X,Y);
+					else
+						rectangleForwardLogic(rectangle[player],degree,X,Y);
+				}
+				
 			}
 			
 			}
@@ -235,23 +298,68 @@ int animationCount;
 				degree=0;
 			double X=playerTank[player2].getX(), Y=playerTank[player2].getY();
 			if(left) {
-				System.out.println("left");
+				boolean check2=false;
+				//System.out.println("left");
 				rectangle[player2].setRotate(degree-angle);
 				playerTank[player2].setRotate(degree-angle);
+				check2=checkFrogCollision(rectangle[player2]);
+				if(check2)
+				{
+					if(coliFrogType[0]==4)
+					{
+						if(playerTank[player2]==playerTank[1])
+						{
+							playerTank[1].setX(1100);
+							playerTank[1].setY(600);
+						}
+						
+					}
+				}
 			}
 			if(right) {
+				boolean check2=false;
 				rectangle[player2].setRotate(degree+angle);
 				playerTank[player2].setRotate(degree+angle);
+				check2=checkFrogCollision(rectangle[player2]);
+				if(check2)
+				{
+					if(coliFrogType[0]==4)
+					{
+						if(playerTank[player2]==playerTank[1])
+						{
+							playerTank[1].setX(1100);
+							playerTank[1].setY(600);
+						}
+						
+					}
+				}
 			}
 			if(up)
 			{
 				boolean check1=false,check2=false;
 				rectangleForwardLogic(rectangle[player2],degree,X,Y);
 				check1=checkMoveCollision(rectangle[player2]);
-				if(!check1)
-					tankForwardLogic(playerTank[player2],degree,X,Y);
+				check2=checkFrogCollision(rectangle[player2]);
+				if(check2)
+				{
+					if(coliFrogType[0]==4)
+					{
+						if(playerTank[player2]==playerTank[1])
+						{
+							playerTank[1].setX(1100);
+							playerTank[1].setY(600);
+						}
+						
+					}
+				}
 				else
-					rectangleBackLogic(rectangle[player2],degree,X,Y);
+				{
+					if(!check1)
+						tankForwardLogic(playerTank[player2],degree,X,Y);
+					else
+						rectangleBackLogic(rectangle[player2],degree,X,Y);
+				}
+				
 			}
 			if(down)
 			{
@@ -259,10 +367,27 @@ int animationCount;
 				
 				rectangleBackLogic(rectangle[player2],degree,X,Y);
 				check1=checkMoveCollision(rectangle[player2]);
-				if(!check1)
-					tankBackLogic(playerTank[player2],degree,X,Y);
+				check2=checkFrogCollision(rectangle[player2]);
+				if(check2)
+				{
+					if(coliFrogType[0]==4)
+					{
+						if(playerTank[player2]==playerTank[1])
+						{
+							playerTank[1].setX(1100);
+							playerTank[1].setY(600);
+						}
+						
+					}
+				}
 				else
-					rectangleForwardLogic(rectangle[player2],degree,X,Y);
+				{
+					if(!check1)
+						tankBackLogic(playerTank[player2],degree,X,Y);
+					else
+						rectangleForwardLogic(rectangle[player2],degree,X,Y);
+				}
+				
 			}
 			
 			}

@@ -11,14 +11,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
-class dataPanel extends Main implements imageUi{
-	double health1,health2;
-	int shell1=50,shell2=50;
+class dataPanel extends Maze implements imageUi{
+	//double health1,health2;
+	//int shell1=50,shell2=50;
 	dataPanel()
 	{
+		playerTankSpeed[0]=initialSpeed;
+		playerTankSpeed[1]=initialSpeed;
 		shell();
-		health1=200;
-		health2=200;
+		healthNum[0]=200;
+		healthNum[1]=200;
 		dataRec[0]=new Rectangle(sizeX,50);
 		health[0]=new Rectangle(200,15);
 		health[1]=new Rectangle(200,15);
@@ -99,37 +101,69 @@ class dataPanel extends Main implements imageUi{
 	boolean checkHealth1()
 	{
 		boolean stop=false;
-		if(health1==0)
+		if(healthNum[0]==0)
 			stop=true;
 		return stop;
 	}
 	boolean checkHealth2()
 	{
 		boolean stop=false;
-		if(health2==0)
+		if(healthNum[1]==0)
 			stop=true;
 		return stop;
+	}
+	public void halfHealth(int playerTankIndex)
+	{
+		if(playerTankIndex==0)
+		{
+			healthNum[0]=healthNum[0]*0.5;
+			if(healthNum[0]<0)
+				healthNum[0]=0;
+			health[1].setWidth(healthNum[0]);
+			double percent=(healthNum[0]/200);
+			playerTankSpeed[0]=initialSpeed*percent;
+			
+		}
+		else if(playerTankIndex==1)
+		{
+			healthNum[1]=healthNum[1]*0.5;
+			if(healthNum[1]<0)
+				healthNum[1]=0;
+			health[3].setWidth(healthNum[1]);
+			double percent=(healthNum[1]/200);
+			playerTankSpeed[1]=initialSpeed*percent;
+		}
 	}
 	public void newHealth(int playerTankIndex,double live)
 	{
 		if(playerTankIndex==0)
 		{
-			health1=health1+live;
-			if(health1<0)
-				health1=0;
-			health[1].setWidth(health1);
+			healthNum[0]=healthNum[0]+live;
+			if(healthNum[0]<0)
+				healthNum[0]=0;
+			else if(healthNum[0]>200)
+				healthNum[0]=200;
+			health[1].setWidth(healthNum[0]);
+			double percent=(healthNum[0]/200);
+			playerTankSpeed[0]=initialSpeed*percent;
+			
 		}
 		else if(playerTankIndex==1)
 		{
-			health2=health2+live;
-			if(health2<0)
-				health2=0;
-			health[3].setWidth(health2);
+			healthNum[1]=healthNum[1]+live;
+			if(healthNum[1]<0)
+				healthNum[1]=0;
+			else if(healthNum[1]>200)
+				healthNum[1]=200;
+			health[3].setWidth(healthNum[1]);
+			double percent=(healthNum[1]/200);
+			playerTankSpeed[1]=initialSpeed*percent;
 		}
 	}
 	public void shell()
 	{
-		String shell="tank/image/shellpic1.png";
+		shell[0]=50;shell[1]=50;
+		String shell="shell pic 1.png";
 		Image []shellImage=new Image[1];
 		shellImage[0]=new Image(shell);
 		for(int i=0;i<shellLabel.length;i++)
@@ -137,25 +171,32 @@ class dataPanel extends Main implements imageUi{
 			shellLabel[i]=new ImageView(shellImage[0]);
 		}
 	}
+	//shell remain numbers
 	public void changeShell1(int num)
 	{
-		if(shell1!=0)
-		shell1=shell1+num;
-		player1[2].setText(String.valueOf(shell1));
+		
+		if(shell[0]!=0)
+			shell[0]=shell[0]+num;
+		if(shell[0]>50)
+			shell[0]=50;
+		
+		player1[2].setText(String.valueOf(shell[0]));
 	}
 	public void changeShell2(int num)
 	{
-		if(shell2!=0)
-		shell2=shell2+num;
-		player2[2].setText(String.valueOf(shell2));
+		if(shell[1]!=0)
+			shell[1]=shell[1]+num;
+		if(shell[1]>50)
+			shell[1]=50;
+		player2[2].setText(String.valueOf(shell[1]));
 	}
 	int checkShell1()
 	{
-		return shell1;
+		return shell[0];
 	}
 	int checkShell2()
 	{
-		return shell2;
+		return shell[1];
 	}
 	//take 16 and 17 as crossing Bunny 
 		public void crossingBunny(ImageView attacker,Rectangle wall)
@@ -163,26 +204,29 @@ class dataPanel extends Main implements imageUi{
 			double direction=0;	
 			double x=wall.getX();
 			double y=wall.getY();
-			double ax=attacker.getX();
-			double ay=attacker.getY();
+			double ax=600;
+			double ay=300;
 			
-			if(playerTank[0].equals(attacker)) {
+			if(playerTank[0].equals(attacker)||playerTank[1].equals(attacker)) {
 				aiBunnySpeed[15]=2;
 				crossBunnyDir[0]=(ax-x)/20;
 				crossBunnyDir[1]=(ay-y)/20;
-				System.out.println("ax-x "+crossBunnyDir[0]);
-				System.out.println("ay-y "+crossBunnyDir[1]);
+				//System.out.println("ax-x "+crossBunnyDir[0]);
+				//System.out.println("ay-y "+crossBunnyDir[1]);
 				aiBunnyAnima[15].start();
 				direction=Math.abs(playerTank[0].getRotate());
-				System.out.println("p1");
+				//System.out.println("p1");
 			}
+			/*
 			else if(playerTank[1].equals(attacker)) {
 				aiBunnySpeed[16]=2;
 				crossBunnyDir[2]=(ax-x)/10;
 				crossBunnyDir[3]=(ay-y)/10;
 				aiBunnyAnima[16].start();
-				System.out.println("p2");
+				//System.out.println("p2");
+				direction=Math.abs(playerTank[1].getRotate());
 			}
+			*/
 			//crossBunnyDir
 			boolean location=false;
 			boolean withwall=false;
@@ -236,6 +280,7 @@ class dataPanel extends Main implements imageUi{
 				if(attacker.getBoundsInLocal().intersects(path[i].getBoundsInLocal())) {
 				findPath=i;break;}
 			}
+			
 			double px=path[findPath].getX();
 			double py=path[findPath].getY();
 		}

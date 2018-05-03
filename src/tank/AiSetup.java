@@ -45,19 +45,19 @@ class AiSetup extends dataPanel {
 		for(int i=0;i<16;i++)
 		{
 			if(i<4) {
-			bunny[i]="tank/image/bunny up "+String.valueOf(i+1)+".png";
+			bunny[i]="bunny up "+String.valueOf(i+1)+".png";
 			bunnyi[i]=new Image(bunny[i]);
 			}
 			if(i>=4&&i<8) {
-			bunny[i]="tank/image/bunny down "+String.valueOf(i-3)+".png";
+			bunny[i]="bunny down "+String.valueOf(i-3)+".png";
 			bunnyi[i]=new Image(bunny[i]);
 			}
 			if(i>=8&&i<12) {
-				bunny[i]="tank/image/bunny left "+String.valueOf(i-7)+".png";
+				bunny[i]="bunny left "+String.valueOf(i-7)+".png";
 				bunnyi[i]=new Image(bunny[i]);
 			}
 			if(i>=12&&i<16) {
-				bunny[i]="tank/image/bunny right "+String.valueOf(i-11)+".png";
+				bunny[i]="bunny right "+String.valueOf(i-11)+".png";
 				bunnyi[i]=new Image(bunny[i]);
 			}
 		}
@@ -140,19 +140,19 @@ class AiSetup extends dataPanel {
 		{
 			
 			if(i<3) {
-				frog[i]="tank/image/Frog up "+String.valueOf(i+1)+".png";
+				frog[i]="Frog up "+String.valueOf(i+1)+".png";
 				frogi[i]=new Image(frog[i]);
 			}
 			if(i>=3&&i<6) {
-				frog[i]="tank/image/Frog down "+String.valueOf(i-2)+".png";
+				frog[i]="Frog down "+String.valueOf(i-2)+".png";
 				frogi[i]=new Image(frog[i]);
 			}
 			if(i>=6&&i<9) {
-				frog[i]="tank/image/Frog left "+String.valueOf(i-5)+".png";
+				frog[i]="Frog left "+String.valueOf(i-5)+".png";
 				frogi[i]=new Image(frog[i]);
 			}
 			if(i>=9&&i<12) {
-				frog[i]="tank/image/bunny right "+String.valueOf(i-8)+".png";
+				frog[i]="Frog right "+String.valueOf(i-8)+".png";
 				frogi[i]=new Image(frog[i]);
 			}
 		}
@@ -211,6 +211,9 @@ class AiSetup extends dataPanel {
 		}
 	}
 	
-	
+	public void randomForg()
+	{
+		
+	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 
 class AiAnimation extends Animation {
 	boolean moveup=false,movedown=false,moveleft=true,moveright=false;
@@ -17,10 +18,75 @@ class AiAnimation extends Animation {
 			System.out.println("index "+i);
 			aiFrog(i);
 		}
-		//setBunny();
-		//stopA(0);
+		randomFrog();
 	}
-	
+	public void randomFrog()
+	{
+		
+		randomForgAnima[0]=new AnimationTimer()
+		{
+			Random r=new Random();
+			double lastTime=System.nanoTime();
+			double lastTime2=System.nanoTime();
+			long count=0;
+			boolean initial=true;
+			public void handle(long now) {
+				int rx=-10,ry=-10;
+				count++;
+				if(count>1000||initial) {
+					count=0;
+					initial=false;
+					while(true)
+					{
+						boolean col=false;
+						rx=r.nextInt((int)sizeX);
+						ry=r.nextInt((int)sizeY);
+						frogDown[10].setX(rx);
+						frogDown[10].setY(ry);
+						if (frogDown[10].getBoundsInLocal().intersects(playerTank[0].getBoundsInLocal())||
+								frogDown[10].getBoundsInLocal().intersects(playerTank[1].getBoundsInLocal()))
+				        {
+							col=true;
+				        }
+						for(int i=0;i<board.length;i++)
+						{
+							if(frogDown[10].getBoundsInLocal().intersects(board[i].getBoundsInLocal()))
+							{
+								col=true;
+							}
+						}
+						
+						for(int i=0;i<wall.length;i++)
+						{
+							if(frogDown[10].getBoundsInLocal().intersects(wall[i].getBoundsInLocal()))
+							{
+								col=true;
+							}
+						}
+						if(col==false)
+							break;
+					}
+					coliFrogType[0]=r.nextInt(5);
+					//coliFrogType[0]=4;
+					frogDown[10].setVisible(true);
+					coliFrog[0]=new Rectangle(2,2);
+					coliFrog[0].setX(rx);
+					coliFrog[0].setY(ry);
+				}
+				
+				for(int i=0;i<rectangle.length;i++)
+				{
+					if(coliFrog[0].getBoundsInLocal().intersects(rectangle[i].getBoundsInLocal()))
+					{
+						frogDown[10].setVisible(false);
+						coliFrog[0].setX(-10);
+						coliFrog[0].setY(-10);
+					}
+				}
+				
+			}
+		};randomForgAnima[0].start();
+	}
 	long bunnySpeed=100000000;
 	public void aiBunny(int index)
 	{
@@ -266,7 +332,7 @@ class AiAnimation extends Animation {
 			}
 		}
 		if(collison) {
-			//removeBunny(index);
+			removeBunny(index);
 			stopA(index);
 		}
 			

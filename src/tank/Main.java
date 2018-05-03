@@ -39,30 +39,39 @@ public class Main extends Application implements imageUi{
     	root.setMaxSize(sizeX, sizeY);
     	root.setStyle("-fx-background-color: black");
     	//root.getChildren().add(backGround[0]);
-    	for(int i=0;i<10;i++)
+    	
+    	for(int i=0;i<path.length;i++)
     	{
     		root.getChildren().add(path[i]);
     	}
+    	for(int i=0;i<mazePath.length;i++)
+    	{
+    		root.getChildren().add(mazePath[i]);
+    	}
+    	/*
     	for(int i=0;i<ground.length;i++)
     	{
-    		root.getChildren().add(ground[i]);
+    		//root.getChildren().add(ground[i]);
     	}
     	for(int i=0;i<yellowRoadH.length;i++)
     	{
-    		root.getChildren().add(yellowRoadH[i]);
+    		//root.getChildren().add(yellowRoadH[i]);
     	}
     	for(int i=0;i<yellowRoadV.length;i++)
     	{
-    		root.getChildren().add(yellowRoadV[i]);
+    		//root.getChildren().add(yellowRoadV[i]);
     	}
     	for(int i=0;i<yellowRoadCR.length;i++)
     	{
-    		root.getChildren().add(yellowRoadCR[i]);
+    		//root.getChildren().add(yellowRoadCR[i]);
     	}
+    	*/
     	for(int i=0;i<wall.length;i++)
     	{
     		root.getChildren().add(wall[i]);
     	}
+    	
+    	/*
     	 //add tree
         for(int i=0;i<greenTree.length;i++)
     	{
@@ -72,7 +81,7 @@ public class Main extends Application implements imageUi{
     	{
     		root.getChildren().add(yellowTree[i]);
     	}
-    	
+    	*/
     	root.requestFocus();
     	//root.setStyle("-fx-background-image: url(images/Duke.png);");
         
@@ -96,7 +105,13 @@ public class Main extends Application implements imageUi{
         	root.getChildren().add(bunnyUp[i]);
         	root.getChildren().add(bunnyDown[i]);
         }
-       
+        for(int i=0;i<57;i++)
+        {
+			root.getChildren().add(frogLeft[i]);
+			root.getChildren().add(frogRight[i]);
+			root.getChildren().add(frogUp[i]);
+			root.getChildren().add(frogDown[i]);
+        }
         for(int i=0;i<missile.length;i++)
         {
         	root.getChildren().add(missile[i]);
@@ -143,9 +158,9 @@ public class Main extends Application implements imageUi{
 		for(int i=57;i<60;i++)
         {
 			data.getChildren().add(frogLeft[i]);
-			//data.getChildren().add(frogRight[i]);
-			//data.getChildren().add(frogUp[i]);
-			//data.getChildren().add(frogDown[i]);
+			data.getChildren().add(frogRight[i]);
+			data.getChildren().add(frogUp[i]);
+			data.getChildren().add(frogDown[i]);
         }
         pane.setLeft(root);
     	pane.setBottom(data);
