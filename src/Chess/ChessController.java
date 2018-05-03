@@ -261,9 +261,7 @@ public class ChessController implements Initializable{
                                 chessGrid.getChildren().remove(region);
 
                                 // updates array with new piece locations
-                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
-                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
-                                mChess.SetPieceAtPosition(pos, chessPiece);
+                                mChess.ApplyMove(move);
 
                                 mChess.SwitchPlayers();
                             });
@@ -296,9 +294,7 @@ public class ChessController implements Initializable{
                                 chessGrid.getChildren().removeAll(region);
 
                                 // updates array with new piece locations
-                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
-                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
-                                mChess.SetPieceAtPosition(pos, chessPiece);
+                                mChess.ApplyMove(move);
 
                                 mChess.SwitchPlayers();
                             });
@@ -328,9 +324,7 @@ public class ChessController implements Initializable{
                                 chessGrid.getChildren().removeAll(region);
 
                                 // updates array with new piece locations
-                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
-                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
-                                mChess.SetPieceAtPosition(pos, chessPiece);
+                                mChess.ApplyMove(move);
 
                                 mChess.SwitchPlayers();
                             });
@@ -359,9 +353,7 @@ public class ChessController implements Initializable{
                                 chessGrid.getChildren().removeAll(region);
 
                                 // updates array with new piece locations
-                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
-                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
-                                mChess.SetPieceAtPosition(pos, chessPiece);
+                                mChess.ApplyMove(move);
 
                                 mChess.SwitchPlayers();
                             });
@@ -391,9 +383,7 @@ public class ChessController implements Initializable{
                                 chessGrid.getChildren().removeAll(region);
 
                                 // updates array with new piece locations
-                                ChessPiece chessPiece = mChess.chessboard[move.StartPosition.getRow()][move.StartPosition.getCol()];
-                                BoardPosition pos = new BoardPosition(newRowPosition, newColPosition);
-                                mChess.SetPieceAtPosition(pos, chessPiece);
+                                mChess.ApplyMove(move);
 
                                 mChess.SwitchPlayers();
                             });
