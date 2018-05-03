@@ -21,6 +21,8 @@ import javafx.scene.layout.Region;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
+import static Chess.ChessPieceType.empty;
+
 public class ChessController implements Initializable{
     @FXML
     private ImageView whitePawn1;
@@ -405,8 +407,24 @@ public class ChessController implements Initializable{
             } else if (player == 2){
                 System.out.println("It's Whites Turn!");
             }
+
+            printArray(mChess.chessboard);
         } else{
             System.out.println("Game is over");
+        }
+    }
+
+    // for testing purposes
+    private void printArray(ChessPiece[][] c) {
+        for (int i = 0; i < c.length; i++) {
+            for (int j = 0; j < c.length; j++) {
+                if (c[i][j].getPieceType() == empty) {
+                    System.out.print("[ ] ");
+                } else {
+                    System.out.print(c[i][j].getPieceType() + " ");
+                }
+            }
+            System.out.println();
         }
     }
 }
