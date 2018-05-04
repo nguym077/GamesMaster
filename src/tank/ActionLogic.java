@@ -262,24 +262,31 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 						}
 					}
 				}
+				for(int i=15;i<19;i++) {
+					if (a.getBoundsInLocal().intersects(bunnyLeft[i].getBoundsInLocal())||
+							a.getBoundsInLocal().intersects(bunnyRight[i].getBoundsInLocal())||
+							a.getBoundsInLocal().intersects(bunnyUp[i].getBoundsInLocal())||
+							a.getBoundsInLocal().intersects(bunnyDown[i].getBoundsInLocal())) {
+					    
+				         
+				        		 if(a==rectangle[0]) {
+				        			 playerTank[0].setX(50);
+										playerTank[0].setY(20);
+										 halfHealth(0);
+				        		 }
+				        		
+				        		 
+				        		 else if(a==rectangle[1])
+				        		 {
+				        			 playerTank[1].setX(50);
+										playerTank[1].setY(20);
+					        		 halfHealth(1);
+				        		 }
+				        		 collison=true;break;
+				         
+				    }
+				}
 				
-				if (a.getBoundsInLocal().intersects(bunnyLeft[15].getBoundsInLocal())||
-						a.getBoundsInLocal().intersects(bunnyRight[15].getBoundsInLocal())||
-						a.getBoundsInLocal().intersects(bunnyUp[15].getBoundsInLocal())||
-						a.getBoundsInLocal().intersects(bunnyDown[15].getBoundsInLocal())) {
-				    
-			         
-			        		 if(a==rectangle[0])
-			        		 halfHealth(0);
-			        		 
-			        		 else if(a==rectangle[1])
-			        		 {
-
-				        		 halfHealth(1);
-			        		 }
-			        	
-			         
-			    }
 			}
 			
 			return collison;

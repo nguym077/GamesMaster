@@ -75,4 +75,5 @@ interface imageUi {
 	int []coliFrogType=new int[1];
 	int []shell=new int[2];
 	double []healthNum=new double[2];
+	int []waitTime=new int[2];
 }
