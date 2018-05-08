@@ -59,11 +59,13 @@ int animationCount;
 				  
 			  double missileSpeed=0;
 	    	  double lastTimerCall = System.nanoTime();
+	    	  double speed1=playerTankSpeed[0];
+	    	  double speed2=playerTankSpeed[1];
 			  public void handle(long now) {
 				  if(attacker==playerTank[0])
-					  missileSpeed=2*playerTankSpeed[0];
+					  missileSpeed=2*speed1;
 				  else if(attacker==playerTank[1])
-				  missileSpeed=2*playerTankSpeed[1];
+				  missileSpeed=2*speed2;
 			  if(now-lastTimerCall>200000)
 			  {
 				  lastTimerCall=now;
