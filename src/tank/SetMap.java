@@ -1,5 +1,5 @@
 package tank;
 
-class SetMap extends Main implements imageUi{
+class SetMap extends Tank implements imageUi{
 	
 }
