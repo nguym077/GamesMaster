@@ -55,10 +55,17 @@ int animationCount;
 		  {
 	    	  double x=missile[Count].getX();
 			  double y=missile[Count].getY();
-			  double missileSpeed=5;
-	    	  double lastTimerCall = System.nanoTime();
-			  public void handle(long now) {
+			  
 				  
+			  double missileSpeed=0;
+	    	  double lastTimerCall = System.nanoTime();
+	    	  double speed1=playerTankSpeed[0];
+	    	  double speed2=playerTankSpeed[1];
+			  public void handle(long now) {
+				  if(attacker==playerTank[0])
+					  missileSpeed=2*speed1;
+				  else if(attacker==playerTank[1])
+				  missileSpeed=2*speed2;
 			  if(now-lastTimerCall>200000)
 			  {
 				  lastTimerCall=now;
@@ -176,11 +183,20 @@ int animationCount;
 	public void moveAnima(int index)
 	{
 		int player=0;
+		waitTime[player]=0;
 		//final int moveCounter=Counter;
 		tankAnima[player]=new AnimationTimer()
 		{	
+			
 			public void handle(long now) {
 				
+				waitTime[player]++;
+				if(waitTime[player]>100)
+				{
+					newHealth(player,-1);
+					waitTime[player]=0;
+				}
+					
 			double degree=playerTank[player].getRotate();
 			if(degree==360)
 				degree=0;
@@ -188,6 +204,7 @@ int animationCount;
 				degree=0;
 			double X=playerTank[player].getX(), Y=playerTank[player].getY();
 			if(a) {
+				waitTime[player]=0;
 				//System.out.println("left");
 				boolean check2=false;
 				rectangle[player].setRotate(degree-angle);
@@ -207,6 +224,7 @@ int animationCount;
 				}
 			}
 			if(d) {
+				waitTime[player]=0;
 				boolean check2=false;
 				rectangle[player].setRotate(degree+angle);
 				playerTank[player].setRotate(degree+angle);
@@ -226,6 +244,7 @@ int animationCount;
 			}
 			if(w)
 			{
+				waitTime[player]=0;
 				boolean check1=false,check2=false;
 				rectangleForwardLogic(rectangle[player],degree,X,Y);
 				check1=checkMoveCollision(rectangle[player]);
@@ -253,6 +272,7 @@ int animationCount;
 			}
 			if(s)
 			{
+				waitTime[player]=0;
 				boolean check1=false,check2=false;
 				
 				
@@ -287,10 +307,16 @@ int animationCount;
 		
 		
 		int player2=1;
+		waitTime[player2]=0;
 		tankAnima[player2]=new AnimationTimer()
 		{	
 			public void handle(long now) {
-				
+				waitTime[player2]++;
+				if(waitTime[player2]>100)
+				{
+					newHealth(player2,-1);
+					waitTime[player2]=0;
+				}
 			double degree=playerTank[player2].getRotate();
 			if(degree==360)
 				degree=0;
@@ -298,6 +324,7 @@ int animationCount;
 				degree=0;
 			double X=playerTank[player2].getX(), Y=playerTank[player2].getY();
 			if(left) {
+				waitTime[player2]=0;
 				boolean check2=false;
 				//System.out.println("left");
 				rectangle[player2].setRotate(degree-angle);
@@ -317,6 +344,7 @@ int animationCount;
 				}
 			}
 			if(right) {
+				waitTime[player2]=0;
 				boolean check2=false;
 				rectangle[player2].setRotate(degree+angle);
 				playerTank[player2].setRotate(degree+angle);
@@ -336,6 +364,7 @@ int animationCount;
 			}
 			if(up)
 			{
+				waitTime[player2]=0;
 				boolean check1=false,check2=false;
 				rectangleForwardLogic(rectangle[player2],degree,X,Y);
 				check1=checkMoveCollision(rectangle[player2]);
@@ -363,6 +392,7 @@ int animationCount;
 			}
 			if(down)
 			{
+				waitTime[player2]=0;
 				boolean check1=false,check2=false;
 				
 				rectangleBackLogic(rectangle[player2],degree,X,Y);
