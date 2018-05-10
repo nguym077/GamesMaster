@@ -13,16 +13,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 class Action extends Ui {
-	
+
 	Animation gameAnima=new Animation();
 	int animaCounter=0;
 	boolean up,down,left,right;
-	
-	
-	
+
+
+
 	int fireAnimaCounter=0;
 	long lastTime=System.nanoTime();
-	
+
 	public void fire(KeyEvent event)  {
 		if(fireAnimaCounter==100)
 			fireAnimaCounter=0;

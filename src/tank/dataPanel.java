@@ -163,7 +163,7 @@ class dataPanel extends Maze implements imageUi{
 	public void shell()
 	{
 		shell[0]=50;shell[1]=50;
-		String shell="shell pic 1.png";
+		String shell="tank/image/shell pic 1.png";
 		Image []shellImage=new Image[1];
 		shellImage[0]=new Image(shell);
 		for(int i=0;i<shellLabel.length;i++)
