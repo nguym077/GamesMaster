@@ -43,6 +43,7 @@
             <Image url="@bird_logo.png" />
           </image>
         </ImageView>
+            <Button id="menuButton" disable="false" font="$x1" layoutX="49.0" layoutY="447.0" mnemonicParsing="false" onAction="#handleTankButton" prefHeight="31.0" prefWidth="251.0" style="-fx-background-color: black;&#10;-fx-text-fill: white;" text="Tank" visible="true" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
       </children>
     </AnchorPane>
   </children>

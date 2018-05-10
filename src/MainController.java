@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import tank.Tank;
 
 // handles all events on screen (listener)
 public class MainController {
@@ -63,5 +64,14 @@ public class MainController {
 
         chessStage.setScene(scene);
         chessStage.show();
+    }
+
+    public void handleTankButton() throws Exception {
+        System.out.println("Tank button clicked");
+        System.out.println("Start Tank game.");
+
+        Stage tankStage = new Stage();
+        Tank tankGame = new Tank();
+        tankGame.start(tankStage);
     }
 }

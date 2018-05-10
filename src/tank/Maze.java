@@ -8,7 +8,7 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
-class Maze extends Main implements imageUi{
+class Maze extends Tank implements imageUi{
 	public void setMaze(double x, double y,int index)
 	{
 		
