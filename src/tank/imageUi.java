@@ -17,7 +17,7 @@ interface imageUi {
 	ImageView [] explosion=new ImageView[90];
 	ImageView [] missile=new ImageView[100];  
 	ImageView [] aiTank=new ImageView[3000];
-	ImageView [] backGround=new ImageView[10]; //back ground map image
+	ImageView [] backGround=new ImageView[10]; //back ground map background_images
 	ImageView [] wall=new ImageView[3000];
 	ImageView [] grass=new ImageView[100];
 	

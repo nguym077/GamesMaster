@@ -79,7 +79,7 @@ public class Tank extends Application implements imageUi {
     	}
     	*/
 		root.requestFocus();
-		//root.setStyle("-fx-background-image: url(images/Duke.png);");
+		//root.setStyle("-fx-background-background_images: url(images/Duke.png);");
 
 		for (int i = 0; i < board.length; i++) {
 			root.getChildren().add(board[i]);
