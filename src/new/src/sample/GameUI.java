@@ -15,6 +15,8 @@ public class GameUI implements PublicVar {
         LoadBomb();
         LoadFire();
         LoadGhoest();
+        LoadBat();
+        LoadVamp();
     }
 
     public void LoadBackGround() {
@@ -173,10 +175,93 @@ public class GameUI implements PublicVar {
             Ghost1[i].setX(-1000);
             Ghost1[i].setY(0);
 
-            r_Ghost1[i]=new Rectangle(24,24);
+            r_Ghost1[i]=new Rectangle(20,20);
             r_Ghost1[i].setX(-1000);
             r_Ghost1[i].setY(0);
             r_Ghost1[i].setVisible(false);
+        }
+    }
+    public void LoadBat() {
+        String[] url = new String[3];
+        url[0] = "enemy/bat1.png";
+        url[1] = "enemy/bat2.png";
+        url[2] = "enemy/bat3.png";
+        Image[] newImage = new Image[3];
+        newImage[0] = new Image(url[0]);
+        newImage[1] = new Image(url[1]);
+        newImage[2] = new Image(url[2]);
+        for (int i = 0; i < Bat1.length; i=i+3) {
+            //System.out.println("bat i "+i);
+            Bat1[i] = new ImageView(newImage[0]);
+            Bat1[i].setFitWidth(XY);
+            Bat1[i].setFitHeight(XY);
+            Bat1[i].setX(-1000);
+            Bat1[i].setY(0);
+
+            Bat1[i+1] = new ImageView(newImage[1]);
+            Bat1[i+1].setFitWidth(XY);
+            Bat1[i+1].setFitHeight(XY);
+            Bat1[i+1].setX(-1000);
+            Bat1[i+1].setY(0);
+
+            Bat1[i+2] = new ImageView(newImage[2]);
+            Bat1[i+2].setFitWidth(XY);
+            Bat1[i+2].setFitHeight(XY);
+            Bat1[i+2].setX(-1000);
+            Bat1[i+2].setY(0);
+        }
+        for(int i=0;i<r_Bat.length;i++)
+        {
+            r_Bat[i]=new Rectangle(20,20);
+            r_Bat[i].setX(-1000);
+            r_Bat[i].setY(0);
+            r_Bat[i].setVisible(false);
+        }
+    }
+
+    public void LoadVamp() {
+        String[] url = new String[4];
+        url[0] = "enemy/vamp1.png";
+        url[1] = "enemy/vamp2.png";
+        url[2] = "enemy/vamp3.png";
+        url[3] = "enemy/vamp4.png";
+        Image[] newImage = new Image[4];
+        newImage[0] = new Image(url[0]);
+        newImage[1] = new Image(url[1]);
+        newImage[2] = new Image(url[2]);
+        newImage[3] = new Image(url[3]);
+        for (int i = 0; i < Vamp1.length; i=i+4) {
+            //System.out.println("bat i "+i);
+            Vamp1[i] = new ImageView(newImage[0]);
+            Vamp1[i].setFitWidth(XY);
+            Vamp1[i].setFitHeight(XY);
+            Vamp1[i].setX(-1000);
+            Vamp1[i].setY(0);
+
+            Vamp1[i+1] = new ImageView(newImage[1]);
+            Vamp1[i+1].setFitWidth(XY);
+            Vamp1[i+1].setFitHeight(XY);
+            Vamp1[i+1].setX(-1000);
+            Vamp1[i+1].setY(0);
+
+            Vamp1[i+2] = new ImageView(newImage[2]);
+            Vamp1[i+2].setFitWidth(XY);
+            Vamp1[i+2].setFitHeight(XY);
+            Vamp1[i+2].setX(-1000);
+            Vamp1[i+2].setY(0);
+
+            Vamp1[i+3] = new ImageView(newImage[3]);
+            Vamp1[i+3].setFitWidth(XY);
+            Vamp1[i+3].setFitHeight(XY);
+            Vamp1[i+3].setX(-1000);
+            Vamp1[i+3].setY(0);
+        }
+        for(int i=0;i<r_Vamp.length;i++)
+        {
+            r_Vamp[i]=new Rectangle(20,20);
+            r_Vamp[i].setX(-1000);
+            r_Vamp[i].setY(0);
+            r_Vamp[i].setVisible(false);
         }
     }
 }
