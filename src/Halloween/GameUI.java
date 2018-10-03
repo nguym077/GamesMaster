@@ -3,6 +3,7 @@ package Halloween;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class GameUI implements PublicVar {
@@ -17,7 +18,8 @@ public class GameUI implements PublicVar {
         LoadGhoest();
         LoadBat();
         LoadVamp();
-        LoadZombie();
+        LoadMonster();
+        LoadPlayer();
     }
 
     public void LoadBackGround() {
@@ -265,50 +267,179 @@ public class GameUI implements PublicVar {
             r_Vamp[i].setVisible(false);
         }
     }
+    public void LoadMonster() {
+        int eachNumber=16;
+        String front = "Halloween/enemy_images/monster/head_";
+        String back_L = "_L.png", back_R = "_R.png";
+        int xl=0,xr=0,yl=0,yr=0;
+        System.out.println("check load");
+        String[] url_L = new String[eachNumber];
+        String[] url_R = new String[eachNumber];
 
-    public void LoadZombie() {
-        String[] url = new String[4];
-        url[0] = "Halloween/enemy_images/Zombie1.png";
-        url[1] = "Halloween/enemy_images/Zombie2.png";
-        url[2] = "Halloween/enemy_images/Zombie3.png";
-        url[3] = "Halloween/enemy_images/Zombie4.png";
-        Image[] newImage = new Image[4];
-        newImage[0] = new Image(url[0]);
-        newImage[1] = new Image(url[1]);
-        newImage[2] = new Image(url[2]);
-        newImage[3] = new Image(url[3]);
-        for (int i = 0; i < Zombie1.length; i=i+4) {
-            //System.out.println("bat i "+i);
-            Zombie1[i] = new ImageView(newImage[0]);
-            Zombie1[i].setFitWidth(XY);
-            Zombie1[i].setFitHeight(XY);
-            Zombie1[i].setX(-1000);
-            Zombie1[i].setY(0);
-
-            Zombie1[i+1] = new ImageView(newImage[1]);
-            Zombie1[i+1].setFitWidth(XY);
-            Zombie1[i+1].setFitHeight(XY);
-            Zombie1[i+1].setX(-1000);
-            Zombie1[i+1].setY(0);
-
-            Zombie1[i+2] = new ImageView(newImage[2]);
-            Zombie1[i+2].setFitWidth(XY);
-            Zombie1[i+2].setFitHeight(XY);
-            Zombie1[i+2].setX(-1000);
-            Zombie1[i+2].setY(0);
-
-            Zombie1[i+3] = new ImageView(newImage[3]);
-            Zombie1[i+3].setFitWidth(XY);
-            Zombie1[i+3].setFitHeight(XY);
-            Zombie1[i+3].setX(-1000);
-            Zombie1[i+3].setY(0);
-        }
-        for(int i=0;i<r_Zombie.length;i++)
+        for(int i=0;i<eachNumber;i++)
         {
-            r_Zombie[i]=new Rectangle(20,20);
-            r_Zombie[i].setX(-1000);
-            r_Zombie[i].setY(0);
-            r_Zombie[i].setVisible(false);
+            url_L[i] = front+String.valueOf(i+1)+back_L;
+            url_R[i] = front+String.valueOf(i+1)+back_R;
+            //url[i] = "Image/Fish_2/move/Fish_move_2_000.png";
+            //System.out.println( url[i] );
         }
+
+        Image[] newImage_L = new Image[eachNumber];
+        Image[] newImage_R = new Image[eachNumber];
+        for(int i=0;i<eachNumber;i++)
+        {
+            newImage_L[i] = new Image(url_L[i]);
+            newImage_R[i] = new Image(url_R[i]);
+            //System.out.println("i "+i);
+        }
+        int Scale=1;
+        double actualWidth=newImage_L[0].getWidth(),actualHeight=newImage_L[0].getHeight();
+        double idleX=actualWidth*Scale,idleY=actualHeight*Scale;
+        //System.out.println("idley "+idleY);
+        ImageView[] view_L=Monster1_L;
+        ImageView[] view_R=Monster1_R;
+        for (int i = 0; i <Monster1_L.length; i=i+eachNumber) {
+
+
+            for(int j=0;j<eachNumber;j++)
+            {
+                int index=i+j;
+                view_L[index] = new ImageView(newImage_L[j]);
+                //System.out.println("check laod image "+c1_idle_L[index].getId());
+                view_L[index].setPreserveRatio(true);
+
+                view_L[index].setFitWidth(idleX);
+                //fish_2_move_L[index].setFitWidth(actualHeight*Scale);
+                //c1_idle_L[i + j].setFitHeight(Y);
+                view_L[index].setX(0);
+                view_L[index].setY(0);
+
+                view_L[index].setTranslateX(xl*Scale);
+                view_L[index].setTranslateY(0-idleY+yl*Scale);
+                //view_L[index].setTranslateY(actualHeight-2*(actualHeight));
+                //view_L[index].setId(String.valueOf(index));
+
+                //Color(c1_idle_L[index],HUE[id][0]);
+
+                view_R[index] =new ImageView(newImage_R[j]);
+                //System.out.println("check laod image "+c1_idle_L[index].getId());
+                view_R[index].setPreserveRatio(true);
+
+                view_R[index].setFitWidth(idleX);
+                //fish_2_move_R[index].setFitWidth(actualHeight*Scale);
+                //c1_idle_L[i + j].setFitHeight(Y);
+                view_R[index].setX(0);
+                view_R[index].setY(0);
+
+                //view_R[index].getTransforms().add(new Rotate(30,Y));
+                view_R[index].setTranslateX((0-xr)*Scale);
+                view_R[index].setTranslateY(0-idleY+yr*Scale);
+                //view_L[index].setTranslateY(actualHeight-2*(actualHeight));
+                //System.out.println("trnasX "+fish_2_move_R[index].getTranslateY());
+                //view_R[index].setId(String.valueOf(index));
+
+
+            }
+
+        }
+        for(int i=0;i<r_Monster1.length;i++)
+        {
+            r_Monster1[i]=new Rectangle(20,20);
+            r_Monster1[i].setX(-1000);
+            r_Monster1[i].setY(0);
+            r_Monster1[i].setVisible(false);
+        }
+    }
+
+    public void LoadPlayer() {
+        int eachNumber=3;
+        String front = "Halloween/enemy_images/character/p1_";
+        String back_L = ".png", back_R = "_R.png";
+        int xl=0,xr=0,yl=0,yr=0;
+        System.out.println("check load");
+        String[] url_L = new String[eachNumber];
+        //String[] url_R = new String[eachNumber];
+
+        for(int i=0;i<eachNumber;i++)
+        {
+            url_L[i] = front+String.valueOf(i+1)+back_L;
+            //url_R[i] = front+String.valueOf(i+1)+back_R;
+            //url[i] = "Image/Fish_2/move/Fish_move_2_000.png";
+            //System.out.println( url[i] );
+        }
+
+        Image[] newImage_L = new Image[eachNumber];
+        //Image[] newImage_R = new Image[eachNumber];
+        for(int i=0;i<eachNumber;i++)
+        {
+            newImage_L[i] = new Image(url_L[i]);
+            //newImage_R[i] = new Image(url_R[i]);
+            //System.out.println("i "+i);
+        }
+        int Scale=1;
+        double actualWidth=newImage_L[0].getWidth(),actualHeight=newImage_L[0].getHeight();
+        double idleX=actualWidth*Scale,idleY=actualHeight*Scale;
+        //System.out.println("idley "+idleY);
+        ImageView[] view_L=player_L;
+       // ImageView[] view_R=player_R;
+        for (int i = 0; i <player_L.length; i=i+eachNumber) {
+
+            for(int j=0;j<eachNumber;j++)
+            {
+                int index=i+j;
+                view_L[index] = new ImageView(newImage_L[j]);
+                //System.out.println("check laod image "+c1_idle_L[index].getId());
+                view_L[index].setPreserveRatio(true);
+
+                view_L[index].setFitWidth(idleX);
+                //fish_2_move_L[index].setFitWidth(actualHeight*Scale);
+                //c1_idle_L[i + j].setFitHeight(Y);
+                view_L[index].setX(-100);
+                view_L[index].setY(0);
+
+               // view_L[index].setTranslateX(xl*Scale);
+               // view_L[index].setTranslateY(0-idleY+yl*Scale);
+                //view_L[index].setTranslateY(actualHeight-2*(actualHeight));
+                //view_L[index].setId(String.valueOf(index));
+
+                //Color(c1_idle_L[index],HUE[id][0]);
+
+                //view_R[index] =new ImageView(newImage_R[j]);
+                //System.out.println("check laod image "+c1_idle_L[index].getId());
+                //view_R[index].setPreserveRatio(true);
+
+                //view_R[index].setFitWidth(idleX);
+                //fish_2_move_R[index].setFitWidth(actualHeight*Scale);
+                //c1_idle_L[i + j].setFitHeight(Y);
+                //view_R[index].setX(0);
+                //view_R[index].setY(0);
+
+                //view_R[index].getTransforms().add(new Rotate(30,Y));
+                //view_R[index].setTranslateX((0-xr)*Scale);
+                //view_R[index].setTranslateY(0-idleY+yr*Scale);
+                //view_L[index].setTranslateY(actualHeight-2*(actualHeight));
+                //System.out.println("trnasX "+fish_2_move_R[index].getTranslateY());
+                //view_R[index].setId(String.valueOf(index));
+
+
+            }
+
+        }
+        for(int i=0;i<r_player.length;i++)
+        {
+            r_player[i]=new Rectangle(15,15);
+            r_player[i].setX(charX[i]);
+            r_player[i].setY(charY[i]);
+           // r_player[i].setStroke(Color.red);
+            r_player[i].setVisible(false);
+
+        }
+    }
+
+    public void create_imageview()
+    {
+
+
+
     }
 }

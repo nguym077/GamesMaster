@@ -65,7 +65,7 @@ public class Enemy_Ghost extends AnimationManger {
                         {
                             r_Ghost1[ghostID].setX(bxx+r_x);
                             r_Ghost1[ghostID].setY(byy+r_y-testMove);
-                            if(!colliMetal(r_Ghost1[ghostID])&&!colliBomb(r_Ghost1[ghostID])){
+                            if(!colliMetal(r_Ghost1[ghostID])&&!Object_colliBomb(r_Ghost1[ghostID])){
                                 block=false;
                             }
                             else {
@@ -95,7 +95,7 @@ public class Enemy_Ghost extends AnimationManger {
                         {
                             r_Ghost1[ghostID].setX(bxx+r_x);
                             r_Ghost1[ghostID].setY(byy+r_y+testMove);
-                            if(!colliMetal(r_Ghost1[ghostID])&&!colliBomb(r_Ghost1[ghostID])){
+                            if(!colliMetal(r_Ghost1[ghostID])&&!Object_colliBomb(r_Ghost1[ghostID])){
                                 block=false;
                             }
                             else {
@@ -125,7 +125,7 @@ public class Enemy_Ghost extends AnimationManger {
                         {
                             r_Ghost1[ghostID].setX(bxx+r_x-testMove);
                             r_Ghost1[ghostID].setY(byy+r_y);
-                            if(!colliMetal(r_Ghost1[ghostID])&&!colliBomb(r_Ghost1[ghostID])){
+                            if(!colliMetal(r_Ghost1[ghostID])&&!Object_colliBomb(r_Ghost1[ghostID])){
                                 block=false;
                             }
                             else {
@@ -155,7 +155,7 @@ public class Enemy_Ghost extends AnimationManger {
                         {
                             r_Ghost1[ghostID].setX(bxx+r_x+testMove);
                             r_Ghost1[ghostID].setY(byy+r_y);
-                            if(!colliMetal(r_Ghost1[ghostID])&&!colliBomb(r_Ghost1[ghostID])){
+                            if(!colliMetal(r_Ghost1[ghostID])&&!Object_colliBomb(r_Ghost1[ghostID])){
                                 block=false;
                             }
                             else {

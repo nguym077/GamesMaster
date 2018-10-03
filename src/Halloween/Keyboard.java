@@ -48,24 +48,25 @@ public class Keyboard extends Bomb {
         }
 
     }
+    int next=0;
     public void setB(KeyEvent event) {
 
         //KeyCode code = event.getCode();
-
         if(event.getCode().equals(KeyCode.B))
         {
-            setBomb(startX,startY,5);
+           setBomb(charX[0]+10,charY[0]+10,3);
         }
+
     }
     public void testkey() {
 
         testAnima[0] = new AnimationTimer() {
             public void handle(long now) {
-                if (d){startX = startX + 3;System.out.println("d "+startX);}
-                if(a){startX=startX-3;System.out.println("a "+startX);}
-                if(w){startY=startY-3;System.out.println("w "+startY);}
-                if(s){startY=startY+3;System.out.println("s "+startY);}
-
+                if(w){status[0]=1;}
+                else if(s){status[0]=2;}
+                else if(a){status[0]=3;}
+                else if(d){status[0]=4;}
+                else status[0]=0;
             }
 
         };testAnima[0].start();

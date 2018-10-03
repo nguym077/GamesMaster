@@ -28,6 +28,17 @@ public interface PublicVar {
     Rectangle[] r_Ghost1=new Rectangle[100];
     AnimationTimer[] GhostAnima=new AnimationTimer[50];
 
+    int[] Monster_checkHit=new int[10];
+    ImageView[] Monster1_L=new ImageView[160];
+    ImageView[] Monster1_R=new ImageView[160];
+    Rectangle[] r_Monster1=new Rectangle[10];
+    AnimationTimer[] MonsterAnima=new AnimationTimer[10];
+
+    int[] player_checkHit=new int[5];
+    ImageView[] player_L=new ImageView[15];
+    ImageView[] player_R=new ImageView[15];
+    Rectangle[] r_player=new Rectangle[5];
+    AnimationTimer[] PlayerAnima=new AnimationTimer[5];
 
 
     ImageView[] Fire1=new ImageView[500];
@@ -47,10 +58,14 @@ public interface PublicVar {
     Rectangle[] r_Vamp=new Rectangle[50];
     AnimationTimer[] VampAnima=new AnimationTimer[50];
 
-    int[] Zombie_checkHit=new int[50];
-    ImageView[] Zombie1=new ImageView[200];
-    Rectangle[] r_Zombie=new Rectangle[50];
-    AnimationTimer[] ZombieAnima=new AnimationTimer[50];
+
 
     AnimationTimer[] testAnima=new AnimationTimer[50];
+
+    int[] charX=new int[5];
+    int[] charY=new int[5];
+    int[] status=new int[5];
+
+    int[] bombX=new int[50];
+    int[] bombY=new int[50];
 }
