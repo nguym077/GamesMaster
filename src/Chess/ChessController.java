@@ -1,6 +1,5 @@
 package Chess;
 
-import com.sun.xml.internal.ws.api.model.CheckedException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
