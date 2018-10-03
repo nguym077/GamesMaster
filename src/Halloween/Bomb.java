@@ -24,11 +24,12 @@ public class Bomb extends AnimationManger {
        // setBomb(bx,by,10);
        // setBomb(bx,by,5);
        // setBomb(bx,by,7);
-        setBomb(325,75,5);
-        setBomb(325,175,3);
+        //setBomb(325,75,5);
+        //setBomb(325,175,3);
         //System.out.println("time "+(time2-time1));
         //setBomb();
     }
+
 
 
     public void setBomb(int bx,int by,double time) {
@@ -46,17 +47,16 @@ public class Bomb extends AnimationManger {
         if(by2<75&&by2>=50){by=by1+50;}
         if(by2<100&&by2>=75){by=by1+75;}
 
-        if(BombID==49)
-            BombID=1;
-        else
-            BombID++;
+        if(BombID==50)
+            BombID=0;
+
         r_Bombs1[BombID*2].setX(bx+2+2.5);
         r_Bombs1[BombID*2].setY(by+2+2.5);
-        ;
+
         if(Object_colliBomb(r_Bombs1[BombID*2])||colliMetal(r_Bombs1[BombID*2])){
             //System.out.println("colis ");
             removeImageView(Bombs1[BombID*2],r_Bombs1[BombID*2]);
-            BombID--;
+
         }
         else
         {
@@ -73,6 +73,7 @@ public class Bomb extends AnimationManger {
             r_Bombs1[BombID*2+1].setY(by+2+2.5);
             int power=2;
             BombAnima(BombID,power,bx,by,time);
+            BombID++;
         }
 
     }
