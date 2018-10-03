@@ -73,6 +73,7 @@ public class Main extends Application implements PublicVar{
         Enemy_Ghost newGhost=new Enemy_Ghost();
         Enemy_Bat newBat=new Enemy_Bat();
         Enemy_Vamp newVamp=new Enemy_Vamp();
+        Enemy_Zombie newZombie=new Enemy_Zombie();
         player newPlayer=new player();
 
 
@@ -131,6 +132,12 @@ public class Main extends Application implements PublicVar{
             rt.getChildren().add(Vamp1[i]);
             if(i<Vamp1.length/4)
                 rt.getChildren().add(r_Vamp[i]);
+        }
+        for(int i=0;i<Zombie1.length;i++)
+        {
+            rt.getChildren().add(Zombie1[i]);
+            if(i<Zombie1.length/4)
+                rt.getChildren().add(r_Zombie[i]);
         }
         /*
         for(int i=0;i<Monster1_L.length;i++)
