@@ -59,6 +59,10 @@ public interface PublicVar {
     AnimationTimer[] VampAnima=new AnimationTimer[50];
 
 
+    int[] Zombie_checkHit=new int[50];
+    ImageView[] Zombie1=new ImageView[200];
+    Rectangle[] r_Zombie=new Rectangle[50];
+    AnimationTimer[] ZombieAnima=new AnimationTimer[50];
 
     AnimationTimer[] testAnima=new AnimationTimer[50];
 
