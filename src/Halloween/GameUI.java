@@ -17,6 +17,7 @@ public class GameUI implements PublicVar {
         LoadGhoest();
         LoadBat();
         LoadVamp();
+        LoadZombie();
     }
 
     public void LoadBackGround() {
@@ -262,6 +263,52 @@ public class GameUI implements PublicVar {
             r_Vamp[i].setX(-1000);
             r_Vamp[i].setY(0);
             r_Vamp[i].setVisible(false);
+        }
+    }
+
+    public void LoadZombie() {
+        String[] url = new String[4];
+        url[0] = "Halloween/enemy_images/Zombie1.png";
+        url[1] = "Halloween/enemy_images/Zombie2.png";
+        url[2] = "Halloween/enemy_images/Zombie3.png";
+        url[3] = "Halloween/enemy_images/Zombie4.png";
+        Image[] newImage = new Image[4];
+        newImage[0] = new Image(url[0]);
+        newImage[1] = new Image(url[1]);
+        newImage[2] = new Image(url[2]);
+        newImage[3] = new Image(url[3]);
+        for (int i = 0; i < Zombie1.length; i=i+4) {
+            //System.out.println("bat i "+i);
+            Zombie1[i] = new ImageView(newImage[0]);
+            Zombie1[i].setFitWidth(XY);
+            Zombie1[i].setFitHeight(XY);
+            Zombie1[i].setX(-1000);
+            Zombie1[i].setY(0);
+
+            Zombie1[i+1] = new ImageView(newImage[1]);
+            Zombie1[i+1].setFitWidth(XY);
+            Zombie1[i+1].setFitHeight(XY);
+            Zombie1[i+1].setX(-1000);
+            Zombie1[i+1].setY(0);
+
+            Zombie1[i+2] = new ImageView(newImage[2]);
+            Zombie1[i+2].setFitWidth(XY);
+            Zombie1[i+2].setFitHeight(XY);
+            Zombie1[i+2].setX(-1000);
+            Zombie1[i+2].setY(0);
+
+            Zombie1[i+3] = new ImageView(newImage[3]);
+            Zombie1[i+3].setFitWidth(XY);
+            Zombie1[i+3].setFitHeight(XY);
+            Zombie1[i+3].setX(-1000);
+            Zombie1[i+3].setY(0);
+        }
+        for(int i=0;i<r_Zombie.length;i++)
+        {
+            r_Zombie[i]=new Rectangle(20,20);
+            r_Zombie[i].setX(-1000);
+            r_Zombie[i].setY(0);
+            r_Zombie[i].setVisible(false);
         }
     }
 }
