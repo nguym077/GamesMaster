@@ -63,6 +63,11 @@ public interface PublicVar {
     Rectangle[] r_Zombie=new Rectangle[50];
     AnimationTimer[] ZombieAnima=new AnimationTimer[50];
 
+    int[] Bird_checkHit=new int[50];
+    ImageView[] Bird1=new ImageView[200];
+    Rectangle[] r_Bird=new Rectangle[50];
+    AnimationTimer[] BirdAnima=new AnimationTimer[50];
+
     AnimationTimer[] testAnima=new AnimationTimer[50];
 
     int[] charX=new int[5];

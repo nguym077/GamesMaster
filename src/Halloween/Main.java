@@ -75,6 +75,7 @@ public class Main extends Application implements PublicVar{
         Enemy_Vamp newVamp=new Enemy_Vamp();
         Enemy_Zombie newZombie=new Enemy_Zombie();
         player newPlayer=new player();
+        Bird newBird = new Bird();
 
 
     }
@@ -139,6 +140,14 @@ public class Main extends Application implements PublicVar{
             if(i<Zombie1.length/4)
                 rt.getChildren().add(r_Zombie[i]);
         }
+
+        for(int i=0;i<Bird1.length;i++)
+        {
+            rt.getChildren().add(Bird1[i]);
+            if(i<Bird1.length/4)
+                rt.getChildren().add(r_Bird[i]);
+        }
+
         /*
         for(int i=0;i<Monster1_L.length;i++)
         {

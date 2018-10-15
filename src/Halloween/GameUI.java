@@ -21,6 +21,7 @@ public class GameUI implements PublicVar {
         LoadZombie();
         LoadMonster();
         LoadPlayer();
+        LoadBird();
     }
 
     public void LoadBackGround() {
@@ -268,6 +269,7 @@ public class GameUI implements PublicVar {
             r_Vamp[i].setVisible(false);
         }
     }
+
     public void LoadZombie() {
         String[] url = new String[4];
         url[0] = "Halloween/enemy_images/Zombie1.png";
@@ -480,6 +482,53 @@ public class GameUI implements PublicVar {
            // r_player[i].setStroke(Color.red);
             r_player[i].setVisible(false);
 
+        }
+    }
+
+    public void LoadBird() {
+        String[] url = new String[4];
+        url[0] = "Halloween/bird_images/birdLeft1.png";
+        url[1] = "Halloween/bird_images/birdLeft2.png";
+        url[2] = "Halloween/bird_images/birdLeft3.png";
+        url[3] = "Halloween/bird_images/birdLeft4.png";
+
+        Image[] newImage = new Image[4];
+        newImage[0] = new Image(url[0]);
+        newImage[1] = new Image(url[1]);
+        newImage[2] = new Image(url[2]);
+        newImage[3] = new Image(url[3]);
+
+        for (int i = 0; i < Bird1.length; i=i+4) {
+            Bird1[i] = new ImageView(newImage[0]);
+            Bird1[i].setFitWidth(XY);
+            Bird1[i].setFitHeight(XY);
+            Bird1[i].setX(-1000);
+            Bird1[i].setY(0);
+
+            Bird1[i+1] = new ImageView(newImage[1]);
+            Bird1[i+1].setFitWidth(XY);
+            Bird1[i+1].setFitHeight(XY);
+            Bird1[i+1].setX(-1000);
+            Bird1[i+1].setY(0);
+
+            Bird1[i+2] = new ImageView(newImage[2]);
+            Bird1[i+2].setFitWidth(XY);
+            Bird1[i+2].setFitHeight(XY);
+            Bird1[i+2].setX(-1000);
+            Bird1[i+2].setY(0);
+
+            Bird1[i+3] = new ImageView(newImage[3]);
+            Bird1[i+3].setFitWidth(XY);
+            Bird1[i+3].setFitHeight(XY);
+            Bird1[i+3].setX(-1000);
+            Bird1[i+3].setY(0);
+        }
+        for(int i=0;i<r_Bird.length;i++)
+        {
+            r_Bird[i]=new Rectangle(20,20);
+            r_Bird[i].setX(-1000);
+            r_Bird[i].setY(0);
+            r_Bird[i].setVisible(false);
         }
     }
 
