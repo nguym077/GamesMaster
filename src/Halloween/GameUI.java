@@ -6,9 +6,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class GameUI implements PublicVar {
-    GameUI()
+public class GameUI extends Main implements PublicVar {
+    public void initial()
     {
+        initial_data();
         LoadBackGround();
         LoadWall();
         LoadBlocks();
@@ -19,9 +20,34 @@ public class GameUI implements PublicVar {
         LoadBat();
         LoadVamp();
         LoadZombie();
-        LoadMonster();
-        LoadPlayer();
+        Load_Icon();
         LoadBird();
+        LoadPlayer();
+    }
+    public void initial_data()
+    {
+        life[0]=2;
+        life[1]=2;
+        health[0]=3;
+        health[1]=3;
+        bomb_power[0]=1;
+        bomb_power[1]=1;
+        bomb_numbers[0]=1;
+        bomb_numbers[1]=1;
+        player_speed[0]=3;
+        player_speed[1]=3;
+        noHurt[0]=100;
+        noHurt[1]=100;
+        throughWall[0]=-1;
+        throughWall[1]=-1;
+        for(int i=0;i<50;i++)
+        {
+            whoSetBomb[i]=-1;
+        }
+        for(int i=0;i<r_Bricks.length;i++)
+        {
+            activeB[i]=false;
+        }
     }
 
     public void LoadBackGround() {
@@ -48,6 +74,7 @@ public class GameUI implements PublicVar {
             Blocks[i].setY(0);
 
             r_Blocks[i]=new Rectangle(20,20);
+            r_Blocks[i].setStroke(Color.RED);
             r_Blocks[i].setX(-1000);
             r_Blocks[i].setY(0);
             r_Blocks[i].setVisible(false);
@@ -269,7 +296,6 @@ public class GameUI implements PublicVar {
             r_Vamp[i].setVisible(false);
         }
     }
-
     public void LoadZombie() {
         String[] url = new String[4];
         url[0] = "Halloween/enemy_images/Zombie1.png";
@@ -316,112 +342,208 @@ public class GameUI implements PublicVar {
         }
     }
 
-    public void LoadMonster() {
-        int eachNumber=16;
-        String front = "Halloween/enemy_images/monster/head_";
-        String back_L = "_L.png", back_R = "_R.png";
-        int xl=0,xr=0,yl=0,yr=0;
-        System.out.println("check load");
-        String[] url_L = new String[eachNumber];
-        String[] url_R = new String[eachNumber];
+    public void Load_Icon() {
+        String[] url = new String[9];
+        url[0] = "Halloween/icon/icon_bomb.png";
+        url[1] = "Halloween/icon/icon_health.png";
+        url[2] = "Halloween/icon/icon_power.png";
+        url[3] = "Halloween/icon/icon_speed.png";
+        url[4] = "Halloween/icon/1st.png";
+        url[5] = "Halloween/icon/2nd.png";
+        url[6] = "Halloween/icon/icon_noHurt.png";
+        url[7] = "Halloween/icon/icon_throughWall.png";
+        url[8] = "Halloween/icon/icon_addlife.png";
 
-        for(int i=0;i<eachNumber;i++)
+        Image[] newImage = new Image[9];
+        newImage[0] = new Image(url[0]);
+        newImage[1] = new Image(url[1]);
+        newImage[2] = new Image(url[2]);
+        newImage[3] = new Image(url[3]);
+        newImage[4] = new Image(url[4]);
+        newImage[5] = new Image(url[5]);
+        newImage[6] = new Image(url[6]);
+        newImage[7] = new Image(url[7]);
+        newImage[8] = new Image(url[8]);
+
+        for(int i=0;i<icon_1st.length;i++)
         {
-            url_L[i] = front+String.valueOf(i+1)+back_L;
-            url_R[i] = front+String.valueOf(i+1)+back_R;
-            //url[i] = "Image/Fish_2/move/Fish_move_2_000.png";
-            //System.out.println( url[i] );
+            icon_1st[i] = new ImageView(newImage[4]);
+            icon_1st[i].setFitWidth(XY);
+            icon_1st[i].setFitHeight(XY);
+            icon_1st[i].setX(-1000);
+            icon_1st[i].setY(0);
+            //data.getChildren().add(icon_1st[i]);
+
+            icon_2nd[i] = new ImageView(newImage[5]);
+            icon_2nd[i].setFitWidth(XY);
+            icon_2nd[i].setFitHeight(XY);
+            icon_2nd[i].setX(-1000);
+            icon_2nd[i].setY(0);
+
+
+            //data.getChildren().add(icon_2nd[i]);
         }
 
-        Image[] newImage_L = new Image[eachNumber];
-        Image[] newImage_R = new Image[eachNumber];
-        for(int i=0;i<eachNumber;i++)
-        {
-            newImage_L[i] = new Image(url_L[i]);
-            newImage_R[i] = new Image(url_R[i]);
-            //System.out.println("i "+i);
+
+        for (int i = 0; i < icon_bomb.length; i++) {
+            //System.out.println("bat i "+i);
+            icon_bomb[i] = new ImageView(newImage[0]);
+            icon_bomb[i].setFitWidth(XY);
+            icon_bomb[i].setFitHeight(XY);
+            icon_bomb[i].setX(-1000);
+            icon_bomb[i].setY(0);
+            //data.getChildren().add(icon_bomb[i]);
+
+            icon_health[i] = new ImageView(newImage[1]);
+            icon_health[i].setFitWidth(XY);
+            icon_health[i].setFitHeight(XY);
+            icon_health[i].setX(-1000);
+            icon_health[i].setY(0);
+            //data.getChildren().add(icon_health[i]);
+
+            icon_power[i] = new ImageView(newImage[2]);
+            icon_power[i].setFitWidth(XY);
+            icon_power[i].setFitHeight(XY);
+            icon_power[i].setX(-1000);
+            icon_power[i].setY(0);
+            //data.getChildren().add(icon_power[i]);
+
+            icon_speed[i] = new ImageView(newImage[3]);
+            icon_speed[i].setFitWidth(XY);
+            icon_speed[i].setFitHeight(XY);
+            icon_speed[i].setX(-1000);
+            icon_speed[i].setY(0);
+            //data.getChildren().add(icon_speed[i]);
+
+            icon_noHurt[i] = new ImageView(newImage[6]);
+            icon_noHurt[i].setFitWidth(XY);
+            icon_noHurt[i].setFitHeight(XY);
+            icon_noHurt[i].setX(-1000);
+            icon_noHurt[i].setY(0);
+
+            icon_throughWall[i] = new ImageView(newImage[7]);
+            icon_throughWall[i].setFitWidth(XY);
+            icon_throughWall[i].setFitHeight(XY);
+            icon_throughWall[i].setX(-1000);
+            icon_throughWall[i].setY(0);
+
+            icon_addLife[i] = new ImageView(newImage[8]);
+            icon_addLife[i].setFitWidth(XY);
+            icon_addLife[i].setFitHeight(XY);
+            icon_addLife[i].setX(-1000);
+            icon_addLife[i].setY(0);
+
+            r_icon_bomb[i]=new Rectangle(20,20);
+            r_icon_bomb[i].setX(-1000);
+            r_icon_bomb[i].setY(0);
+            r_icon_bomb[i].setVisible(false);
+
+            r_icon_health[i]=new Rectangle(20,20);
+            r_icon_health[i].setX(-1000);
+            r_icon_health[i].setY(0);
+            r_icon_health[i].setVisible(false);
+
+            r_icon_power[i]=new Rectangle(20,20);
+            r_icon_power[i].setX(-1000);
+            r_icon_power[i].setY(0);
+            r_icon_power[i].setVisible(false);
+
+            r_icon_speed[i]=new Rectangle(20,20);
+            r_icon_speed[i].setX(-1000);
+            r_icon_speed[i].setY(0);
+            r_icon_speed[i].setVisible(false);
+
+            r_icon_noHurt[i]=new Rectangle(20,20);
+            r_icon_noHurt[i].setX(-1000);
+            r_icon_noHurt[i].setY(0);
+            r_icon_noHurt[i].setVisible(false);
+
+            r_icon_throughWall[i]=new Rectangle(20,20);
+            r_icon_throughWall[i].setX(-1000);
+            r_icon_throughWall[i].setY(0);
+            r_icon_throughWall[i].setVisible(false);
+
+            r_icon_addLife[i]=new Rectangle(20,20);
+            r_icon_addLife[i].setX(-1000);
+            r_icon_addLife[i].setY(0);
+            r_icon_addLife[i].setVisible(false);
+
         }
-        int Scale=1;
-        double actualWidth=newImage_L[0].getWidth(),actualHeight=newImage_L[0].getHeight();
-        double idleX=actualWidth*Scale,idleY=actualHeight*Scale;
-        //System.out.println("idley "+idleY);
-        ImageView[] view_L=Monster1_L;
-        ImageView[] view_R=Monster1_R;
-        for (int i = 0; i <Monster1_L.length; i=i+eachNumber) {
+    }
+    public void LoadBird() {
+        String[] url = new String[4];
+        url[0] = "Halloween/bird_images/birdLeft1.png";
+        url[1] = "Halloween/bird_images/birdLeft2.png";
+        url[2] = "Halloween/bird_images/birdLeft3.png";
+        url[3] = "Halloween/bird_images/birdLeft4.png";
 
+        Image[] newImage = new Image[4];
+        newImage[0] = new Image(url[0]);
+        newImage[1] = new Image(url[1]);
+        newImage[2] = new Image(url[2]);
+        newImage[3] = new Image(url[3]);
 
-            for(int j=0;j<eachNumber;j++)
-            {
-                int index=i+j;
-                view_L[index] = new ImageView(newImage_L[j]);
-                //System.out.println("check laod image "+c1_idle_L[index].getId());
-                view_L[index].setPreserveRatio(true);
+        for (int i = 0; i < Bird1.length; i=i+4) {
+            Bird1[i] = new ImageView(newImage[0]);
+            Bird1[i].setFitWidth(XY);
+            Bird1[i].setFitHeight(XY);
+            Bird1[i].setX(-1000);
+            Bird1[i].setY(0);
 
-                view_L[index].setFitWidth(idleX);
-                //fish_2_move_L[index].setFitWidth(actualHeight*Scale);
-                //c1_idle_L[i + j].setFitHeight(Y);
-                view_L[index].setX(0);
-                view_L[index].setY(0);
+            Bird1[i+1] = new ImageView(newImage[1]);
+            Bird1[i+1].setFitWidth(XY);
+            Bird1[i+1].setFitHeight(XY);
+            Bird1[i+1].setX(-1000);
+            Bird1[i+1].setY(0);
 
-                view_L[index].setTranslateX(xl*Scale);
-                view_L[index].setTranslateY(0-idleY+yl*Scale);
-                //view_L[index].setTranslateY(actualHeight-2*(actualHeight));
-                //view_L[index].setId(String.valueOf(index));
+            Bird1[i+2] = new ImageView(newImage[2]);
+            Bird1[i+2].setFitWidth(XY);
+            Bird1[i+2].setFitHeight(XY);
+            Bird1[i+2].setX(-1000);
+            Bird1[i+2].setY(0);
 
-                //Color(c1_idle_L[index],HUE[id][0]);
-
-                view_R[index] =new ImageView(newImage_R[j]);
-                //System.out.println("check laod image "+c1_idle_L[index].getId());
-                view_R[index].setPreserveRatio(true);
-
-                view_R[index].setFitWidth(idleX);
-                //fish_2_move_R[index].setFitWidth(actualHeight*Scale);
-                //c1_idle_L[i + j].setFitHeight(Y);
-                view_R[index].setX(0);
-                view_R[index].setY(0);
-
-                //view_R[index].getTransforms().add(new Rotate(30,Y));
-                view_R[index].setTranslateX((0-xr)*Scale);
-                view_R[index].setTranslateY(0-idleY+yr*Scale);
-                //view_L[index].setTranslateY(actualHeight-2*(actualHeight));
-                //System.out.println("trnasX "+fish_2_move_R[index].getTranslateY());
-                //view_R[index].setId(String.valueOf(index));
-
-
-            }
-
+            Bird1[i+3] = new ImageView(newImage[3]);
+            Bird1[i+3].setFitWidth(XY);
+            Bird1[i+3].setFitHeight(XY);
+            Bird1[i+3].setX(-1000);
+            Bird1[i+3].setY(0);
         }
-        for(int i=0;i<r_Monster1.length;i++)
+        for(int i=0;i<r_Bird.length;i++)
         {
-            r_Monster1[i]=new Rectangle(20,20);
-            r_Monster1[i].setX(-1000);
-            r_Monster1[i].setY(0);
-            r_Monster1[i].setVisible(false);
+            r_Bird[i]=new Rectangle(20,20);
+            r_Bird[i].setX(-1000);
+            r_Bird[i].setY(0);
+            r_Bird[i].setVisible(false);
         }
     }
 
     public void LoadPlayer() {
         int eachNumber=3;
         String front = "Halloween/enemy_images/character/p1_";
+        String front2 = "Halloween/enemy_images/character/p2_";
         String back_L = ".png", back_R = "_R.png";
         int xl=0,xr=0,yl=0,yr=0;
         System.out.println("check load");
         String[] url_L = new String[eachNumber];
+        String[] url_L2 = new String[eachNumber];
         //String[] url_R = new String[eachNumber];
 
         for(int i=0;i<eachNumber;i++)
         {
             url_L[i] = front+String.valueOf(i+1)+back_L;
+            url_L2[i] = front2+String.valueOf(i+1)+back_L;
             //url_R[i] = front+String.valueOf(i+1)+back_R;
             //url[i] = "Image/Fish_2/move/Fish_move_2_000.png";
             //System.out.println( url[i] );
         }
 
         Image[] newImage_L = new Image[eachNumber];
+        Image[] newImage_L2 = new Image[eachNumber];
         //Image[] newImage_R = new Image[eachNumber];
         for(int i=0;i<eachNumber;i++)
         {
             newImage_L[i] = new Image(url_L[i]);
+            newImage_L2[i] = new Image(url_L2[i]);
             //newImage_R[i] = new Image(url_R[i]);
             //System.out.println("i "+i);
         }
@@ -436,6 +558,9 @@ public class GameUI implements PublicVar {
             for(int j=0;j<eachNumber;j++)
             {
                 int index=i+j;
+                if(index>=3)
+                    view_L[index] = new ImageView(newImage_L2[j]);
+                else
                 view_L[index] = new ImageView(newImage_L[j]);
                 //System.out.println("check laod image "+c1_idle_L[index].getId());
                 view_L[index].setPreserveRatio(true);
@@ -482,53 +607,6 @@ public class GameUI implements PublicVar {
            // r_player[i].setStroke(Color.red);
             r_player[i].setVisible(false);
 
-        }
-    }
-
-    public void LoadBird() {
-        String[] url = new String[4];
-        url[0] = "Halloween/bird_images/birdLeft1.png";
-        url[1] = "Halloween/bird_images/birdLeft2.png";
-        url[2] = "Halloween/bird_images/birdLeft3.png";
-        url[3] = "Halloween/bird_images/birdLeft4.png";
-
-        Image[] newImage = new Image[4];
-        newImage[0] = new Image(url[0]);
-        newImage[1] = new Image(url[1]);
-        newImage[2] = new Image(url[2]);
-        newImage[3] = new Image(url[3]);
-
-        for (int i = 0; i < Bird1.length; i=i+4) {
-            Bird1[i] = new ImageView(newImage[0]);
-            Bird1[i].setFitWidth(XY);
-            Bird1[i].setFitHeight(XY);
-            Bird1[i].setX(-1000);
-            Bird1[i].setY(0);
-
-            Bird1[i+1] = new ImageView(newImage[1]);
-            Bird1[i+1].setFitWidth(XY);
-            Bird1[i+1].setFitHeight(XY);
-            Bird1[i+1].setX(-1000);
-            Bird1[i+1].setY(0);
-
-            Bird1[i+2] = new ImageView(newImage[2]);
-            Bird1[i+2].setFitWidth(XY);
-            Bird1[i+2].setFitHeight(XY);
-            Bird1[i+2].setX(-1000);
-            Bird1[i+2].setY(0);
-
-            Bird1[i+3] = new ImageView(newImage[3]);
-            Bird1[i+3].setFitWidth(XY);
-            Bird1[i+3].setFitHeight(XY);
-            Bird1[i+3].setX(-1000);
-            Bird1[i+3].setY(0);
-        }
-        for(int i=0;i<r_Bird.length;i++)
-        {
-            r_Bird[i]=new Rectangle(20,20);
-            r_Bird[i].setX(-1000);
-            r_Bird[i].setY(0);
-            r_Bird[i].setVisible(false);
         }
     }
 

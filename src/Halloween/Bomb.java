@@ -32,7 +32,7 @@ public class Bomb extends AnimationManger {
 
 
 
-    public void setBomb(int bx,int by,double time) {
+    public void setBomb(int ID,int bx,int by,int power,double time) {
         int bx1=bx/100*100,bx2=bx%100;
         //.out.println("check bx1 "+bx1+" check bx2 "+bx2);
         if(bx2<25&&bx2>=0){bx=bx1;}
@@ -71,8 +71,9 @@ public class Bomb extends AnimationManger {
             Bombs1[BombID*2+1].setY(by+2);
             r_Bombs1[BombID*2+1].setX(bx+2.5);
             r_Bombs1[BombID*2+1].setY(by+2+2.5);
-            int power=2;
+            bomb_numbers[ID]=bomb_numbers[ID]-1;
             BombAnima(BombID,power,bx,by,time);
+            whoSetBomb[BombID]=ID;
             BombID++;
         }
 
@@ -83,13 +84,7 @@ public class Bomb extends AnimationManger {
         Bomb_checkHit[ID]=0;
         bombAnima[ID]=new AnimationTimer()
         {
-
             Random r=new Random();
-
-           // if (frogDown[10].getBoundsInLocal().intersects(playerTank[0].getBoundsInLocal())||
-           // frogDown[10].getBoundsInLocal().intersects(playerTank[1].getBoundsInLocal()))
-
-          //  double lastTime2=System.nanoTime();
             double time1=System.currentTimeMillis();
             double time2=0;
             double count=0;
@@ -115,7 +110,8 @@ public class Bomb extends AnimationManger {
                         removeImageView(Fire2[Final],r_Fire2[Final]);
                         Final++;
                     }
-                    stopAnima(bombAnima[ID]);
+                    stopAnima(ID,bombAnima[ID]);
+
 
                     //System.out.println("ck stop "+ID);
                 }

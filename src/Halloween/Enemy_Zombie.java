@@ -10,27 +10,21 @@ public class Enemy_Zombie extends AnimationManger {
 
     Enemy_Zombie()
     {
-        Random rng = new Random(System.currentTimeMillis());
-        int randomnumber = 0 ;
-        for(int i = 0; i < 4; i++) {
-            randomnumber = rng.nextInt((4 - 1) + 1) + 1;
-            switch (randomnumber) {
-                case 1:
-                    setZombie(250, 175);
-                    break;
-                case 2:
-                    setZombie(250, 475);
-                    break;
-                case 3:
-                    setZombie(750, 175);
-                    break;
-                case 4:
-                    setZombie(750, 475);
-                    break;
-            }
+
+    }
+    public void initial()
+    {
+        Random rn=new Random();
+        for(int i=0;i<3;i++)
+        {
+            int n=rn.nextInt(20);
+            int r=rn.nextInt(20);
+            int x=75+n*50;
+            int y=75+r*25;
+            if(x<=(sizeX-25)||y<=(75+n*25))
+            setZombie(x, y);
         }
     }
-
     public void setZombie(int gx, int gy) {
         if (ZombieID == 49)
             ZombieID = 0;
@@ -51,6 +45,7 @@ public class Enemy_Zombie extends AnimationManger {
 
         r_Zombie[ZombieID].setX(gx + r_x);
         r_Zombie[ZombieID].setY(gy + r_y);
+        ColliBrickAndDestroy(r_Zombie[ZombieID]);
         ZombieAnima(ZombieID, gx, gy);
     }
 
@@ -90,7 +85,7 @@ public class Enemy_Zombie extends AnimationManger {
                     removeImageView(Zombie1[newID+1],r_Zombie[ID]);
                     removeImageView(Zombie1[newID+2],r_Zombie[ID]);
                     removeImageView(Zombie1[newID+3],r_Zombie[ID]);
-                    stopAnima(ZombieAnima[ID]);
+                    stopAnima(ID,ZombieAnima[ID]);
                     direction=-2;
                     //setBat(125, 125);
                 }

@@ -92,37 +92,33 @@ public class Map extends GameUI {
 
                 // Generate random integers in range 0 to 1
                 int ranN = rand.nextInt(2);
-                if( !(i==0 && j==0) && !(i==0 && j==1) && !(i==1 && j==0)
-                        && !(i==43 && j==0) && !(i==44 && j==0) && !(i==44 && j==1)
-                        && !(i==0 && j==21) && !(i==0 && j==22) && !(i==1 && j==22)
-                        && !(i==43 && j==21) && !(i==44 && j==22) && !(i== 44 && j==21)
-                        && !(i==10 && j==7) && !(i==10 && j==19)
-                        && !(i==30 && j==7) && !(i==30 && j==19)) {
-                    if ((i % 2 == 0) && (i * 25 < sizeX - 50) && (j * 25 < sizeY - 50))  //even number
+                if ((i % 2 == 0)&&(i*25<sizeX-50)&&(j*25<sizeY-50))  //even number
+                {
+                    if (ranN == 0) {
+                        Bricks[Bindex].setX(i * 25 + 25);
+                        Bricks[Bindex].setY(j * 25 + 25);
+                        r_Bricks[Bindex].setX(i * 25 + 25+2.5);
+                        r_Bricks[Bindex].setY(j * 25 + 25+2.5);
+                        activeB[Bindex]=true;
+                        Bindex++;
+                    }
+                }
+                else if((i*25<sizeX-50)&&(j*25<sizeY-50))
+                {
+                    if(j%2==0)
                     {
                         if (ranN == 0) {
                             Bricks[Bindex].setX(i * 25 + 25);
                             Bricks[Bindex].setY(j * 25 + 25);
-                            r_Bricks[Bindex].setX(i * 25 + 25 + 2.5);
-                            r_Bricks[Bindex].setY(j * 25 + 25 + 2.5);
+                            r_Bricks[Bindex].setX(i * 25 + 25+2.5);
+                            r_Bricks[Bindex].setY(j * 25 + 25+2.5);
+                            activeB[Bindex]=true;
                             Bindex++;
-                        }
-                    } else if ((i * 25 < sizeX - 50) && (j * 25 < sizeY - 50)) {
-                        if (j % 2 == 0) {
-                            if (ranN == 0) {
-                                Bricks[Bindex].setX(i * 25 + 25);
-                                Bricks[Bindex].setY(j * 25 + 25);
-                                r_Bricks[Bindex].setX(i * 25 + 25 + 2.5);
-                                r_Bricks[Bindex].setY(j * 25 + 25 + 2.5);
-                                Bindex++;
-                            }
                         }
                     }
                 }
             }
         }
     }
-    public void removeBrickFromStartingPositions() {
 
-    }
 }

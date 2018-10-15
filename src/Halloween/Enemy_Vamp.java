@@ -10,10 +10,22 @@ public class Enemy_Vamp extends AnimationManger {
 
     Enemy_Vamp()
     {
-        setVamp(150, 125);
-        setVamp(150, 225);
-        setVamp(175, 325);
-        setVamp(225, 125);
+
+    }
+    public void initial()
+    {
+        Random rn=new Random();
+        for(int i=0;i<3;i++)
+        {
+            int n=rn.nextInt(20);
+            int r=rn.nextInt(20);
+            int x=75+n*50;
+            int y=75+r*25;
+            if(x<=(sizeX-25)||y<=(75+n*25))
+                setVamp(x, y);
+        }
+
+
     }
 
     public void setVamp(int gx, int gy) {
@@ -36,6 +48,7 @@ public class Enemy_Vamp extends AnimationManger {
 
         r_Vamp[VampID].setX(gx + r_x);
         r_Vamp[VampID].setY(gy + r_y);
+        ColliBrickAndDestroy(r_Vamp[VampID]);
         VampAnima(VampID, gx, gy);
     }
 
@@ -75,7 +88,7 @@ public class Enemy_Vamp extends AnimationManger {
                     removeImageView(Vamp1[newID+1],r_Vamp[ID]);
                     removeImageView(Vamp1[newID+2],r_Vamp[ID]);
                     removeImageView(Vamp1[newID+3],r_Vamp[ID]);
-                    stopAnima(VampAnima[ID]);
+                    stopAnima(ID,VampAnima[ID]);
                     direction=-2;
                     //setBat(125, 125);
                 }

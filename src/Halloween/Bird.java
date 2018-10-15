@@ -12,8 +12,8 @@ public class Bird extends AnimationManger {
     Bird() {
         setBird(350, 225);
         setBird(350, 325);
-        setBird(375, 425);
-        setBird(425, 225);
+        //setBird(375, 425);
+        //setBird(425, 225);
     }
 
     public void setBird(int gx, int gy) {
@@ -71,7 +71,7 @@ public class Bird extends AnimationManger {
                     removeImageView(Bird1[newID+1],r_Bird[ID]);
                     removeImageView(Bird1[newID+2],r_Bird[ID]);
                     removeImageView(Bird1[newID+3],r_Bird[ID]);
-                    stopAnima(BirdAnima[ID]);
+                    stopAnima(ID,BirdAnima[ID]);
                     direction=-2;
                     //setBat(125, 125);
                 }

@@ -9,8 +9,23 @@ public class Enemy_Ghost extends AnimationManger {
     private double GhostMove=0.25;
     Enemy_Ghost()
     {
-        setGhost(575, 300);
+        }
+    public void initial()
+    {
+        Random rn=new Random();
+        for(int i=0;i<2;i++)
+        {
+            int n=rn.nextInt(20);
+            int r=rn.nextInt(20);
+            int x=75+n*50;
+            int y=75+r*25;
+            if(x<=(sizeX-25)||y<=(175+n*25))
+                setGhost(x, y);
+        }
+
+
     }
+
     public void setGhost(int gx, int gy) {
         if (GhostID == 49)
             GhostID = 1;
@@ -21,7 +36,7 @@ public class Enemy_Ghost extends AnimationManger {
         Ghost1[GhostID].setY(gy);
         r_Ghost1[GhostID].setX(gx + r_x);
         r_Ghost1[GhostID].setY(gy + r_y);
-
+        ColliBrickAndDestroy(r_Ghost1[GhostID]);
         GhostAnima(GhostID, gx, gy);
     }
 
@@ -46,7 +61,7 @@ public class Enemy_Ghost extends AnimationManger {
                 if(Ghost_checkHit[ghostID]==1)
                 {
                     removeImageView(Ghost1[ghostID],r_Ghost1[ghostID]);
-                    stopAnima(GhostAnima[ghostID]);
+                    stopAnima(ID,GhostAnima[ghostID]);
                     direction=-2;
                 }
                 if(direction==-1)
