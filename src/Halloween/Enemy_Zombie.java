@@ -10,10 +10,25 @@ public class Enemy_Zombie extends AnimationManger {
 
     Enemy_Zombie()
     {
-        setZombie(350, 225);
-        setZombie(350, 325);
-        setZombie(375, 425);
-        setZombie(425, 225);
+        Random rng = new Random(System.currentTimeMillis());
+        int randomnumber = 0 ;
+        for(int i = 0; i < 4; i++) {
+            randomnumber = rng.nextInt((4 - 1) + 1) + 1;
+            switch (randomnumber) {
+                case 1:
+                    setZombie(250, 175);
+                    break;
+                case 2:
+                    setZombie(250, 475);
+                    break;
+                case 3:
+                    setZombie(750, 175);
+                    break;
+                case 4:
+                    setZombie(750, 475);
+                    break;
+            }
+        }
     }
 
     public void setZombie(int gx, int gy) {

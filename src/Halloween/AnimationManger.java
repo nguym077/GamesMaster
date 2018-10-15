@@ -19,17 +19,14 @@ public class AnimationManger extends Map {
         anima.stop();
 
     }
-    public boolean Fire_colliBrick(Rectangle r_view)
-    {
-        boolean check=false;
-        for(int i=0;i<r_Bricks.length;i++)
-        {
-            if (r_view.getBoundsInLocal().intersects(r_Bricks[i].getBoundsInLocal()))
-            {
+    public boolean Fire_colliBrick(Rectangle r_view) {
+        boolean check = false;
+        for (int i = 0; i < r_Bricks.length; i++) {
+            if (r_view.getBoundsInLocal().intersects(r_Bricks[i].getBoundsInLocal())) {
                 //System.out.println(("brick "+ i+" x: "+r_Bricks[i].getX()+" y: "+r_Bricks[i].getY()));
-                removeImageView(Bricks[i],r_Bricks[i]);
+                removeImageView(Bricks[i], r_Bricks[i]);
 
-                check=true;
+                check = true;
 
                 break;
             }

@@ -9,11 +9,8 @@ public class Enemy_Ghost extends AnimationManger {
     private double GhostMove=0.25;
     Enemy_Ghost()
     {
-        setGhost(125, 125);
-        setGhost(225, 125);
-        setGhost(325, 125);
-        setGhost(225, 225);
-        setGhost(225, 325);}
+        setGhost(575, 300);
+    }
     public void setGhost(int gx, int gy) {
         if (GhostID == 49)
             GhostID = 1;
