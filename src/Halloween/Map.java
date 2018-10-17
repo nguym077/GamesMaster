@@ -11,6 +11,7 @@ public class Map extends GameUI {
         setIronWall();
         setBlocks();
         setBrick();
+        setGravestone();
         //Bomb newBomb=new Bomb();
     }
 
@@ -95,7 +96,7 @@ public class Map extends GameUI {
                 if( !(i==0 && j==0) && !(i==0 && j==1) && !(i==1 && j==0)
                         && !(i==43 && j==0) && !(i==44 && j==0) && !(i==44 && j==1)
                         && !(i==0 && j==21) && !(i==0 && j==22) && !(i==1 && j==22)
-                        && !(i==43 && j==21) && !(i==44 && j==22) && !(i== 44 && j==21)
+                        && !(i==43 && j==22) && !(i==44 && j==22) && !(i== 44 && j==21)
                         && !(i==10 && j==7) && !(i==10 && j==19)
                         && !(i==30 && j==7) && !(i==30 && j==19)) {
                     if ((i % 2 == 0) && (i * 25 < sizeX - 50) && (j * 25 < sizeY - 50))  //even number
@@ -122,7 +123,25 @@ public class Map extends GameUI {
             }
         }
     }
-    public void removeBrickFromStartingPositions() {
+    public void setGravestone() {
+        Gravestones[1].setX(10 * 25 + 25);
+        Gravestones[1].setY(7 * 25 + 25);
+        r_Gravestones[1].setX(10 * 25 + 25 + 2.5);
+        r_Gravestones[1].setY(7 * 25 + 25 + 2.5);
 
+        Gravestones[2].setX(10 * 25 + 25);
+        Gravestones[2].setY(19 * 25 + 25);
+        r_Gravestones[2].setX(10 * 25 + 25 + 2.5);
+        r_Gravestones[2].setY(19 * 25 + 25 + 2.5);
+
+        Gravestones[3].setX(30 * 25 + 25);
+        Gravestones[3].setY(7 * 25 + 25);
+        r_Gravestones[3].setX(30 * 25 + 25 + 2.5);
+        r_Gravestones[3].setY(7 * 25 + 25 + 2.5);
+
+        Gravestones[4].setX(30 * 25 + 25);
+        Gravestones[4].setY(19 * 25 + 25);
+        r_Gravestones[4].setX(30 * 25 + 25 + 2.5);
+        r_Gravestones[4].setY(19 * 25 + 25 + 2.5);
     }
 }

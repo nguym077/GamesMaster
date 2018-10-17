@@ -16,16 +16,16 @@ public class Enemy_Zombie extends AnimationManger {
             randomnumber = rng.nextInt((4 - 1) + 1) + 1;
             switch (randomnumber) {
                 case 1:
-                    setZombie(250, 175);
+                    setZombie(275, 200);
                     break;
                 case 2:
-                    setZombie(250, 475);
+                    setZombie(275, 500);
                     break;
                 case 3:
-                    setZombie(750, 175);
+                    setZombie(775, 200);
                     break;
                 case 4:
-                    setZombie(750, 475);
+                    setZombie(775, 500);
                     break;
             }
         }

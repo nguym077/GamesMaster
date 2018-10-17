@@ -17,6 +17,8 @@ public interface PublicVar {
     Rectangle[] r_Blocks=new Rectangle[200];
     ImageView[] Bricks=new ImageView[500];
     Rectangle[] r_Bricks=new Rectangle[500];
+    ImageView[] Gravestones=new ImageView[500];
+    Rectangle[] r_Gravestones=new Rectangle[500];
 
     int[] Bomb_checkHit=new int[50];
     ImageView[] Bombs1=new ImageView[100];

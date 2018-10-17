@@ -11,7 +11,7 @@ public class player extends AnimationManger {
     int setx=0,sety=0;
     player() {
         setx=125;sety=425;
-        setPlayer(125, 425);
+        setPlayer(25, 25);
         for(int i=0;i<Bricks.length;i++)
         {
             int x=(int)Bricks[i].getX();

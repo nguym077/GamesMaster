@@ -13,6 +13,7 @@ public class GameUI implements PublicVar {
         LoadWall();
         LoadBlocks();
         LoadBrick();
+        LoadGravestone();
         LoadBomb();
         LoadFire();
         LoadGhoest();
@@ -89,6 +90,24 @@ public class GameUI implements PublicVar {
             r_Bricks[i].setX(-1000);
             r_Bricks[i].setY(0);
             r_Bricks[i].setVisible(false);
+        }
+    }
+    public void LoadGravestone() {
+        String[] url = new String[1];
+        url[0] = "Halloween/background_images/gravestone.png";
+        Image[] wallI = new Image[1];
+        wallI[0] = new Image(url[0]);
+        for (int i = 0; i < Gravestones.length; i++) {
+            Gravestones[i] = new ImageView(wallI[0]);
+            Gravestones[i].setFitWidth(XY);
+            Gravestones[i].setFitHeight(XY);
+            Gravestones[i].setX(-1000);
+            Gravestones[i].setY(0);
+
+            r_Gravestones[i]=new Rectangle(20,20);
+            r_Gravestones[i].setX(-1000);
+            r_Gravestones[i].setY(0);
+            r_Gravestones[i].setVisible(false);
         }
     }
 
