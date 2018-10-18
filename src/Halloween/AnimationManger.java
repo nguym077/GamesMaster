@@ -236,30 +236,32 @@ public class AnimationManger extends Map {
 
             }
         }*/
-        for(int i=0;i<r_Bat.length;i++)
-        {
-            if(r_view.getBoundsInLocal().intersects(r_Bat[i].getBoundsInLocal()))
-            {
-                //removeImageView(Bricks[i]);
-                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
-                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
-                check=true;
-                Bat_checkHit[i]=1;
 
-            }
-        }
-        for(int i=0;i<r_Vamp.length;i++)
-        {
-            if(r_view.getBoundsInLocal().intersects(r_Vamp[i].getBoundsInLocal()))
-            {
-                //removeImageView(Bricks[i]);
-                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
-                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
-                check=true;
-                Vamp_checkHit[i]=1;
+//        for(int i=0;i<r_Bat.length;i++)
+//        {
+//            if(r_view.getBoundsInLocal().intersects(r_Bat[i].getBoundsInLocal()))
+//            {
+//                //removeImageView(Bricks[i]);
+//                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+//                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+//                check=true;
+//                Bat_checkHit[i]=1;
+//
+//            }
+//        }
+//        for(int i=0;i<r_Vamp.length;i++)
+//        {
+//            if(r_view.getBoundsInLocal().intersects(r_Vamp[i].getBoundsInLocal()))
+//            {
+//                //removeImageView(Bricks[i]);
+//                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+//                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+//                check=true;
+//                Vamp_checkHit[i]=1;
+//
+//            }
+//        }
 
-            }
-        }
         for(int i=0;i<r_Zombie.length;i++)
         {
             if(r_view.getBoundsInLocal().intersects(r_Zombie[i].getBoundsInLocal()))
@@ -300,30 +302,33 @@ public class AnimationManger extends Map {
                 break;
             }
         }
-        for(int i=0;i<r_Bat.length;i++)
-        {
-            if(r_view.getBoundsInLocal().intersects(r_Bat[i].getBoundsInLocal()))
-            {
-                //removeImageView(Bricks[i]);
-                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
-                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
-                check=true;
-                //Bat_checkHit[i]=1;
-                break;
-            }
-        }
-        for(int i=0;i<r_Vamp.length;i++)
-        {
-            if(r_view.getBoundsInLocal().intersects(r_Vamp[i].getBoundsInLocal()))
-            {
-                //removeImageView(Bricks[i]);
-                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
-                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
-                check=true;
-                //Vamp_checkHit[i]=1;
-                break;
-            }
-        }
+
+//        for(int i=0;i<r_Bat.length;i++)
+//        {
+//            if(r_view.getBoundsInLocal().intersects(r_Bat[i].getBoundsInLocal()))
+//            {
+//                //removeImageView(Bricks[i]);
+//                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+//                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+//                check=true;
+//                //Bat_checkHit[i]=1;
+//                break;
+//            }
+//        }
+
+//        for(int i=0;i<r_Vamp.length;i++)
+//        {
+//            if(r_view.getBoundsInLocal().intersects(r_Vamp[i].getBoundsInLocal()))
+//            {
+//                //removeImageView(Bricks[i]);
+//                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+//                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+//                check=true;
+//                //Vamp_checkHit[i]=1;
+//                break;
+//            }
+//        }
+
         for(int i=0;i<r_Zombie.length;i++)
         {
             if(r_view.getBoundsInLocal().intersects(r_Zombie[i].getBoundsInLocal()))
