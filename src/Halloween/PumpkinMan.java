@@ -2,7 +2,6 @@ package Halloween;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
@@ -12,13 +11,23 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
-public class Main extends Application implements PublicVar{
+public class PumpkinMan extends Application implements PublicVar{
 
 
     @Override
     public void start(Stage stage) {
+<<<<<<< HEAD:src/Halloween/Main.java
         Pane root =new Pane();  //this is the game pane
         Pane data =new Pane();  //this pane will record game data like health, power etc.
+=======
+        root =new Pane();  //this is the game pane
+        data =new Pane();  //this pane will record game Data like health, power etc.
+        root.setMaxSize(sizeX, sizeY);
+        root.setStyle("-fx-background-color: black");
+        data.setMaxSize(sizeX, 50);
+        data.setStyle("-fx-background-color: grey;");
+
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3:src/Halloween/PumpkinMan.java
         GameUI newGameUI=new GameUI();  //load the ui from background_images folder
         Map newmap=new Map();  //set up ui on the pane
         Keyboard testkey=new Keyboard();
@@ -32,6 +41,7 @@ public class Main extends Application implements PublicVar{
         add(root);
 
 
+<<<<<<< HEAD:src/Halloween/Main.java
 
         data.setMaxSize(sizeX, 50);
         data.setStyle("-fx-background-color: gray;");
@@ -39,6 +49,13 @@ public class Main extends Application implements PublicVar{
         pane.setBottom(data);
         Scene scene = new Scene(pane,sizeXX,sizeYY);
         stage.setTitle("ImageView");
+=======
+        pane.setTop(data);
+        pane.setBottom(root);
+
+        Scene scene = new Scene(pane,sizeXX,sizeY+50);
+        stage.setTitle("Pumpkin-Man");
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3:src/Halloween/PumpkinMan.java
         //stage.setWidth(700);
         //stage.setHeight(600);
         stage.setScene(scene);
@@ -71,12 +88,29 @@ public class Main extends Application implements PublicVar{
 
         Bomb newbomb=new Bomb();
         Enemy_Ghost newGhost=new Enemy_Ghost();
+<<<<<<< HEAD:src/Halloween/Main.java
         Enemy_Bat newBat=new Enemy_Bat();
         Enemy_Vamp newVamp=new Enemy_Vamp();
         Enemy_Zombie newZombie=new Enemy_Zombie();
         player newPlayer=new player();
         Bird newBird = new Bird();
 
+=======
+        //Enemy_Bat newBat=new Enemy_Bat();
+
+        //Enemy_Vamp newVamp=new Enemy_Vamp();
+        Enemy_Zombie newZombie=new Enemy_Zombie();
+        Bird newBird = new Bird();
+        Player newPlayer=new Player();
+        Data newData=new Data();
+
+
+        newGhost.initial();
+        //newBat.initial();
+        //newVamp.initial();
+        newZombie.initial();
+        newPlayer.initial();
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3:src/Halloween/PumpkinMan.java
 
     }
 
@@ -126,19 +160,21 @@ public class Main extends Application implements PublicVar{
             rt.getChildren().add(Ghost1[i]);
             rt.getChildren().add(r_Ghost1[i]);
         }
-        for(int i=0;i<Bat1.length;i++)
-        {
-            rt.getChildren().add(Bat1[i]);
-            if(i<Bat1.length/3)
-                rt.getChildren().add(r_Bat[i]);
-        }
 
-        for(int i=0;i<Vamp1.length;i++)
-        {
-            rt.getChildren().add(Vamp1[i]);
-            if(i<Vamp1.length/4)
-                rt.getChildren().add(r_Vamp[i]);
-        }
+//        for(int i=0;i<Bat1.length;i++)
+//        {
+//            rt.getChildren().add(Bat1[i]);
+//            if(i<Bat1.length/3)
+//                rt.getChildren().add(r_Bat[i]);
+//        }
+//
+//        for(int i=0;i<Vamp1.length;i++)
+//        {
+//            rt.getChildren().add(Vamp1[i]);
+//            if(i<Vamp1.length/4)
+//                rt.getChildren().add(r_Vamp[i]);
+//        }
+
         for(int i=0;i<Zombie1.length;i++)
         {
             rt.getChildren().add(Zombie1[i]);

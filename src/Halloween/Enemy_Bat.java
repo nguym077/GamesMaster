@@ -4,6 +4,7 @@ import javafx.animation.AnimationTimer;
 
 import java.util.Random;
 
+/*
 public class Enemy_Bat extends AnimationManger {
     private int BatID = 0;
     private double BatMove=1;
@@ -14,6 +15,7 @@ public class Enemy_Bat extends AnimationManger {
         setBat(125, 325);
         setBat(225, 125);
     }
+
     public void setBat(int gx, int gy) {
         if (BatID == 49)
             BatID = 0;
@@ -249,3 +251,5 @@ public class Enemy_Bat extends AnimationManger {
 
     }
 }
+
+*/

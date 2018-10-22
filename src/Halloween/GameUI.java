@@ -6,8 +6,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+<<<<<<< HEAD
 public class GameUI implements PublicVar {
     GameUI()
+=======
+public class GameUI extends PumpkinMan implements PublicVar {
+    public void initial()
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3
     {
         LoadBackGround();
         LoadWall();
@@ -17,8 +22,8 @@ public class GameUI implements PublicVar {
         LoadBomb();
         LoadFire();
         LoadGhoest();
-        LoadBat();
-        LoadVamp();
+        //LoadBat();
+        //LoadVamp();
         LoadZombie();
         LoadMonster();
         LoadPlayer();
@@ -205,44 +210,8 @@ public class GameUI implements PublicVar {
             r_Ghost1[i].setVisible(false);
         }
     }
-    public void LoadBat() {
-        String[] url = new String[3];
-        url[0] = "Halloween/enemy_images/bat1.png";
-        url[1] = "Halloween/enemy_images/bat2.png";
-        url[2] = "Halloween/enemy_images/bat3.png";
-        Image[] newImage = new Image[3];
-        newImage[0] = new Image(url[0]);
-        newImage[1] = new Image(url[1]);
-        newImage[2] = new Image(url[2]);
-        for (int i = 0; i < Bat1.length; i=i+3) {
-            //System.out.println("bat i "+i);
-            Bat1[i] = new ImageView(newImage[0]);
-            Bat1[i].setFitWidth(XY);
-            Bat1[i].setFitHeight(XY);
-            Bat1[i].setX(-1000);
-            Bat1[i].setY(0);
 
-            Bat1[i+1] = new ImageView(newImage[1]);
-            Bat1[i+1].setFitWidth(XY);
-            Bat1[i+1].setFitHeight(XY);
-            Bat1[i+1].setX(-1000);
-            Bat1[i+1].setY(0);
-
-            Bat1[i+2] = new ImageView(newImage[2]);
-            Bat1[i+2].setFitWidth(XY);
-            Bat1[i+2].setFitHeight(XY);
-            Bat1[i+2].setX(-1000);
-            Bat1[i+2].setY(0);
-        }
-        for(int i=0;i<r_Bat.length;i++)
-        {
-            r_Bat[i]=new Rectangle(20,20);
-            r_Bat[i].setX(-1000);
-            r_Bat[i].setY(0);
-            r_Bat[i].setVisible(false);
-        }
-    }
-
+<<<<<<< HEAD
     public void LoadVamp() {
         String[] url = new String[4];
         url[0] = "Halloween/enemy_images/vamp1.png";
@@ -288,6 +257,91 @@ public class GameUI implements PublicVar {
             r_Vamp[i].setVisible(false);
         }
     }
+=======
+//    public void LoadBat() {
+//        String[] url = new String[3];
+//        url[0] = "Halloween/enemy_images/bat1.png";
+//        url[1] = "Halloween/enemy_images/bat2.png";
+//        url[2] = "Halloween/enemy_images/bat3.png";
+//        Image[] newImage = new Image[3];
+//        newImage[0] = new Image(url[0]);
+//        newImage[1] = new Image(url[1]);
+//        newImage[2] = new Image(url[2]);
+//        for (int i = 0; i < Bat1.length; i=i+3) {
+//            //System.out.println("bat i "+i);
+//            Bat1[i] = new ImageView(newImage[0]);
+//            Bat1[i].setFitWidth(XY);
+//            Bat1[i].setFitHeight(XY);
+//            Bat1[i].setX(-1000);
+//            Bat1[i].setY(0);
+//
+//            Bat1[i+1] = new ImageView(newImage[1]);
+//            Bat1[i+1].setFitWidth(XY);
+//            Bat1[i+1].setFitHeight(XY);
+//            Bat1[i+1].setX(-1000);
+//            Bat1[i+1].setY(0);
+//
+//            Bat1[i+2] = new ImageView(newImage[2]);
+//            Bat1[i+2].setFitWidth(XY);
+//            Bat1[i+2].setFitHeight(XY);
+//            Bat1[i+2].setX(-1000);
+//            Bat1[i+2].setY(0);
+//        }
+//        for(int i=0;i<r_Bat.length;i++)
+//        {
+//            r_Bat[i]=new Rectangle(20,20);
+//            r_Bat[i].setX(-1000);
+//            r_Bat[i].setY(0);
+//            r_Bat[i].setVisible(false);
+//        }
+//    }
+//
+//    public void LoadVamp() {
+//        String[] url = new String[4];
+//        url[0] = "Halloween/enemy_images/vamp1.png";
+//        url[1] = "Halloween/enemy_images/vamp2.png";
+//        url[2] = "Halloween/enemy_images/vamp3.png";
+//        url[3] = "Halloween/enemy_images/vamp4.png";
+//        Image[] newImage = new Image[4];
+//        newImage[0] = new Image(url[0]);
+//        newImage[1] = new Image(url[1]);
+//        newImage[2] = new Image(url[2]);
+//        newImage[3] = new Image(url[3]);
+//        for (int i = 0; i < Vamp1.length; i=i+4) {
+//            //System.out.println("bat i "+i);
+//            Vamp1[i] = new ImageView(newImage[0]);
+//            Vamp1[i].setFitWidth(XY);
+//            Vamp1[i].setFitHeight(XY);
+//            Vamp1[i].setX(-1000);
+//            Vamp1[i].setY(0);
+//
+//            Vamp1[i+1] = new ImageView(newImage[1]);
+//            Vamp1[i+1].setFitWidth(XY);
+//            Vamp1[i+1].setFitHeight(XY);
+//            Vamp1[i+1].setX(-1000);
+//            Vamp1[i+1].setY(0);
+//
+//            Vamp1[i+2] = new ImageView(newImage[2]);
+//            Vamp1[i+2].setFitWidth(XY);
+//            Vamp1[i+2].setFitHeight(XY);
+//            Vamp1[i+2].setX(-1000);
+//            Vamp1[i+2].setY(0);
+//
+//            Vamp1[i+3] = new ImageView(newImage[3]);
+//            Vamp1[i+3].setFitWidth(XY);
+//            Vamp1[i+3].setFitHeight(XY);
+//            Vamp1[i+3].setX(-1000);
+//            Vamp1[i+3].setY(0);
+//        }
+//        for(int i=0;i<r_Vamp.length;i++)
+//        {
+//            r_Vamp[i]=new Rectangle(20,20);
+//            r_Vamp[i].setX(-1000);
+//            r_Vamp[i].setY(0);
+//            r_Vamp[i].setVisible(false);
+//        }
+//    }
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3
 
     public void LoadZombie() {
         String[] url = new String[4];
@@ -346,11 +400,20 @@ public class GameUI implements PublicVar {
 
         for(int i=0;i<eachNumber;i++)
         {
+<<<<<<< HEAD
             url_L[i] = front+String.valueOf(i+1)+back_L;
             url_R[i] = front+String.valueOf(i+1)+back_R;
             //url[i] = "Image/Fish_2/move/Fish_move_2_000.png";
             //System.out.println( url[i] );
         }
+=======
+            icon_1st[i] = new ImageView(newImage[4]);
+            icon_1st[i].setFitWidth(XY);
+            icon_1st[i].setFitHeight(XY);
+            icon_1st[i].setX(-1000);
+            icon_1st[i].setY(0);
+            //Data.getChildren().add(icon_1st[i]);
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3
 
         Image[] newImage_L = new Image[eachNumber];
         Image[] newImage_R = new Image[eachNumber];
@@ -369,12 +432,17 @@ public class GameUI implements PublicVar {
         for (int i = 0; i <Monster1_L.length; i=i+eachNumber) {
 
 
+<<<<<<< HEAD
             for(int j=0;j<eachNumber;j++)
             {
                 int index=i+j;
                 view_L[index] = new ImageView(newImage_L[j]);
                 //System.out.println("check laod image "+c1_idle_L[index].getId());
                 view_L[index].setPreserveRatio(true);
+=======
+            //Data.getChildren().add(icon_2nd[i]);
+        }
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3
 
                 view_L[index].setFitWidth(idleX);
                 //fish_2_move_L[index].setFitWidth(actualHeight*Scale);
@@ -382,10 +450,95 @@ public class GameUI implements PublicVar {
                 view_L[index].setX(0);
                 view_L[index].setY(0);
 
+<<<<<<< HEAD
                 view_L[index].setTranslateX(xl*Scale);
                 view_L[index].setTranslateY(0-idleY+yl*Scale);
                 //view_L[index].setTranslateY(actualHeight-2*(actualHeight));
                 //view_L[index].setId(String.valueOf(index));
+=======
+        for (int i = 0; i < icon_bomb.length; i++) {
+            //System.out.println("bat i "+i);
+            icon_bomb[i] = new ImageView(newImage[0]);
+            icon_bomb[i].setFitWidth(XY);
+            icon_bomb[i].setFitHeight(XY);
+            icon_bomb[i].setX(-1000);
+            icon_bomb[i].setY(0);
+            //Data.getChildren().add(icon_bomb[i]);
+
+            icon_health[i] = new ImageView(newImage[1]);
+            icon_health[i].setFitWidth(XY);
+            icon_health[i].setFitHeight(XY);
+            icon_health[i].setX(-1000);
+            icon_health[i].setY(0);
+            //Data.getChildren().add(icon_health[i]);
+
+            icon_power[i] = new ImageView(newImage[2]);
+            icon_power[i].setFitWidth(XY);
+            icon_power[i].setFitHeight(XY);
+            icon_power[i].setX(-1000);
+            icon_power[i].setY(0);
+            //Data.getChildren().add(icon_power[i]);
+
+            icon_speed[i] = new ImageView(newImage[3]);
+            icon_speed[i].setFitWidth(XY);
+            icon_speed[i].setFitHeight(XY);
+            icon_speed[i].setX(-1000);
+            icon_speed[i].setY(0);
+            //Data.getChildren().add(icon_speed[i]);
+
+            icon_noHurt[i] = new ImageView(newImage[6]);
+            icon_noHurt[i].setFitWidth(XY);
+            icon_noHurt[i].setFitHeight(XY);
+            icon_noHurt[i].setX(-1000);
+            icon_noHurt[i].setY(0);
+
+            icon_throughWall[i] = new ImageView(newImage[7]);
+            icon_throughWall[i].setFitWidth(XY);
+            icon_throughWall[i].setFitHeight(XY);
+            icon_throughWall[i].setX(-1000);
+            icon_throughWall[i].setY(0);
+
+            icon_addLife[i] = new ImageView(newImage[8]);
+            icon_addLife[i].setFitWidth(XY);
+            icon_addLife[i].setFitHeight(XY);
+            icon_addLife[i].setX(-1000);
+            icon_addLife[i].setY(0);
+
+            r_icon_bomb[i]=new Rectangle(20,20);
+            r_icon_bomb[i].setX(-1000);
+            r_icon_bomb[i].setY(0);
+            r_icon_bomb[i].setVisible(false);
+
+            r_icon_health[i]=new Rectangle(20,20);
+            r_icon_health[i].setX(-1000);
+            r_icon_health[i].setY(0);
+            r_icon_health[i].setVisible(false);
+
+            r_icon_power[i]=new Rectangle(20,20);
+            r_icon_power[i].setX(-1000);
+            r_icon_power[i].setY(0);
+            r_icon_power[i].setVisible(false);
+
+            r_icon_speed[i]=new Rectangle(20,20);
+            r_icon_speed[i].setX(-1000);
+            r_icon_speed[i].setY(0);
+            r_icon_speed[i].setVisible(false);
+
+            r_icon_noHurt[i]=new Rectangle(20,20);
+            r_icon_noHurt[i].setX(-1000);
+            r_icon_noHurt[i].setY(0);
+            r_icon_noHurt[i].setVisible(false);
+
+            r_icon_throughWall[i]=new Rectangle(20,20);
+            r_icon_throughWall[i].setX(-1000);
+            r_icon_throughWall[i].setY(0);
+            r_icon_throughWall[i].setVisible(false);
+
+            r_icon_addLife[i]=new Rectangle(20,20);
+            r_icon_addLife[i].setX(-1000);
+            r_icon_addLife[i].setY(0);
+            r_icon_addLife[i].setVisible(false);
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3
 
                 //Color(c1_idle_L[index],HUE[id][0]);
 

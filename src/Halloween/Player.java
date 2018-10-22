@@ -5,11 +5,19 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
-public class player extends AnimationManger {
+public class Player extends AnimationManger {
     private int playerID = 0;
     private double playerMove = 0.25;
     int setx=0,sety=0;
+<<<<<<< HEAD:src/Halloween/player.java
     player() {
+=======
+    Player() {
+
+    }
+    public void initial( )
+    {
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3:src/Halloween/Player.java
         setx=125;sety=425;
         setPlayer(25, 25);
         for(int i=0;i<Bricks.length;i++)
@@ -40,6 +48,10 @@ public class player extends AnimationManger {
 
         charX[playerID]=gx;
         charY[playerID]=gy;
+<<<<<<< HEAD:src/Halloween/player.java
+=======
+        System.out.println("Player id "+playerID+" x y "+charX[playerID]+" "+charY[playerID]);
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3:src/Halloween/Player.java
         for (int i = 0; i < 3; i++) {
 
             player_L[playerID * 3 + i].setX(gx);

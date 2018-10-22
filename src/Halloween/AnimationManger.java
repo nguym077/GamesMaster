@@ -124,6 +124,7 @@ public class AnimationManger extends Map {
                 //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
                 check=true;
                 Ghost_checkHit[i]=1;
+<<<<<<< HEAD
                 break;
             }
         }
@@ -151,6 +152,104 @@ public class AnimationManger extends Map {
                 break;
             }
         }
+=======
+
+            }
+        }*/
+
+//        for(int i=0;i<r_Bat.length;i++)
+//        {
+//            if(r_view.getBoundsInLocal().intersects(r_Bat[i].getBoundsInLocal()))
+//            {
+//                //removeImageView(Bricks[i]);
+//                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+//                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+//                check=true;
+//                Bat_checkHit[i]=1;
+//
+//            }
+//        }
+//        for(int i=0;i<r_Vamp.length;i++)
+//        {
+//            if(r_view.getBoundsInLocal().intersects(r_Vamp[i].getBoundsInLocal()))
+//            {
+//                //removeImageView(Bricks[i]);
+//                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+//                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+//                check=true;
+//                Vamp_checkHit[i]=1;
+//
+//            }
+//        }
+
+        for(int i=0;i<r_Zombie.length;i++)
+        {
+            if(r_view.getBoundsInLocal().intersects(r_Zombie[i].getBoundsInLocal()))
+            {
+                //removeImageView(Bricks[i]);
+                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+                check=true;
+                Zombie_checkHit[i]=1;
+            }
+        }
+        for(int i=0;i<r_player.length;i++)
+        {
+            if(r_view.getBoundsInLocal().intersects(r_player[i].getBoundsInLocal()))
+            {
+                if(noHurt[i]<=0) {
+                    check = true;
+                    health[i] = health[i] - 1;
+                    noHurt[i] = 100;
+
+                }
+            }
+        }
+        return check;
+    }
+    public boolean HeroColliEnemy(Rectangle r_view)
+    {
+        boolean check=false,sameBomb=false;
+        for(int i=0;i<r_Ghost1.length;i++)
+        {
+            if(r_view.getBoundsInLocal().intersects(r_Ghost1[i].getBoundsInLocal()))
+            {
+                //removeImageView(Bricks[i]);
+                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+                check=true;
+                //Ghost_checkHit[i]=1;
+                break;
+            }
+        }
+
+//        for(int i=0;i<r_Bat.length;i++)
+//        {
+//            if(r_view.getBoundsInLocal().intersects(r_Bat[i].getBoundsInLocal()))
+//            {
+//                //removeImageView(Bricks[i]);
+//                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+//                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+//                check=true;
+//                //Bat_checkHit[i]=1;
+//                break;
+//            }
+//        }
+
+//        for(int i=0;i<r_Vamp.length;i++)
+//        {
+//            if(r_view.getBoundsInLocal().intersects(r_Vamp[i].getBoundsInLocal()))
+//            {
+//                //removeImageView(Bricks[i]);
+//                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+//                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+//                check=true;
+//                //Vamp_checkHit[i]=1;
+//                break;
+//            }
+//        }
+
+>>>>>>> 17d1e987ea0699c8c433074b8f4f12a0dfa2d2a3
         for(int i=0;i<r_Zombie.length;i++)
         {
             if(r_view.getBoundsInLocal().intersects(r_Zombie[i].getBoundsInLocal()))
