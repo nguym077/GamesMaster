@@ -28,9 +28,7 @@ public class PumpkinMan extends Application implements PublicVar{
         newGameUI.initial();
         Map newmap=new Map();  //set up ui on the pane
         Keyboard testkey=new Keyboard();
-
-
-
+        
         BorderPane pane = new BorderPane();
         pane.setMaxWidth(sizeX);pane.setMaxHeight(sizeYY);
         //root.requestFocus();
