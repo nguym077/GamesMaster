@@ -16,7 +16,7 @@ public class Player extends AnimationManger {
     {
         setx=125;sety=425;
         setPlayer(25, (int)sizeY-50);
-        setPlayer((int)(sizeX-50), (int)(sizeY-50));
+        //setPlayer((int)(sizeX-50), (int)(sizeY-50));
     }
     public void setPlayer(int gx, int gy) {
         if (playerID == 2)
