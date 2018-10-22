@@ -18,7 +18,7 @@ public class Map extends GameUI {
     {
         for(int i=0;i<background.length;i++)
         {
-           // background[i]=new ImageView(background[0]);
+            // background[i]=new ImageView(background[0]);
             background[i].setFitWidth(sizeX);
             background[i].setFitHeight(sizeY);
             //removeImage(backGround[i]);
@@ -99,7 +99,6 @@ public class Map extends GameUI {
                         Bricks[Bindex].setY(j * 25 + 25);
                         r_Bricks[Bindex].setX(i * 25 + 25+2.5);
                         r_Bricks[Bindex].setY(j * 25 + 25+2.5);
-                        activeB[Bindex]=true;
                         Bindex++;
                     }
                 }
@@ -112,7 +111,6 @@ public class Map extends GameUI {
                             Bricks[Bindex].setY(j * 25 + 25);
                             r_Bricks[Bindex].setX(i * 25 + 25+2.5);
                             r_Bricks[Bindex].setY(j * 25 + 25+2.5);
-                            activeB[Bindex]=true;
                             Bindex++;
                         }
                     }

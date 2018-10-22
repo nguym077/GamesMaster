@@ -5,7 +5,6 @@ import javafx.animation.AnimationTimer;
 
 import java.util.Random;
 
-/*
 public class Enemy_Monster extends AnimationManger {
     private int MonsterD = 0;
     private double MonsterMove=1;
@@ -61,7 +60,7 @@ public class Enemy_Monster extends AnimationManger {
                     removeImageView(Bat1[newID],r_Bat[ID]);
                     removeImageView(Bat1[newID+1],r_Bat[ID]);
                     removeImageView(Bat1[newID+2],r_Bat[ID]);
-                    stopAnima(ID, BatAnima[ID]);
+                    stopAnima(BatAnima[ID]);
                     direction=-2;
                     setBat(125, 125);
                 }
@@ -244,4 +243,3 @@ public class Enemy_Monster extends AnimationManger {
 
     }
 }
-*/

@@ -21,9 +21,9 @@ public class Bomb extends AnimationManger {
         }
         */
         int bx=225,by=225;
-       // setBomb(bx,by,10);
-       // setBomb(bx,by,5);
-       // setBomb(bx,by,7);
+        // setBomb(bx,by,10);
+        // setBomb(bx,by,5);
+        // setBomb(bx,by,7);
         //setBomb(325,75,5);
         //setBomb(325,175,3);
         //System.out.println("time "+(time2-time1));
@@ -32,7 +32,7 @@ public class Bomb extends AnimationManger {
 
 
 
-    public void setBomb(int ID,int bx,int by,int power,double time) {
+    public void setBomb(int bx,int by,double time) {
         int bx1=bx/100*100,bx2=bx%100;
         //.out.println("check bx1 "+bx1+" check bx2 "+bx2);
         if(bx2<25&&bx2>=0){bx=bx1;}
@@ -63,17 +63,16 @@ public class Bomb extends AnimationManger {
             //System.out.println("id "+BombID);
             Bombs1[BombID*2].setX(bx + 2);
             Bombs1[BombID*2].setY(by + 2);
-           // r_Bombs1[BombID*2].setX(bx + 2+2.5);
-           // r_Bombs1[BombID*2].setY(by+2+2.5);
+            // r_Bombs1[BombID*2].setX(bx + 2+2.5);
+            // r_Bombs1[BombID*2].setY(by+2+2.5);
             Bombs1[BombID*2+1].setVisible(false);
             Bombs1[BombID*2+1].setVisible(false);
             Bombs1[BombID*2+1].setX(bx);
             Bombs1[BombID*2+1].setY(by+2);
             r_Bombs1[BombID*2+1].setX(bx+2.5);
             r_Bombs1[BombID*2+1].setY(by+2+2.5);
-            bomb_numbers[ID]=bomb_numbers[ID]-1;
+            int power=2;
             BombAnima(BombID,power,bx,by,time);
-            whoSetBomb[BombID]=ID;
             BombID++;
         }
 
@@ -84,7 +83,13 @@ public class Bomb extends AnimationManger {
         Bomb_checkHit[ID]=0;
         bombAnima[ID]=new AnimationTimer()
         {
+
             Random r=new Random();
+
+            // if (frogDown[10].getBoundsInLocal().intersects(playerTank[0].getBoundsInLocal())||
+            // frogDown[10].getBoundsInLocal().intersects(playerTank[1].getBoundsInLocal()))
+
+            //  double lastTime2=System.nanoTime();
             double time1=System.currentTimeMillis();
             double time2=0;
             double count=0;
@@ -110,8 +115,7 @@ public class Bomb extends AnimationManger {
                         removeImageView(Fire2[Final],r_Fire2[Final]);
                         Final++;
                     }
-                    stopAnima(ID,bombAnima[ID]);
-
+                    stopAnima(bombAnima[ID]);
 
                     //System.out.println("ck stop "+ID);
                 }
@@ -143,7 +147,7 @@ public class Bomb extends AnimationManger {
                                 Fire1[Fire1ID].setX(bx);
                                 Fire1[Fire1ID].setY(by-25-i*25);
                                 if(colliBomb(r_Fire1[Fire1ID])||Fire_colliBrick(r_Fire1[Fire1ID]))
-                                colli1 =true;
+                                    colli1 =true;
                                 if(colliEnemy(r_Fire1[Fire1ID]));
                             }
 
@@ -158,7 +162,7 @@ public class Bomb extends AnimationManger {
                                 Fire1[Fire1ID].setX(bx);
                                 Fire1[Fire1ID].setY(by + 25 + i * 25);
                                 if(colliBomb(r_Fire1[Fire1ID])||Fire_colliBrick(r_Fire1[Fire1ID]))
-                                colli2 = true;
+                                    colli2 = true;
                                 if(colliEnemy(r_Fire1[Fire1ID]));
                             }
 
@@ -178,7 +182,7 @@ public class Bomb extends AnimationManger {
                                 Fire2[Fire2ID].setX(bx-i*25-25);
                                 Fire2[Fire2ID].setY(by);
                                 if(colliBomb(r_Fire2[Fire2ID])||Fire_colliBrick(r_Fire2[Fire2ID]))
-                                colli3 = true;
+                                    colli3 = true;
                                 if(colliEnemy(r_Fire2[Fire2ID]));
                             }
 
@@ -193,7 +197,7 @@ public class Bomb extends AnimationManger {
                                 Fire2[Fire2ID].setX(bx+i*25+25);
                                 Fire2[Fire2ID].setY(by);
                                 if(colliBomb(r_Fire2[Fire2ID])||Fire_colliBrick(r_Fire2[Fire2ID]))
-                                colli4 = true;
+                                    colli4 = true;
                                 if(colliEnemy(r_Fire2[Fire2ID]));
                             }
                         }
@@ -201,7 +205,7 @@ public class Bomb extends AnimationManger {
                     }
                     Stop=true;
                     count=0;
-                  //  System.out.println("stop id "+ ID +" count "+count);
+                    //  System.out.println("stop id "+ ID +" count "+count);
                     //Bombs1[ID*2].setVisible(true);
                     //Bombs1[ID*2].setVisible(true);
 
@@ -223,7 +227,7 @@ public class Bomb extends AnimationManger {
                     count++;
                 }
 
-                    //System.out.println(count);
+                //System.out.println(count);
 
             }
 

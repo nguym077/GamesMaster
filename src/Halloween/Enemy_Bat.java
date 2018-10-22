@@ -4,30 +4,16 @@ import javafx.animation.AnimationTimer;
 
 import java.util.Random;
 
-
 public class Enemy_Bat extends AnimationManger {
     private int BatID = 0;
     private double BatMove=1;
     Enemy_Bat()
     {
-
+        setBat(125, 125);
+        setBat(125, 225);
+        setBat(125, 325);
+        setBat(225, 125);
     }
-    public void initial()
-    {
-        Random rn=new Random();
-        for(int i=0;i<3;i++)
-        {
-            int n=rn.nextInt(20);
-            int r=rn.nextInt(20);
-            int x=75+n*50;
-            int y=75+r*25;
-            if(x<=(sizeX-25)||y<=(75+n*25))
-                setBat(x, y);
-        }
-
-
-    }
-
     public void setBat(int gx, int gy) {
         if (BatID == 49)
             BatID = 0;
@@ -45,8 +31,6 @@ public class Enemy_Bat extends AnimationManger {
 
         r_Bat[BatID].setX(gx + r_x);
         r_Bat[BatID].setY(gy + r_y);
-
-        ColliBrickAndDestroy(r_Bat[BatID]);
         BatAnima(BatID, gx, gy);
     }
 
@@ -82,7 +66,7 @@ public class Enemy_Bat extends AnimationManger {
                     removeImageView(Bat1[newID],r_Bat[ID]);
                     removeImageView(Bat1[newID+1],r_Bat[ID]);
                     removeImageView(Bat1[newID+2],r_Bat[ID]);
-                    stopAnima(ID,BatAnima[ID]);
+                    stopAnima(BatAnima[ID]);
                     direction=-2;
                     setBat(125, 125);
                 }

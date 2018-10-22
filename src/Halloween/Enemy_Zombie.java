@@ -10,21 +10,12 @@ public class Enemy_Zombie extends AnimationManger {
 
     Enemy_Zombie()
     {
+        setZombie(350, 225);
+        setZombie(350, 325);
+        setZombie(375, 425);
+        setZombie(425, 225);
+    }
 
-    }
-    public void initial()
-    {
-        Random rn=new Random();
-        for(int i=0;i<3;i++)
-        {
-            int n=rn.nextInt(20);
-            int r=rn.nextInt(20);
-            int x=75+n*50;
-            int y=75+r*25;
-            if(x<=(sizeX-25)||y<=(75+n*25))
-            setZombie(x, y);
-        }
-    }
     public void setZombie(int gx, int gy) {
         if (ZombieID == 49)
             ZombieID = 0;
@@ -45,7 +36,6 @@ public class Enemy_Zombie extends AnimationManger {
 
         r_Zombie[ZombieID].setX(gx + r_x);
         r_Zombie[ZombieID].setY(gy + r_y);
-        ColliBrickAndDestroy(r_Zombie[ZombieID]);
         ZombieAnima(ZombieID, gx, gy);
     }
 
@@ -85,7 +75,7 @@ public class Enemy_Zombie extends AnimationManger {
                     removeImageView(Zombie1[newID+1],r_Zombie[ID]);
                     removeImageView(Zombie1[newID+2],r_Zombie[ID]);
                     removeImageView(Zombie1[newID+3],r_Zombie[ID]);
-                    stopAnima(ID,ZombieAnima[ID]);
+                    stopAnima(ZombieAnima[ID]);
                     direction=-2;
                     //setBat(125, 125);
                 }
