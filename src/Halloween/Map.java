@@ -18,7 +18,7 @@ public class Map extends GameUI {
     {
         for(int i=0;i<background.length;i++)
         {
-           // background[i]=new ImageView(background[0]);
+            // background[i]=new ImageView(background[0]);
             background[i].setFitWidth(sizeX);
             background[i].setFitHeight(sizeY);
             //removeImage(backGround[i]);

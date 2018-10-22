@@ -92,7 +92,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
             Iron_Wall[i].setX(-1000);
             Iron_Wall[i].setY(0);
 
-           // r_Iron_Wall[i]=new Rectangle(15, 25.0);
+            // r_Iron_Wall[i]=new Rectangle(15, 25.0);
             //r_Iron_Wall[i].set
             r_Iron_Wall[i]=new Rectangle(20,20);
             r_Iron_Wall[i].setX(-1000);
@@ -172,7 +172,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
             r_Fire1[i].setX(-1000);
             r_Fire1[i].setY(0);
             r_Fire1[i].setVisible(false);
-            
+
             Fire2[i] = new ImageView(newImage1[1]);
             Fire2[i].setFitWidth(XY);
             Fire2[i].setFitHeight(XY);
@@ -182,7 +182,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
             r_Fire2[i].setX(-1000);
             r_Fire2[i].setY(0);
             r_Fire2[i].setVisible(false);
-            
+
             Fire3[i] = new ImageView(newImage1[2]);
             Fire3[i].setFitWidth(XY);
             Fire3[i].setFitHeight(XY);
@@ -554,7 +554,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
         double idleX=actualWidth*Scale,idleY=actualHeight*Scale;
         //System.out.println("idley "+idleY);
         ImageView[] view_L=player_L;
-       // ImageView[] view_R=player_R;
+        // ImageView[] view_R=player_R;
         for (int i = 0; i <player_L.length; i=i+eachNumber) {
 
             for(int j=0;j<eachNumber;j++)
@@ -563,7 +563,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
                 if(index>=3)
                     view_L[index] = new ImageView(newImage_L2[j]);
                 else
-                view_L[index] = new ImageView(newImage_L[j]);
+                    view_L[index] = new ImageView(newImage_L[j]);
                 //System.out.println("check laod image "+c1_idle_L[index].getId());
                 view_L[index].setPreserveRatio(true);
 
@@ -573,8 +573,8 @@ public class GameUI extends PumpkinMan implements PublicVar {
                 view_L[index].setX(-100);
                 view_L[index].setY(0);
 
-               // view_L[index].setTranslateX(xl*Scale);
-               // view_L[index].setTranslateY(0-idleY+yl*Scale);
+                // view_L[index].setTranslateX(xl*Scale);
+                // view_L[index].setTranslateY(0-idleY+yl*Scale);
                 //view_L[index].setTranslateY(actualHeight-2*(actualHeight));
                 //view_L[index].setId(String.valueOf(index));
 
@@ -606,7 +606,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
             r_player[i]=new Rectangle(15,15);
             r_player[i].setX(charX[i]);
             r_player[i].setY(charY[i]);
-           // r_player[i].setStroke(Color.red);
+            // r_player[i].setStroke(Color.red);
             r_player[i].setVisible(false);
 
         }

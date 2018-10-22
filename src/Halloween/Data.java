@@ -207,7 +207,6 @@ public class Data extends AnimationManger  {
                             r_icon_throughWall[lastDropSpeed].setY(newY*25+25);
                             if(colliMetal(r_icon_speed[lastDropSpeed]))
                             {
-
                                 newX=drop.nextInt(((int)sizeX)/25);
                                 newY=drop.nextInt(((int)sizeY)/25);
                             }

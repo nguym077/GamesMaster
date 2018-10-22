@@ -10,7 +10,6 @@ public class Enemy_Bat extends AnimationManger {
     private double BatMove=1;
     Enemy_Bat()
     {
-
     }
     public void initial()
     {
@@ -24,16 +23,12 @@ public class Enemy_Bat extends AnimationManger {
             if(x<=(sizeX-25)||y<=(75+n*25))
                 setBat(x, y);
         }
-
-
     }
-
     public void setBat(int gx, int gy) {
         if (BatID == 49)
             BatID = 0;
         else
             BatID++;
-
         Bat1[BatID*3].setX(gx);
         Bat1[BatID*3].setY(gy);
         Bat1[BatID*3+1].setX(gx);
@@ -42,23 +37,18 @@ public class Enemy_Bat extends AnimationManger {
         Bat1[BatID*3+2].setX(gx);
         Bat1[BatID*3+2].setY(gy);
         Bat1[BatID*3+2].setVisible(false);
-
         r_Bat[BatID].setX(gx + r_x);
         r_Bat[BatID].setY(gy + r_y);
-
         ColliBrickAndDestroy(r_Bat[BatID]);
         BatAnima(BatID, gx, gy);
     }
-
     public void BatAnima(int ID, int bx, int by) {
         final int newID=ID*3;
         Bat_checkHit[ID]=0;
         BatAnima[ID] = new AnimationTimer() {
             Random r = new Random();
-
             // if (frogDown[10].getBoundsInLocal().intersects(playerTank[0].getBoundsInLocal())||
             // frogDown[10].getBoundsInLocal().intersects(playerTank[1].getBoundsInLocal()))
-
             //  double lastTime2=System.nanoTime();
             int count1=0,count2=0;
             int direction=-1,last_direction=-1;
@@ -93,15 +83,10 @@ public class Enemy_Bat extends AnimationManger {
                     block=true;
                 }
                 count2++;
-
                 if(count2>=0&&count2<BatFlyRate){
-
                     animaID=newID;
-
                     Bat1[newID].setVisible(true);
-
                     Bat1[newID+1].setVisible(false);
-
                     Bat1[newID+2].setVisible(false);
                 }
                 if(count2>=BatFlyRate&&count2<2*BatFlyRate)
@@ -119,7 +104,6 @@ public class Enemy_Bat extends AnimationManger {
                 }
                 if(count2>=3*BatFlyRate)
                     count2=0;
-
                 switch (direction)
                 {
                     case 0:{
@@ -146,7 +130,6 @@ public class Enemy_Bat extends AnimationManger {
                             Bat1[animaID].setX(bxx);
                             Bat1[animaID].setY(byy);
                             //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
                             count1++;
                         }
                         if(count1==(25/BatMove)){
@@ -179,7 +162,6 @@ public class Enemy_Bat extends AnimationManger {
                             Bat1[animaID].setX(bxx);
                             Bat1[animaID].setY(byy);
                             //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
                             count1++;
                         }
                         if(count1==(25/BatMove)){
@@ -188,7 +170,6 @@ public class Enemy_Bat extends AnimationManger {
                             block=true;
                             if(change_direction==0)
                                 direction=-1;
-
                         }
                         break;}
                     case 2:{
@@ -213,7 +194,6 @@ public class Enemy_Bat extends AnimationManger {
                             Bat1[animaID].setX(bxx);
                             Bat1[animaID].setY(byy);
                             //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
                             count1++;
                         }
                         if(count1==(25/BatMove)){
@@ -246,7 +226,6 @@ public class Enemy_Bat extends AnimationManger {
                             Bat1[animaID].setX(bxx);
                             Bat1[animaID].setY(byy);
                             //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
                             count1++;
                         }
                         if(count1==(25/BatMove)){
@@ -258,12 +237,8 @@ public class Enemy_Bat extends AnimationManger {
                         }
                         break;}
                 }
-
-
             }
         };BatAnima[ID].start();
-
     }
 }
-
 */

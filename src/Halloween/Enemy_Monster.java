@@ -21,23 +21,17 @@ public class Enemy_Monster extends AnimationManger {
             MonsterD = 0;
         else
             MonsterD++;
-
-
-
         r_Monster1[MonsterD].setX(gx + r_x);
         r_Monster1[MonsterD].setY(gy + r_y);
         MonsterAnima(MonsterD, gx, gy);
     }
-
     public void MonsterAnima(int ID, int bx, int by) {
         final int newID=ID*3;
         Bat_checkHit[ID]=0;
         BatAnima[ID] = new AnimationTimer() {
             Random r = new Random();
-
             // if (frogDown[10].getBoundsInLocal().intersects(playerTank[0].getBoundsInLocal())||
             // frogDown[10].getBoundsInLocal().intersects(playerTank[1].getBoundsInLocal()))
-
             //  double lastTime2=System.nanoTime();
             int count1=0,count2=0;
             int direction=-1,last_direction=-1;
@@ -72,15 +66,10 @@ public class Enemy_Monster extends AnimationManger {
                     block=true;
                 }
                 count2++;
-
                 if(count2>=0&&count2<BatFlyRate){
-
                     animaID=newID;
-
                     Bat1[newID].setVisible(true);
-
                     Bat1[newID+1].setVisible(false);
-
                     Bat1[newID+2].setVisible(false);
                 }
                 if(count2>=BatFlyRate&&count2<2*BatFlyRate)
@@ -98,7 +87,6 @@ public class Enemy_Monster extends AnimationManger {
                 }
                 if(count2>=3*BatFlyRate)
                     count2=0;
-
                 switch (direction)
                 {
                     case 0:{
@@ -125,7 +113,6 @@ public class Enemy_Monster extends AnimationManger {
                             Bat1[animaID].setX(bxx);
                             Bat1[animaID].setY(byy);
                             //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
                             count1++;
                         }
                         if(count1==(25/MonsterMove)){
@@ -158,7 +145,6 @@ public class Enemy_Monster extends AnimationManger {
                             Bat1[animaID].setX(bxx);
                             Bat1[animaID].setY(byy);
                             //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
                             count1++;
                         }
                         if(count1==(25/MonsterMove)){
@@ -167,7 +153,6 @@ public class Enemy_Monster extends AnimationManger {
                             block=true;
                             if(change_direction==0)
                                 direction=-1;
-
                         }
                         break;}
                     case 2:{
@@ -192,7 +177,6 @@ public class Enemy_Monster extends AnimationManger {
                             Bat1[animaID].setX(bxx);
                             Bat1[animaID].setY(byy);
                             //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
                             count1++;
                         }
                         if(count1==(25/MonsterMove)){
@@ -225,7 +209,6 @@ public class Enemy_Monster extends AnimationManger {
                             Bat1[animaID].setX(bxx);
                             Bat1[animaID].setY(byy);
                             //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
                             count1++;
                         }
                         if(count1==(25/MonsterMove)){
@@ -237,11 +220,8 @@ public class Enemy_Monster extends AnimationManger {
                         }
                         break;}
                 }
-
-
             }
         };MonsterAnima[ID].start();
-
     }
 }
 */

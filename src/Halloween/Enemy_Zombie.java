@@ -22,7 +22,7 @@ public class Enemy_Zombie extends AnimationManger {
             int x=75+n*50;
             int y=75+r*25;
             if(x<=(sizeX-25)||y<=(75+n*25))
-            setZombie(x, y);
+                setZombie(x, y);
         }
     }
     public void setZombie(int gx, int gy) {

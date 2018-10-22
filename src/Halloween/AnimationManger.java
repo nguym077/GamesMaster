@@ -21,9 +21,9 @@ public class AnimationManger extends Map {
     public void stopAnima(int ID,AnimationTimer anima)
     {
         if(whoSetBomb[ID]==0)
-        bomb_numbers[0]=bomb_numbers[0]+1;
+            bomb_numbers[0]=bomb_numbers[0]+1;
         else if(whoSetBomb[ID]==1)
-        bomb_numbers[1]=bomb_numbers[1]+1;
+            bomb_numbers[1]=bomb_numbers[1]+1;
 
         whoSetBomb[ID]=-1;
         anima.stop();
@@ -109,7 +109,7 @@ public class AnimationManger extends Map {
             {
                 item=1;
                 if( health[ID]!=5)
-                health[ID]=health[ID]+1;
+                    health[ID]=health[ID]+1;
                 removeImageView(icon_health[10],r_icon_health[10]);
                 break;
             }
@@ -117,7 +117,7 @@ public class AnimationManger extends Map {
             {
                 item=4;
                 if( player_speed[ID]!=8)
-                player_speed[ID]=player_speed[ID]+1;
+                    player_speed[ID]=player_speed[ID]+1;
                 removeImageView(icon_speed[10],r_icon_speed[10]);
                 break;
             }
@@ -147,7 +147,7 @@ public class AnimationManger extends Map {
             {
                 item=6;
                 if(life[ID]!=5)
-                life[ID]=life[ID]+1;
+                    life[ID]=life[ID]+1;
                 removeImageView(icon_power[10],r_icon_addLife[10]);
                 break;
             }
@@ -233,7 +233,6 @@ public class AnimationManger extends Map {
                 //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
                 check=true;
                 Ghost_checkHit[i]=1;
-
             }
         }*/
 

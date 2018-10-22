@@ -98,7 +98,7 @@ public class Keyboard extends Bomb {
             int count=0;boolean start=false;
             public void handle(long now) {
                 if(start==false)
-                count++;
+                    count++;
                 if(count>100)
                 {
                     start=true;
