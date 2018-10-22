@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class GameUI extends Main implements PublicVar {
+public class GameUI extends PumpkinMan implements PublicVar {
     public void initial()
     {
         initial_data();

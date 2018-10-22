@@ -1,4 +1,5 @@
 import Concentration.Concentration;
+import Halloween.PumpkinMan;
 import Maze.MazeController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,5 +74,14 @@ public class MainController {
         Stage tankStage = new Stage();
         Tank tankGame = new Tank();
         tankGame.start(tankStage);
+    }
+
+    public void handlePumpkinButton() throws Exception {
+        System.out.println("Pumpkin-Man button clicked.");
+        System.out.println("Start Pumpkin-Man game.");
+
+        Stage pumpkinStage = new Stage();
+        PumpkinMan pumpkinGame = new PumpkinMan();
+        pumpkinGame.start(pumpkinStage);
     }
 }

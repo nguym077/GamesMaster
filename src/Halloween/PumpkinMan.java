@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
-public class Main extends Application implements PublicVar{
+public class PumpkinMan extends Application implements PublicVar{
 
     Pane root;
     Pane data;
@@ -44,7 +44,7 @@ public class Main extends Application implements PublicVar{
         pane.setBottom(root);
 
         Scene scene = new Scene(pane,sizeXX,sizeY+50);
-        stage.setTitle("ImageView");
+        stage.setTitle("Pumpkin-Man");
         //stage.setWidth(700);
         //stage.setHeight(600);
         stage.setScene(scene);
