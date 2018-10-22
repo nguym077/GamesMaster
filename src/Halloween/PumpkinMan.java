@@ -117,6 +117,11 @@ public class PumpkinMan extends Application implements PublicVar{
             rt.getChildren().add(Bricks[i]);
             rt.getChildren().add(r_Bricks[i]);
         }
+        for(int i=0;i<Gravestones.length;i++)
+        {
+            rt.getChildren().add(Gravestones[i]);
+            rt.getChildren().add(r_Gravestones[i]);
+        }
         for(int i=0;i<Bombs1.length;i++)
         {
             rt.getChildren().add(Bombs1[i]);

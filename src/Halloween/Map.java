@@ -11,6 +11,7 @@ public class Map extends GameUI {
         setIronWall();
         setBlocks();
         setBrick();
+        setGravestone();
         //Bomb newBomb=new Bomb();
     }
 

@@ -112,6 +112,6 @@ public interface PublicVar {
     int[] noHurt=new int[2];
     int[] throughWall=new int[2];
 
-    ImageView[] Gravestones=new ImageView[500];
-    Rectangle[] r_Gravestones=new Rectangle[500];
+    ImageView[] Gravestones=new ImageView[200];
+    Rectangle[] r_Gravestones=new Rectangle[200];
 }
