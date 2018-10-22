@@ -147,106 +147,49 @@ public class Data extends AnimationManger  {
                     {
                         trytime=10;
                         boolean set=false;
-                        while(set==false)
-                        {
+
                             trytime--;
                             r_icon_health[lastDropHealth].setX(newX*25+25);
                             r_icon_health[lastDropHealth].setY(newY*25+25);
-                            if(colliMetal(r_icon_health[lastDropHealth]))
-                            {
 
-                                newX=drop.nextInt(((int)(sizeX-50)/25));
-                                newY=drop.nextInt(((int)(sizeY-50)/25));
-                            }
-                            else
-                            {
-                                set=true;
-                            }
-                        }
                         icon_health[lastDropHealth].setX(newX*25+25);
                         icon_health[lastDropHealth].setY(newY*25+25);
                     }
                     else if(newItem==2)
                     {
                         boolean set=false;
-                        while(set==false)
-                        {
+
                             r_icon_bomb[lastDropBome].setX(newX*25+25);
                             r_icon_bomb[lastDropBome].setY(newY*25+25);
-                            if(colliMetal(r_icon_bomb[lastDropBome]))
-                            {
 
-                                newX=drop.nextInt(((int)(sizeX-50)/25));
-                                newY=drop.nextInt(((int)(sizeY-50)/25));
-                            }
-                            else
-                            {
-                                set=true;
-                            }
-                        }
                         icon_bomb[lastDropBome].setX(newX*25+25);
                         icon_bomb[lastDropBome].setY(newY*25+25);
                     }
                     else if(newItem==3)
                     {
                         boolean set=false;
-                        while(set==false)
-                        {
                             r_icon_power[lastDropPower].setX(newX*25+25);
                             r_icon_power[lastDropPower].setY(newY*25+25);
-                            if(colliMetal(r_icon_power[lastDropPower]))
-                            {
 
-                                newX=drop.nextInt(((int)(sizeX-50)/25));
-                                newY=drop.nextInt(((int)(sizeY-50)/25));
-                            }
-                            else
-                            {
-                                set=true;
-                            }
-                        }
                         icon_power[lastDropPower].setX(newX*25+25);
                         icon_power[lastDropPower].setY(newY*25+25);
                     }
                     else if(newItem==4)
                     {
                         boolean set=false;
-                        while(set==false)
-                        {
+
                             r_icon_speed[lastDropSpeed].setX(newX*25+25);
                             r_icon_speed[lastDropSpeed].setY(newY*25+25);
-                            if(colliMetal(r_icon_speed[lastDropSpeed]))
-                            {
 
-                                newX=drop.nextInt(((int)(sizeX-50)/25));
-                                newY=drop.nextInt(((int)(sizeY-50)/25));
-                            }
-                            else
-                            {
-                                set=true;
-                            }
-                        }
                         icon_speed[lastDropSpeed].setX(newX*25+25);
                         icon_speed[lastDropSpeed].setY(newY*25+25);
                     }
                     else if(newItem==5)
                     {
                         boolean set=false;
-                        while(set==false)
-                        {
                             r_icon_noHurt[lastDropSpeed].setX(newX*25+25);
                             r_icon_noHurt[lastDropSpeed].setY(newY*25+25);
-                            if(colliMetal(r_icon_speed[lastDropSpeed]))
-                            {
 
-                                newX=drop.nextInt(((int)(sizeX-50)/25));
-                                newY=drop.nextInt(((int)(sizeY-50)/25));
-                            }
-                            else
-                            {
-                                set=true;
-                            }
-                        }
                         icon_noHurt[lastDropSpeed].setX(newX*25+25);
                         icon_noHurt[lastDropSpeed].setY(newY*25+25);
                     }
@@ -276,21 +219,10 @@ public class Data extends AnimationManger  {
                     else if(newItem==6)
                     {
                         boolean set=false;
-                        while(set==false)
-                        {
+
                             r_icon_addLife[lastDropSpeed].setX(newX*25+25);
                             r_icon_addLife[lastDropSpeed].setY(newY*25+25);
-                            if(colliMetal(r_icon_speed[lastDropSpeed]))
-                            {
 
-                                newX=drop.nextInt(((int)(sizeX-50)/25));
-                                newY=drop.nextInt(((int)(sizeY-50)/25));
-                            }
-                            else
-                            {
-                                set=true;
-                            }
-                        }
                         r_icon_addLife[lastDropSpeed].setX(newX*25+25);
                         r_icon_addLife[lastDropSpeed].setY(newY*25+25);
                     }
