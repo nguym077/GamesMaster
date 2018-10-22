@@ -11,7 +11,7 @@ public class player extends AnimationManger {
     int setx=0,sety=0;
     player() {
         setx=125;sety=425;
-        setPlayer(125, 425);
+        setPlayer(25, 570);
         for(int i=0;i<Bricks.length;i++)
         {
             int x=(int)Bricks[i].getX();
@@ -62,10 +62,6 @@ public class player extends AnimationManger {
         PlayerAnima[ID] = new AnimationTimer() {
             Random r = new Random();
 
-            // if (frogDown[10].getBoundsInLocal().intersects(playerTank[0].getBoundsInLocal())||
-            // frogDown[10].getBoundsInLocal().intersects(playerTank[1].getBoundsInLocal()))
-
-            //  double lastTime2=System.nanoTime();
             int count1=0,count2=0;
             int direction=-1,last_direction=-1;
             double bxx=(double)bx,byy=(double)by;
@@ -75,6 +71,7 @@ public class player extends AnimationManger {
             int animaID=newID;
             int Rate=10;
             int speed=5;
+
             public void handle(long now) {
                 // if(direction==-1)
                 //count1++;count2++;
@@ -122,10 +119,8 @@ public class player extends AnimationManger {
                 if(count2>=3*Rate)
                     count2=0;
                 count1++;
-                //System.out.println("rect x y "+r_player[ID].getX()+" "+r_player[ID].getY());
                 if(count1>3)
                 {
-                    //System.out.println("status "+status[ID]);
                     count1=0;
                     if(status[ID]==1)
                     {
@@ -145,7 +140,6 @@ public class player extends AnimationManger {
                         //r_player[ID].setY(charY[ID]+3+2.5);
 
                         if(block==false) {
-                            System.out.println("move up ");
                             r_player[ID].setX(charX[ID]+5+2.5);
                             r_player[ID].setY(charY[ID]+5+2.5);
                             charY[ID] = charY[ID] - speed;
@@ -234,20 +228,8 @@ public class player extends AnimationManger {
                         r_player[ID].setX(charX[ID]+5+2.5);
                         r_player[ID].setY(charY[ID]+5+2.5);
                     }
-                    //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
-
                 }
-
-
             }
-
-
-
-
-
-
         };PlayerAnima[ID].start();
-
     }
 }
