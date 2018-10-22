@@ -4,7 +4,7 @@ import javafx.animation.AnimationTimer;
 
 import java.util.Random;
 
-/*
+
 public class Enemy_Vamp extends AnimationManger {
     private int VampID = 0;
     private double VampMove=0.5;
@@ -283,4 +283,3 @@ public class Enemy_Vamp extends AnimationManger {
     }
 }
 
-*/

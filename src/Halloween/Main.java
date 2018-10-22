@@ -16,15 +16,15 @@ import java.util.Objects;
 public class Main extends Application implements PublicVar{
 
     Pane root;
-    Pane data;
+    //Pane data;
     @Override
     public void start(Stage stage) {
         root =new Pane();  //this is the game pane
-        data =new Pane();  //this pane will record game data like health, power etc.
+        //data =new Pane();  //this pane will record game data like health, power etc.
         root.setMaxSize(sizeX, sizeY);
         root.setStyle("-fx-background-color: black");
-        data.setMaxSize(sizeX, 50);
-        data.setStyle("-fx-background-color: grey;");
+        //data.setMaxSize(sizeX, 50);
+        //data.setStyle("-fx-background-color: grey;");
 
         GameUI newGameUI=new GameUI();  //load the ui from background_images folder
         newGameUI.initial();
@@ -38,13 +38,13 @@ public class Main extends Application implements PublicVar{
         //root.requestFocus();
         add(root);
 
-        addData(data);
+        //addData(data);
 
-        pane.setTop(data);
+        //pane.setTop(data);
         pane.setBottom(root);
 
         Scene scene = new Scene(pane,sizeXX,sizeY+50);
-        stage.setTitle("ImageView");
+        stage.setTitle("Pumpkin-Man");
         //stage.setWidth(700);
         //stage.setHeight(600);
         stage.setScene(scene);

@@ -32,11 +32,11 @@ public interface PublicVar {
     Rectangle[] r_Ghost1=new Rectangle[100];
     AnimationTimer[] GhostAnima=new AnimationTimer[50];
 
-//    int[] Monster_checkHit=new int[10];
-//    ImageView[] Monster1_L=new ImageView[160];
-//    ImageView[] Monster1_R=new ImageView[160];
-//    Rectangle[] r_Monster1=new Rectangle[10];
-//    AnimationTimer[] MonsterAnima=new AnimationTimer[10];
+    int[] Monster_checkHit=new int[10];
+    ImageView[] Monster1_L=new ImageView[160];
+    ImageView[] Monster1_R=new ImageView[160];
+    Rectangle[] r_Monster1=new Rectangle[10];
+    AnimationTimer[] MonsterAnima=new AnimationTimer[10];
 
     int[] player_checkHit=new int[2];
     ImageView[] player_L=new ImageView[6];
@@ -52,15 +52,15 @@ public interface PublicVar {
     ImageView[] Fire3=new ImageView[500];
     Rectangle[] r_Fire3=new Rectangle[500];
 
-//    int[] Bat_checkHit=new int[50];
-//    ImageView[] Bat1=new ImageView[150];
-//    Rectangle[] r_Bat=new Rectangle[50];
-//    AnimationTimer[] BatAnima=new AnimationTimer[50];
+    int[] Bat_checkHit=new int[50];
+    ImageView[] Bat1=new ImageView[150];
+    Rectangle[] r_Bat=new Rectangle[50];
+    AnimationTimer[] BatAnima=new AnimationTimer[50];
 
-//    int[] Vamp_checkHit=new int[50];
-//    ImageView[] Vamp1=new ImageView[200];
-//    Rectangle[] r_Vamp=new Rectangle[50];
-//    AnimationTimer[] VampAnima=new AnimationTimer[50];
+    int[] Vamp_checkHit=new int[50];
+    ImageView[] Vamp1=new ImageView[200];
+    Rectangle[] r_Vamp=new Rectangle[50];
+    AnimationTimer[] VampAnima=new AnimationTimer[50];
     
     int[] Zombie_checkHit=new int[50];
     ImageView[] Zombie1=new ImageView[200];
