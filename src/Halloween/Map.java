@@ -126,6 +126,30 @@ public class Map extends GameUI {
                 }
             }
         }
+
+
+    }
+
+    public void setGravestone() {
+        Gravestones[1].setX(10 * 25 + 25);
+        Gravestones[1].setY(7 * 25 + 25);
+        r_Gravestones[1].setX(10 * 25 + 25 + 2.5);
+        r_Gravestones[1].setY(7 * 25 + 25 + 2.5);
+
+        Gravestones[2].setX(10 * 25 + 25);
+        Gravestones[2].setY(19 * 25 + 25);
+        r_Gravestones[2].setX(10 * 25 + 25 + 2.5);
+        r_Gravestones[2].setY(19 * 25 + 25 + 2.5);
+
+        Gravestones[3].setX(30 * 25 + 25);
+        Gravestones[3].setY(7 * 25 + 25);
+        r_Gravestones[3].setX(30 * 25 + 25 + 2.5);
+        r_Gravestones[3].setY(7 * 25 + 25 + 2.5);
+
+        Gravestones[4].setX(30 * 25 + 25);
+        Gravestones[4].setY(19 * 25 + 25);
+        r_Gravestones[4].setX(30 * 25 + 25 + 2.5);
+        r_Gravestones[4].setY(19 * 25 + 25 + 2.5);
     }
 
 }
