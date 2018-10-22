@@ -130,7 +130,7 @@ public class Tank extends Application implements imageUi {
 
 		for (int i = 0; i < 4; i++) {
 			data.getChildren().add(health[i]);
-			//data.getChildren().add(player1[i]);
+			//Data.getChildren().add(player1[i]);
 		}
 		for (int i = 68; i < 80; i++) {
 			data.getChildren().add(bunnyLeft[i]);
@@ -146,7 +146,7 @@ public class Tank extends Application implements imageUi {
 		}
 		pane.setLeft(root);
 		pane.setBottom(data);
-		//pane.setCenter(data);
+		//pane.setCenter(Data);
 		//ControlRoot.getChildren().addAll(root,root2);
 		Scene scene = new Scene(pane, sizeXX, sizeYY);
 

@@ -10,7 +10,7 @@ interface imageUi {
 	double sizeXX=1200,sizeYY=700;
 	//game window size
 	double sizeX=1200,sizeY=650;
-	//player tank rotate angle, move forward distance, back ward distance
+	//Player tank rotate angle, move forward distance, back ward distance
 	double angle=3,initialSpeed=2;
 	double damage=-10;
 	ImageView [] playerTank=new ImageView[3];
@@ -51,15 +51,15 @@ interface imageUi {
 	AnimationTimer []aiFrogAnima=new AnimationTimer[20];
 	AnimationTimer []randomForgAnima=new AnimationTimer[1];
 	
-	Rectangle [] rectangle=new Rectangle[3]; //for player tank
+	Rectangle [] rectangle=new Rectangle[3]; //for Player tank
 	Rectangle [] board=new Rectangle[4];  //for game window
 	Rectangle [] aiRectangle=new Rectangle[300]; //for ai
 	Rectangle [] path=new Rectangle[10]; //for path without wall
 	Rectangle [] wallRec=new Rectangle[3000];  //for wall
-	Rectangle [] health=new Rectangle[4]; //for player tank
-	Rectangle [] dataRec=new Rectangle[1]; //for player tank
+	Rectangle [] health=new Rectangle[4]; //for Player tank
+	Rectangle [] dataRec=new Rectangle[1]; //for Player tank
 	
-	Rectangle [] coliFrog=new Rectangle[1]; //for player tank
+	Rectangle [] coliFrog=new Rectangle[1]; //for Player tank
 	
 	Path []mazePath = new Path[1]; 
 	

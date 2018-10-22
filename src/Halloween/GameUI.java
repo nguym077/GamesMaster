@@ -374,7 +374,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
             icon_1st[i].setFitHeight(XY);
             icon_1st[i].setX(-1000);
             icon_1st[i].setY(0);
-            //data.getChildren().add(icon_1st[i]);
+            //Data.getChildren().add(icon_1st[i]);
 
             icon_2nd[i] = new ImageView(newImage[5]);
             icon_2nd[i].setFitWidth(XY);
@@ -383,7 +383,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
             icon_2nd[i].setY(0);
 
 
-            //data.getChildren().add(icon_2nd[i]);
+            //Data.getChildren().add(icon_2nd[i]);
         }
 
 
@@ -394,28 +394,28 @@ public class GameUI extends PumpkinMan implements PublicVar {
             icon_bomb[i].setFitHeight(XY);
             icon_bomb[i].setX(-1000);
             icon_bomb[i].setY(0);
-            //data.getChildren().add(icon_bomb[i]);
+            //Data.getChildren().add(icon_bomb[i]);
 
             icon_health[i] = new ImageView(newImage[1]);
             icon_health[i].setFitWidth(XY);
             icon_health[i].setFitHeight(XY);
             icon_health[i].setX(-1000);
             icon_health[i].setY(0);
-            //data.getChildren().add(icon_health[i]);
+            //Data.getChildren().add(icon_health[i]);
 
             icon_power[i] = new ImageView(newImage[2]);
             icon_power[i].setFitWidth(XY);
             icon_power[i].setFitHeight(XY);
             icon_power[i].setX(-1000);
             icon_power[i].setY(0);
-            //data.getChildren().add(icon_power[i]);
+            //Data.getChildren().add(icon_power[i]);
 
             icon_speed[i] = new ImageView(newImage[3]);
             icon_speed[i].setFitWidth(XY);
             icon_speed[i].setFitHeight(XY);
             icon_speed[i].setX(-1000);
             icon_speed[i].setY(0);
-            //data.getChildren().add(icon_speed[i]);
+            //Data.getChildren().add(icon_speed[i]);
 
             icon_noHurt[i] = new ImageView(newImage[6]);
             icon_noHurt[i].setFitWidth(XY);

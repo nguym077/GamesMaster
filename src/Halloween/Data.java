@@ -4,7 +4,7 @@ import javafx.animation.AnimationTimer;
 
 import java.util.Random;
 
-public class data extends AnimationManger  {
+public class Data extends AnimationManger  {
     public void setUp() //x50,y50
     {
 
@@ -55,7 +55,7 @@ public class data extends AnimationManger  {
                         icon_speed[i].setX(10+25+5*5+25*5+5*i+25*i);
                         icon_speed[i].setY(25);
                     }
-                    //for player 2
+                    //for Player 2
                     int index=0;
                     for(int i=0;i<health[1];i++)
                     {

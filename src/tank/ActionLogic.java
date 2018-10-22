@@ -185,7 +185,7 @@ abstract class ActionLogic extends dataPanel implements imageUi{
 				}
 			}
 		}
-		//check with player
+		//check with Player
 		if(!collison) {
 			for(int i=0;i<rectangle.length;i++)
 			{

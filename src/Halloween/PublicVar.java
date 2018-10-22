@@ -12,7 +12,7 @@ public interface PublicVar {
     double r_x=2.5, r_y=2.5;
     ImageView[] background=new ImageView[3];
     ImageView[] Iron_Wall=new ImageView[400];
-    Rectangle[] r_Iron_Wall=new Rectangle[400]; //for player tank
+    Rectangle[] r_Iron_Wall=new Rectangle[400]; //for Player tank
 
     ImageView[] Blocks=new ImageView[200];
     Rectangle[] r_Blocks=new Rectangle[200];

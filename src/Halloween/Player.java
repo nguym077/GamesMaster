@@ -5,11 +5,11 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
-public class player extends AnimationManger {
+public class Player extends AnimationManger {
     private int playerID = 0;
     private double playerMove = 0.25;
     int setx=0,sety=0;
-    player() {
+    Player() {
 
     }
     public void initial( )
@@ -25,7 +25,7 @@ public class player extends AnimationManger {
 
         charX[playerID]=gx;
         charY[playerID]=gy;
-        System.out.println("player id "+playerID+" x y "+charX[playerID]+" "+charY[playerID]);
+        System.out.println("Player id "+playerID+" x y "+charX[playerID]+" "+charY[playerID]);
         for (int i = 0; i < 3; i++) {
 
             player_L[playerID * 3 + i].setX(gx);

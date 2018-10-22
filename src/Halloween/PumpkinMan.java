@@ -2,13 +2,11 @@ package Halloween;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -20,7 +18,7 @@ public class PumpkinMan extends Application implements PublicVar{
     @Override
     public void start(Stage stage) {
         root =new Pane();  //this is the game pane
-        data =new Pane();  //this pane will record game data like health, power etc.
+        data =new Pane();  //this pane will record game Data like health, power etc.
         root.setMaxSize(sizeX, sizeY);
         root.setStyle("-fx-background-color: black");
         data.setMaxSize(sizeX, 50);
@@ -85,8 +83,8 @@ public class PumpkinMan extends Application implements PublicVar{
         //Enemy_Vamp newVamp=new Enemy_Vamp();
         Enemy_Zombie newZombie=new Enemy_Zombie();
         Bird newBird = new Bird();
-        player newPlayer=new player();
-        data newData=new data();
+        Player newPlayer=new Player();
+        Data newData=new Data();
 
 
         newGhost.initial();
