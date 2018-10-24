@@ -98,14 +98,14 @@ public class Keyboard extends Bomb {
             int count=0;boolean start=false;
             public void handle(long now) {
                 if(start==false)
-                    count++;
-                if(count>100)
+                count++;
+                if(count>200)
                 {
                     start=true;
-                    if(w){status[0]=1;}
-                    else if(s){status[0]=2;}
-                    else if(a){status[0]=3;}
-                    else if(d){status[0]=4;}
+                    if(w&&!s&&!a&&!d){status[0]=1;}
+                    else if(!w&&s&&!a&&!d){status[0]=2;}
+                    else if(!w&&!s&&a&&!d){status[0]=3;}
+                    else if(!w&&!s&&!a&&d){status[0]=4;}
                     else status[0]=0;
                 }
 
@@ -122,7 +122,7 @@ public class Keyboard extends Bomb {
             public void handle(long now) {
                 if(start==false)
                     count++;
-                if(count>100)
+                if(count>200)
                 {
                     if(up){status[1]=1;}
                     else if(down){status[1]=2;}

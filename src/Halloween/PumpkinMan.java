@@ -78,9 +78,9 @@ public class PumpkinMan extends Application implements PublicVar{
 
         Bomb newbomb=new Bomb();
         Enemy_Ghost newGhost=new Enemy_Ghost();
-        //Enemy_Bat newBat=new Enemy_Bat();
+        Enemy_Bat newBat=new Enemy_Bat();
 
-        //Enemy_Vamp newVamp=new Enemy_Vamp();
+        Enemy_Vamp newVamp=new Enemy_Vamp();
         Enemy_Zombie newZombie=new Enemy_Zombie();
         Bird newBird = new Bird();
         Player newPlayer=new Player();
@@ -88,8 +88,8 @@ public class PumpkinMan extends Application implements PublicVar{
 
 
         newGhost.initial();
-        //newBat.initial();
-        //newVamp.initial();
+        newBat.initial();
+        newVamp.initial();
         newZombie.initial();
         newPlayer.initial();
 
@@ -116,11 +116,6 @@ public class PumpkinMan extends Application implements PublicVar{
         {
             rt.getChildren().add(Bricks[i]);
             rt.getChildren().add(r_Bricks[i]);
-        }
-        for(int i=0;i<Gravestones.length;i++)
-        {
-            rt.getChildren().add(Gravestones[i]);
-            rt.getChildren().add(r_Gravestones[i]);
         }
         for(int i=0;i<Bombs1.length;i++)
         {
@@ -163,19 +158,19 @@ public class PumpkinMan extends Application implements PublicVar{
             rt.getChildren().add(r_Ghost1[i]);
         }
 
-//        for(int i=0;i<Bat1.length;i++)
-//        {
-//            rt.getChildren().add(Bat1[i]);
-//            if(i<Bat1.length/3)
-//                rt.getChildren().add(r_Bat[i]);
-//        }
-//
-//        for(int i=0;i<Vamp1.length;i++)
-//        {
-//            rt.getChildren().add(Vamp1[i]);
-//            if(i<Vamp1.length/4)
-//                rt.getChildren().add(r_Vamp[i]);
-//        }
+        for(int i=0;i<Bat1.length;i++)
+        {
+            rt.getChildren().add(Bat1[i]);
+            if(i<Bat1.length/3)
+                rt.getChildren().add(r_Bat[i]);
+        }
+
+        for(int i=0;i<Vamp1.length;i++)
+        {
+            rt.getChildren().add(Vamp1[i]);
+            if(i<Vamp1.length/4)
+                rt.getChildren().add(r_Vamp[i]);
+        }
 
         for(int i=0;i<Zombie1.length;i++)
         {

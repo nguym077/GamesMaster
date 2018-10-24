@@ -15,14 +15,14 @@ public class Enemy_Zombie extends AnimationManger {
     public void initial()
     {
         Random rn=new Random();
-        for(int i=0;i<3;i++)
+        for(int i=0;i<10;i++)
         {
             int n=rn.nextInt(20);
             int r=rn.nextInt(20);
             int x=75+n*50;
             int y=75+r*25;
             if(x<=(sizeX-25)||y<=(75+n*25))
-                setZombie(x, y);
+            setZombie(x, y);
         }
     }
     public void setZombie(int gx, int gy) {

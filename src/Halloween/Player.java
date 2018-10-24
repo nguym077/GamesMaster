@@ -57,14 +57,15 @@ public class Player extends AnimationManger {
             int testMove=10;
             int change_direction=-1;
             int animaID=newID;
-            int Rate=10;
+            int Rate=5;
             int speed=player_speed[ID]*2;
             int last_status=0;
             public void handle(long now) {
                 if(ini==false)
-                    countI++;
+                countI++;
                 if(countI>50&&ini==false)
                 {
+                	countI=0;
                     ini=true;
                     r_player[ID].setX(charX[ID]+2.5-25);
                     r_player[ID].setY(charY[ID]+2.5);
@@ -106,7 +107,7 @@ public class Player extends AnimationManger {
                     if(noHurt[ID]%2!=0)
                         player_L[newID].setVisible(false);
                     else
-                        player_L[newID].setVisible(true);
+                    player_L[newID].setVisible(true);
                     player_L[newID+1].setVisible(false);
                     player_L[newID+2].setVisible(false);
 
@@ -158,205 +159,205 @@ public class Player extends AnimationManger {
                 if(count2>=3*Rate)
                     count2=0;
                 count1++;
-                //System.out.println("rect x y "+r_player[ID].getX()+" "+r_player[ID].getY());
-                if(count1>3)
-                {
-
-
-                    //System.out.println("status "+status[ID]);
-                    count1=0;
-
-                    if(status[ID]==1||status[ID]==2)
+                    //System.out.println("rect x y "+r_player[ID].getX()+" "+r_player[ID].getY());
+                    if(count1>3)
                     {
-                        if(last_status==3||last_status==4||status[ID]==0)
+
+
+                        //System.out.println("status "+status[ID]);
+                        count1=0;
+                        /*
+                        if(status[ID]==1||status[ID]==2)
                         {
-                            int hx=charX[ID]/100*100,dx=charX[ID]%100,fx=0;
-                            if(dx>=10&&dx<35)
-                                fx=hx+20;
-                            else if(dx>=35&&dx<55)
-                                fx=hx+45;
-                            else if(dx>=55&&dx<85)
-                                fx=hx+75;
-                            else if(dx>=85&&dx<100)
-                                fx=hx+95;
-                            else
-                                fx=charX[ID];
-                            charX[ID]=fx;
+                            if(last_status==3||last_status==4||status[ID]==0)
+                            {
+                                int hx=charX[ID]/100*100,dx=charX[ID]%100,fx=0;
+                                if(dx>=10&&dx<35)
+                                    fx=hx+25;
+                                else if(dx>=35&&dx<55)
+                                    fx=hx+50;
+                                else if(dx>=55&&dx<89)
+                                    fx=hx+75;
+                                else if(dx>=89&&dx<99)
+                                    fx=hx+99;
+                                else
+                                    fx=charX[ID];
+                                charX[ID]=fx;
 
-                            int h=charY[ID]/100*100,d=charY[ID]%100,f=0;
-                            if(d>=10&&d<35)
-                                f=h+20;
-                            else if(d>=35&&d<55)
-                                f=h+45;
-                            else if(d>=55&&d<85)
-                                f=h+75;
-                            else if(d>=85&&d<100)
-                                f=h+95;
-                            else
-                                f=charY[ID];
-                            charY[ID]=f;
-                            player_L[animaID].setX(charX[ID]);
-                            player_L[animaID].setY(charY[ID]);
+                                int h=charY[ID]/100*100,d=charY[ID]%100,f=0;
+                                if(d>=10&&d<35)
+                                    f=h+25;
+                                else if(d>=35&&d<55)
+                                    f=h+50;
+                                else if(d>=55&&d<85)
+                                    f=h+75;
+                                else if(d>=85&&d<100)
+                                    f=h+100;
+                                else
+                                    f=charY[ID];
+                                charY[ID]=f;
+                                player_L[animaID].setX(charX[ID]);
+                                player_L[animaID].setY(charY[ID]);
+                            }
                         }
-                    }
-                    else if(last_status==3||last_status==4)
-                    {
-                        if(status[ID]==1||status[ID]==2||status[ID]==0)
+                        else if(last_status==3||last_status==4)
                         {
-                            int hx=charX[ID]/100*100,dx=charX[ID]%100,fx=0;
-                            if(dx>=10&&dx<35)
-                                fx=hx+20;
-                            else if(dx>=35&&dx<55)
-                                fx=hx+45;
-                            else if(dx>=55&&dx<85)
-                                fx=hx+75;
-                            else if(dx>=85&&dx<100)
-                                fx=hx+95;
-                            else
-                                fx=charX[ID];
-                            charX[ID]=fx;
+                            if(status[ID]==1||status[ID]==2||status[ID]==0)
+                            {
+                                int hx=charX[ID]/100*100,dx=charX[ID]%100,fx=0;
+                                if(dx>=10&&dx<35)
+                                    fx=hx+25;
+                                else if(dx>=35&&dx<55)
+                                    fx=hx+50;
+                                else if(dx>=55&&dx<89)
+                                    fx=hx+75;
+                                else if(dx>=89&&dx<99)
+                                    fx=hx+99;
+                                else
+                                    fx=charX[ID];
+                                charX[ID]=fx;
 
-                            int h=charY[ID]/100*100,d=charY[ID]%100,f=0;
-                            if(d>=10&&d<35)
-                                f=h+20;
-                            else if(d>=35&&d<55)
-                                f=h+45;
-                            else if(d>=55&&d<85)
-                                f=h+75;
-                            else if(d>=85&&d<100)
-                                f=h+95;
-                            else
-                                f=charY[ID];
-                            charY[ID]=f;
-                            player_L[animaID].setX(charX[ID]);
-                            player_L[animaID].setY(charY[ID]);
+                                int h=charY[ID]/100*100,d=charY[ID]%100,f=0;
+                                if(d>=10&&d<35)
+                                    f=h+25;
+                                else if(d>=35&&d<55)
+                                    f=h+50;
+                                else if(d>=55&&d<85)
+                                    f=h+75;
+                                else if(d>=85&&d<100)
+                                    f=h+100;
+                                else
+                                    f=charY[ID];
+                                charY[ID]=f;
+                                player_L[animaID].setX(charX[ID]);
+                                player_L[animaID].setY(charY[ID]);
+                            }
                         }
-                    }
-                    if(status[ID]==0)
-                    {
-                        last_status=0;
-
-                    }
-                    if(status[ID]==1)   //up
-                    {
-                        last_status=1;
-                        //System.out.println("move up 1");
-                        r_player[ID].setX(charX[ID]+5+2.5);
-                        r_player[ID].setY(charY[ID]+5-5+2.5);
-                        if(!colliMetal(r_player[ID])&&!colliBrick(r_player[ID]))
+                        */
+                        if(status[ID]==0)
                         {
-                            block=false;
+                            last_status=0;
+
                         }
-                        //&&!Object_colliBomb(r_player[ID])
-                        else
-                            block=true;
-                        //System.out.println("coli");
-                        //r_player[ID].setY(charY[ID]+3+2.5);
-
-                        if(block==false) {
-                            //System.out.println("move up x y"+charX[ID]+" "+charY[ID]);
-
-                            charY[ID] = charY[ID] - speed;
-
+                        if(status[ID]==1)   //up
+                        {
+                            last_status=1;
+                            //System.out.println("move up 1");
                             r_player[ID].setX(charX[ID]+2.5);
-                            r_player[ID].setY(charY[ID]+2.5);
-                            player_L[animaID].setX(charX[ID]);
-                            player_L[animaID].setY(charY[ID]);
-                            //System.out.println("move up x y"+charX[ID]+" "+charY[ID]);
-                        }
+                            r_player[ID].setY(charY[ID]-10+2.5);
+                            if(!colliMetal(r_player[ID])&&!colliBrick(r_player[ID]))
+                            {
+                             block=false;
+                            }
+                             //&&!Object_colliBomb(r_player[ID])
+                            else
+                                block=true;
+                                //System.out.println("coli");
+                            //r_player[ID].setY(charY[ID]+3+2.5);
 
-                    }
-                    else if(status[ID]==2)  //down
-                    {
-                        last_status=2;
-                        r_player[ID].setX(charX[ID]+5+2.5);
-                        r_player[ID].setY(charY[ID]+5+10+2.5);
-                        if(!colliMetal(r_player[ID])&&!colliBrick(r_player[ID]))
+                            if(block==false) {
+                                //System.out.println("move up x y"+charX[ID]+" "+charY[ID]);
+
+                                charY[ID] = charY[ID] - speed;
+
+                                r_player[ID].setX(charX[ID]+5);
+                                r_player[ID].setY(charY[ID]+2.5);
+                                player_L[animaID].setX(charX[ID]);
+                                player_L[animaID].setY(charY[ID]);
+                                //System.out.println("move up x y"+charX[ID]+" "+charY[ID]);
+                            }
+
+                        }
+                        else if(status[ID]==2)  //down
                         {
-                            block=false;
-                        }
-                        //&&!Object_colliBomb(r_player[ID])
-                        else
-                            block=true;
-                        //r_player[ID].setY(charY[ID]+10+2.5);
-
-                        if(block==false) {
-                            //System.out.println("move down x y"+charX[ID]+" "+charY[ID]);
-
-                            charY[ID] = charY[ID] + speed;
+                            last_status=2;
                             r_player[ID].setX(charX[ID]+2.5);
-                            r_player[ID].setY(charY[ID]+2.5);
-                            player_L[animaID].setX(charX[ID]);
-                            player_L[animaID].setY(charY[ID]);
-                            //System.out.println("move down x y"+charX[ID]+" "+charY[ID]);
+                            r_player[ID].setY(charY[ID]+10+2.5);
+                            if(!colliMetal(r_player[ID])&&!colliBrick(r_player[ID]))
+                            {
+                                block=false;
+                            }
+                            //&&!Object_colliBomb(r_player[ID])
+                            else
+                                block=true;
+                            //r_player[ID].setY(charY[ID]+10+2.5);
+
+                            if(block==false) {
+                                //System.out.println("move down x y"+charX[ID]+" "+charY[ID]);
+
+                                charY[ID] = charY[ID] + speed;
+                                r_player[ID].setX(charX[ID]+5);
+                                r_player[ID].setY(charY[ID]+2.5);
+                                player_L[animaID].setX(charX[ID]);
+                                player_L[animaID].setY(charY[ID]);
+                                //System.out.println("move down x y"+charX[ID]+" "+charY[ID]);
+                            }
+
                         }
-
-                    }
-                    else if(status[ID]==3)
-                    {
-                        last_status=3;
-                        r_player[ID].setX(charX[ID]+5+2.5);
-                        r_player[ID].setY(charY[ID]+5+2.5);
-
-                        r_player[ID].setX(charX[ID]+5+2.5-5);
-                        if(!colliMetal(r_player[ID])&&!colliBrick(r_player[ID]))
+                        else if(status[ID]==3)
                         {
-                            block=false;
-                        }
-                        //&&!Object_colliBomb(r_player[ID])
-                        else
-                            block=true;
-                        //r_player[ID].setX(charX[ID]+2.5+3);
-
-                        if(block==false) {
-                            //System.out.println("move left x y"+charX[ID]+" "+charY[ID]);
-                            charX[ID] = charX[ID] - speed;
-                            r_player[ID].setX(charX[ID]+2.5);
+                            last_status=3;
+                            r_player[ID].setX(charX[ID]-10+2.5);
                             r_player[ID].setY(charY[ID]+2.5);
 
-                            player_L[animaID].setX(charX[ID]);
-                            player_L[animaID].setY(charY[ID]);
-                            //System.out.println("move left x y"+charX[ID]+" "+charY[ID]);
+                            if(!colliMetal(r_player[ID])&&!colliBrick(r_player[ID]))
+                            {
+                                block=false;
+                            }
+                            //&&!Object_colliBomb(r_player[ID])
+                            else
+                                block=true;
+                            //r_player[ID].setX(charX[ID]+2.5+3);
+
+                            if(block==false) {
+                                //System.out.println("move left x y"+charX[ID]+" "+charY[ID]);
+                                charX[ID] = charX[ID] - speed;
+                                r_player[ID].setX(charX[ID]+5);
+                                r_player[ID].setY(charY[ID]+2.5);
+
+                                player_L[animaID].setX(charX[ID]);
+                                player_L[animaID].setY(charY[ID]);
+                                //System.out.println("move left x y"+charX[ID]+" "+charY[ID]);
+                            }
+
                         }
-
-                    }
-                    else if(status[ID]==4)
-                    {
-                        last_status=4;
-                        r_player[ID].setX(charX[ID]+5+2.5);
-                        r_player[ID].setY(charY[ID]+5+2.5);
-
-                        r_player[ID].setX(charX[ID]+5+2.5+5);
-                        if(!colliMetal(r_player[ID])&&!colliBrick(r_player[ID]))
+                        else if(status[ID]==4)
                         {
-                            block=false;
-                        }
-                        //&&!Object_colliBomb(r_player[ID])
-                        else
-                            block=true;
-                        //r_player[ID].setX(charX[ID]+2.5-3);
+                            last_status=4;
+                            r_player[ID].setX(charX[ID]+10+2.5);
+                            r_player[ID].setY(charY[ID]+2.5);
 
-                        if(block==false) {
-                            //System.out.println("move right x y"+charX[ID]+" "+charY[ID]);
-                            charX[ID] = charX[ID] + speed;
+                           
+                            if(!colliMetal(r_player[ID])&&!colliBrick(r_player[ID]))
+                            {
+                                block=false;
+                            }
+                            //&&!Object_colliBomb(r_player[ID])
+                            else
+                                block=true;
+                            //r_player[ID].setX(charX[ID]+2.5-3);
+
+                            if(block==false) {
+                                //System.out.println("move right x y"+charX[ID]+" "+charY[ID]);
+                                charX[ID] = charX[ID] + speed;
+                                r_player[ID].setX(charX[ID]+2.5);
+                                r_player[ID].setY(charY[ID]+2.5);
+                                player_L[animaID].setX(charX[ID]);
+                                player_L[animaID].setY(charY[ID]);
+                                //System.out.println("move right x y"+charX[ID]+" "+charY[ID]);
+                            }
+
+                        }
+                        else
+                        {
                             r_player[ID].setX(charX[ID]+2.5);
                             r_player[ID].setY(charY[ID]+2.5);
-                            player_L[animaID].setX(charX[ID]);
-                            player_L[animaID].setY(charY[ID]);
-                            //System.out.println("move right x y"+charX[ID]+" "+charY[ID]);
                         }
+                        //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
+
 
                     }
-                    else
-                    {
-                        r_player[ID].setX(charX[ID]+2.5);
-                        r_player[ID].setY(charY[ID]+2.5);
-                    }
-                    //System.out.println("count "+count1+" bxx "+bxx+" byy "+byy);
-
-
-                }
-                //check death
+                    //check death
                 if(health[ID]<=0)
                 {
                     removeImageView(player_L[newID],r_player[ID]);
@@ -369,7 +370,7 @@ public class Player extends AnimationManger {
                     bomb_numbers[ID]=0;
                     //setBat(125, 125);
                 }
-            }
+                    }
 
         };PlayerAnima[ID].start();
 

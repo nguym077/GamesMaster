@@ -9,7 +9,7 @@ public class Enemy_Ghost extends AnimationManger {
     private double GhostMove=0.25;
     Enemy_Ghost()
     {
-    }
+        }
     public void initial()
     {
         Random rn=new Random();

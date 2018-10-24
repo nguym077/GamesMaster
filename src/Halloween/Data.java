@@ -5,11 +5,11 @@ import javafx.animation.AnimationTimer;
 import java.util.Random;
 
 public class Data extends AnimationManger  {
-
+	
     public void setUp() //x50,y50
     {
 
-        //0-4 player1,5-9 player2
+    	//0-4 player1,5-9 player2
         for(int i=0;i<5;i++)
         {
             icon_health[i].setX(10+25+5*i+25*i);
@@ -35,7 +35,7 @@ public class Data extends AnimationManger  {
         icon_1st[0].setY(1);
 
         double p2X=sizeX/2;
-
+        
         //for Player 2
         int index=0;
         for(int i=0;i<5;i++)
@@ -62,10 +62,10 @@ public class Data extends AnimationManger  {
             icon_speed[index].setX(p2X+10+25+5*5+25*5+5*i+25*i);
             icon_speed[index].setY(25);
         }
-
+        
         icon_2nd[0].setX(p2X);
         icon_2nd[0].setY(1);
-
+        
         AnimationTimer dataTimer = new AnimationTimer() {
             int count=0,count2=0;
             int trytime=10;
@@ -90,13 +90,13 @@ public class Data extends AnimationManger  {
                     for(int i=0;i<health[0];i++)
                     {
                         icon_health[i].setVisible(true);
-
+                      
                     }
 
                     for(int i=0;i<bomb_power[0];i++)
                     {
                         icon_power[i].setVisible(true);
-
+                       
                     }
                     for(int i=0;i<bomb_numbers[0];i++)
                     {
@@ -112,25 +112,25 @@ public class Data extends AnimationManger  {
                     {
                         index=5+i;
                         icon_health[index].setVisible(true);
-
+                       
                     }
                     for(int i=0;i<bomb_power[1];i++)
                     {
                         index=5+i;
                         icon_power[index].setVisible(true);
-
+                     
                     }
                     for(int i=0;i<bomb_numbers[1];i++)
                     {
                         index=5+i;
                         icon_bomb[index].setVisible(true);
-
+                     
                     }
                     for(int i=0;i<(player_speed[1]-2);i++)
                     {
                         index=5+i;
                         icon_speed[index].setVisible(true);
-
+                      
                     }
                 }
 
@@ -140,56 +140,64 @@ public class Data extends AnimationManger  {
                     int newX=0,newY=0;
                     Random drop=new Random();
                     int newItem=drop.nextInt(7);
-                    newX=drop.nextInt(((int)sizeX-50)/25-1);
-                    newY=drop.nextInt(((int)sizeY-50)/25-1);
-
+                    boolean check=false;
+                    while(check==false) {
+                    newX=drop.nextInt((int)sizeX-50)/25;
+                    newY=drop.nextInt((int)sizeY-50)/25;
+                    if(newX%2==0&&newY%2==0)
+                    	check=true;
+                    }
+                    System.out.println("x "+newX+" y "+newY);
                     if(newItem==1)
                     {
-                        trytime=10;
+                    	trytime=10;
                         boolean set=false;
-
-                            trytime--;
+                        
                             r_icon_health[lastDropHealth].setX(newX*25+25);
                             r_icon_health[lastDropHealth].setY(newY*25+25);
-
+                           
+                        
                         icon_health[lastDropHealth].setX(newX*25+25);
                         icon_health[lastDropHealth].setY(newY*25+25);
                     }
                     else if(newItem==2)
                     {
                         boolean set=false;
-
+                        
                             r_icon_bomb[lastDropBome].setX(newX*25+25);
                             r_icon_bomb[lastDropBome].setY(newY*25+25);
-
+                          
+                        
                         icon_bomb[lastDropBome].setX(newX*25+25);
                         icon_bomb[lastDropBome].setY(newY*25+25);
                     }
                     else if(newItem==3)
                     {
                         boolean set=false;
+                       
                             r_icon_power[lastDropPower].setX(newX*25+25);
                             r_icon_power[lastDropPower].setY(newY*25+25);
-
+                           
                         icon_power[lastDropPower].setX(newX*25+25);
                         icon_power[lastDropPower].setY(newY*25+25);
                     }
                     else if(newItem==4)
                     {
                         boolean set=false;
-
+                        
                             r_icon_speed[lastDropSpeed].setX(newX*25+25);
                             r_icon_speed[lastDropSpeed].setY(newY*25+25);
-
+                           
                         icon_speed[lastDropSpeed].setX(newX*25+25);
                         icon_speed[lastDropSpeed].setY(newY*25+25);
                     }
                     else if(newItem==5)
                     {
                         boolean set=false;
+                       
                             r_icon_noHurt[lastDropSpeed].setX(newX*25+25);
                             r_icon_noHurt[lastDropSpeed].setY(newY*25+25);
-
+                           
                         icon_noHurt[lastDropSpeed].setX(newX*25+25);
                         icon_noHurt[lastDropSpeed].setY(newY*25+25);
                     }
@@ -219,10 +227,10 @@ public class Data extends AnimationManger  {
                     else if(newItem==6)
                     {
                         boolean set=false;
-
-                            r_icon_addLife[lastDropSpeed].setX(newX*25+25);
-                            r_icon_addLife[lastDropSpeed].setY(newY*25+25);
-
+                       
+                                newX=drop.nextInt(((int)(sizeX-50)/25));
+                                newY=drop.nextInt(((int)(sizeY-50)/25));
+                           
                         r_icon_addLife[lastDropSpeed].setX(newX*25+25);
                         r_icon_addLife[lastDropSpeed].setY(newY*25+25);
                     }
@@ -236,4 +244,3 @@ public class Data extends AnimationManger  {
 
 
 }
-

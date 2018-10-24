@@ -17,13 +17,12 @@ public class GameUI extends PumpkinMan implements PublicVar {
         LoadBomb();
         LoadFire();
         LoadGhoest();
-        //LoadBat();
-        //LoadVamp();
+        LoadBat();
+        LoadVamp();
         LoadZombie();
         Load_Icon();
         LoadBird();
         LoadPlayer();
-        LoadGravestone();
     }
     public void initial_data()
     {
@@ -93,7 +92,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
             Iron_Wall[i].setX(-1000);
             Iron_Wall[i].setY(0);
 
-            // r_Iron_Wall[i]=new Rectangle(15, 25.0);
+           // r_Iron_Wall[i]=new Rectangle(15, 25.0);
             //r_Iron_Wall[i].set
             r_Iron_Wall[i]=new Rectangle(20,20);
             r_Iron_Wall[i].setX(-1000);
@@ -103,7 +102,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
     }
     public void LoadBrick() {
         String[] url = new String[1];
-        url[0] = "Halloween/background_images/wall3.png";
+        url[0] = "Halloween/background_images/wall_3.png";
         Image[] wallI = new Image[1];
         wallI[0] = new Image(url[0]);
         for (int i = 0; i < Bricks.length; i++) {
@@ -173,7 +172,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
             r_Fire1[i].setX(-1000);
             r_Fire1[i].setY(0);
             r_Fire1[i].setVisible(false);
-
+            
             Fire2[i] = new ImageView(newImage1[1]);
             Fire2[i].setFitWidth(XY);
             Fire2[i].setFitHeight(XY);
@@ -183,7 +182,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
             r_Fire2[i].setX(-1000);
             r_Fire2[i].setY(0);
             r_Fire2[i].setVisible(false);
-
+            
             Fire3[i] = new ImageView(newImage1[2]);
             Fire3[i].setFitWidth(XY);
             Fire3[i].setFitHeight(XY);
@@ -203,7 +202,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
         newImage[0] = new Image(url[0]);
         for (int i = 0; i < Ghost1.length; i++) {
             Ghost1[i] = new ImageView(newImage[0]);
-            Ghost1[i].setFitWidth(XY-10);
+            Ghost1[i].setFitWidth(XY);
             Ghost1[i].setFitHeight(XY);
             Ghost1[i].setX(-1000);
             Ghost1[i].setY(0);
@@ -215,89 +214,89 @@ public class GameUI extends PumpkinMan implements PublicVar {
         }
     }
 
-//    public void LoadBat() {
-//        String[] url = new String[3];
-//        url[0] = "Halloween/enemy_images/bat1.png";
-//        url[1] = "Halloween/enemy_images/bat2.png";
-//        url[2] = "Halloween/enemy_images/bat3.png";
-//        Image[] newImage = new Image[3];
-//        newImage[0] = new Image(url[0]);
-//        newImage[1] = new Image(url[1]);
-//        newImage[2] = new Image(url[2]);
-//        for (int i = 0; i < Bat1.length; i=i+3) {
-//            //System.out.println("bat i "+i);
-//            Bat1[i] = new ImageView(newImage[0]);
-//            Bat1[i].setFitWidth(XY);
-//            Bat1[i].setFitHeight(XY);
-//            Bat1[i].setX(-1000);
-//            Bat1[i].setY(0);
-//
-//            Bat1[i+1] = new ImageView(newImage[1]);
-//            Bat1[i+1].setFitWidth(XY);
-//            Bat1[i+1].setFitHeight(XY);
-//            Bat1[i+1].setX(-1000);
-//            Bat1[i+1].setY(0);
-//
-//            Bat1[i+2] = new ImageView(newImage[2]);
-//            Bat1[i+2].setFitWidth(XY);
-//            Bat1[i+2].setFitHeight(XY);
-//            Bat1[i+2].setX(-1000);
-//            Bat1[i+2].setY(0);
-//        }
-//        for(int i=0;i<r_Bat.length;i++)
-//        {
-//            r_Bat[i]=new Rectangle(20,20);
-//            r_Bat[i].setX(-1000);
-//            r_Bat[i].setY(0);
-//            r_Bat[i].setVisible(false);
-//        }
-//    }
-//
-//    public void LoadVamp() {
-//        String[] url = new String[4];
-//        url[0] = "Halloween/enemy_images/vamp1.png";
-//        url[1] = "Halloween/enemy_images/vamp2.png";
-//        url[2] = "Halloween/enemy_images/vamp3.png";
-//        url[3] = "Halloween/enemy_images/vamp4.png";
-//        Image[] newImage = new Image[4];
-//        newImage[0] = new Image(url[0]);
-//        newImage[1] = new Image(url[1]);
-//        newImage[2] = new Image(url[2]);
-//        newImage[3] = new Image(url[3]);
-//        for (int i = 0; i < Vamp1.length; i=i+4) {
-//            //System.out.println("bat i "+i);
-//            Vamp1[i] = new ImageView(newImage[0]);
-//            Vamp1[i].setFitWidth(XY);
-//            Vamp1[i].setFitHeight(XY);
-//            Vamp1[i].setX(-1000);
-//            Vamp1[i].setY(0);
-//
-//            Vamp1[i+1] = new ImageView(newImage[1]);
-//            Vamp1[i+1].setFitWidth(XY);
-//            Vamp1[i+1].setFitHeight(XY);
-//            Vamp1[i+1].setX(-1000);
-//            Vamp1[i+1].setY(0);
-//
-//            Vamp1[i+2] = new ImageView(newImage[2]);
-//            Vamp1[i+2].setFitWidth(XY);
-//            Vamp1[i+2].setFitHeight(XY);
-//            Vamp1[i+2].setX(-1000);
-//            Vamp1[i+2].setY(0);
-//
-//            Vamp1[i+3] = new ImageView(newImage[3]);
-//            Vamp1[i+3].setFitWidth(XY);
-//            Vamp1[i+3].setFitHeight(XY);
-//            Vamp1[i+3].setX(-1000);
-//            Vamp1[i+3].setY(0);
-//        }
-//        for(int i=0;i<r_Vamp.length;i++)
-//        {
-//            r_Vamp[i]=new Rectangle(20,20);
-//            r_Vamp[i].setX(-1000);
-//            r_Vamp[i].setY(0);
-//            r_Vamp[i].setVisible(false);
-//        }
-//    }
+    public void LoadBat() {
+        String[] url = new String[3];
+        url[0] = "Halloween/enemy_images/bat1.png";
+        url[1] = "Halloween/enemy_images/bat2.png";
+        url[2] = "Halloween/enemy_images/bat3.png";
+        Image[] newImage = new Image[3];
+        newImage[0] = new Image(url[0]);
+        newImage[1] = new Image(url[1]);
+        newImage[2] = new Image(url[2]);
+        for (int i = 0; i < Bat1.length; i=i+3) {
+            System.out.println("bat i "+i);
+            Bat1[i] = new ImageView(newImage[0]);
+            Bat1[i].setFitWidth(XY);
+            Bat1[i].setFitHeight(XY);
+            Bat1[i].setX(-1000);
+            Bat1[i].setY(0);
+
+            Bat1[i+1] = new ImageView(newImage[1]);
+            Bat1[i+1].setFitWidth(XY);
+            Bat1[i+1].setFitHeight(XY);
+            Bat1[i+1].setX(-1000);
+            Bat1[i+1].setY(0);
+
+            Bat1[i+2] = new ImageView(newImage[2]);
+            Bat1[i+2].setFitWidth(XY);
+            Bat1[i+2].setFitHeight(XY);
+            Bat1[i+2].setX(-1000);
+            Bat1[i+2].setY(0);
+        }
+        for(int i=0;i<r_Bat.length;i++)
+        {
+            r_Bat[i]=new Rectangle(20,20);
+            r_Bat[i].setX(-1000);
+            r_Bat[i].setY(0);
+            r_Bat[i].setVisible(false);
+        }
+    }
+
+    public void LoadVamp() {
+        String[] url = new String[4];
+        url[0] = "Halloween/enemy_images/vamp1.png";
+        url[1] = "Halloween/enemy_images/vamp2.png";
+        url[2] = "Halloween/enemy_images/vamp3.png";
+        url[3] = "Halloween/enemy_images/vamp4.png";
+        Image[] newImage = new Image[4];
+        newImage[0] = new Image(url[0]);
+        newImage[1] = new Image(url[1]);
+        newImage[2] = new Image(url[2]);
+        newImage[3] = new Image(url[3]);
+        for (int i = 0; i < Vamp1.length; i=i+4) {
+            System.out.println("bat i "+i);
+            Vamp1[i] = new ImageView(newImage[0]);
+            Vamp1[i].setFitWidth(XY);
+            Vamp1[i].setFitHeight(XY);
+            Vamp1[i].setX(-1000);
+            Vamp1[i].setY(0);
+
+            Vamp1[i+1] = new ImageView(newImage[1]);
+            Vamp1[i+1].setFitWidth(XY);
+            Vamp1[i+1].setFitHeight(XY);
+            Vamp1[i+1].setX(-1000);
+            Vamp1[i+1].setY(0);
+
+            Vamp1[i+2] = new ImageView(newImage[2]);
+            Vamp1[i+2].setFitWidth(XY);
+            Vamp1[i+2].setFitHeight(XY);
+            Vamp1[i+2].setX(-1000);
+            Vamp1[i+2].setY(0);
+
+            Vamp1[i+3] = new ImageView(newImage[3]);
+            Vamp1[i+3].setFitWidth(XY);
+            Vamp1[i+3].setFitHeight(XY);
+            Vamp1[i+3].setX(-1000);
+            Vamp1[i+3].setY(0);
+        }
+        for(int i=0;i<r_Vamp.length;i++)
+        {
+            r_Vamp[i]=new Rectangle(20,20);
+            r_Vamp[i].setX(-1000);
+            r_Vamp[i].setY(0);
+            r_Vamp[i].setVisible(false);
+        }
+    }
 
     public void LoadZombie() {
         String[] url = new String[4];
@@ -555,7 +554,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
         double idleX=actualWidth*Scale,idleY=actualHeight*Scale;
         //System.out.println("idley "+idleY);
         ImageView[] view_L=player_L;
-        // ImageView[] view_R=player_R;
+       // ImageView[] view_R=player_R;
         for (int i = 0; i <player_L.length; i=i+eachNumber) {
 
             for(int j=0;j<eachNumber;j++)
@@ -564,7 +563,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
                 if(index>=3)
                     view_L[index] = new ImageView(newImage_L2[j]);
                 else
-                    view_L[index] = new ImageView(newImage_L[j]);
+                view_L[index] = new ImageView(newImage_L[j]);
                 //System.out.println("check laod image "+c1_idle_L[index].getId());
                 view_L[index].setPreserveRatio(true);
 
@@ -574,8 +573,8 @@ public class GameUI extends PumpkinMan implements PublicVar {
                 view_L[index].setX(-100);
                 view_L[index].setY(0);
 
-                // view_L[index].setTranslateX(xl*Scale);
-                // view_L[index].setTranslateY(0-idleY+yl*Scale);
+               // view_L[index].setTranslateX(xl*Scale);
+               // view_L[index].setTranslateY(0-idleY+yl*Scale);
                 //view_L[index].setTranslateY(actualHeight-2*(actualHeight));
                 //view_L[index].setId(String.valueOf(index));
 
@@ -607,28 +606,9 @@ public class GameUI extends PumpkinMan implements PublicVar {
             r_player[i]=new Rectangle(15,15);
             r_player[i].setX(charX[i]);
             r_player[i].setY(charY[i]);
-            // r_player[i].setStroke(Color.red);
+           // r_player[i].setStroke(Color.red);
             r_player[i].setVisible(false);
 
-        }
-    }
-
-    public void LoadGravestone() {
-        String[] url = new String[1];
-        url[0] = "Halloween/background_images/gravestone.png";
-        Image[] wallI = new Image[1];
-        wallI[0] = new Image(url[0]);
-        for (int i = 0; i < Gravestones.length; i++) {
-            Gravestones[i] = new ImageView(wallI[0]);
-            Gravestones[i].setFitWidth(XY);
-            Gravestones[i].setFitHeight(XY);
-            Gravestones[i].setX(-1000);
-            Gravestones[i].setY(0);
-
-            r_Gravestones[i]=new Rectangle(20,20);
-            r_Gravestones[i].setX(-1000);
-            r_Gravestones[i].setY(0);
-            r_Gravestones[i].setVisible(false);
         }
     }
 
