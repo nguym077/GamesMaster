@@ -1,6 +1,8 @@
 package Halloween;
 
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import javafx.animation.AnimationTimer;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
@@ -87,6 +89,8 @@ public interface PublicVar {
     ImageView[] icon_1st=new ImageView[2];
     ImageView[] icon_2nd=new ImageView[2];
 
+    ImageView[] icon_numbers=new ImageView[100];
+    
     Rectangle[] r_icon_bomb=new Rectangle[50];
     Rectangle[] r_icon_power=new Rectangle[50];
     Rectangle[] r_icon_speed=new Rectangle[50];
@@ -102,6 +106,7 @@ public interface PublicVar {
     int[] bombX=new int[50];
     int[] bombY=new int[50];
 
+    int[] score=new int[2];
     int[] life=new int[2];
     int[] health=new int[2];
     int[] player_speed=new int[2];
@@ -111,4 +116,7 @@ public interface PublicVar {
 
     int[] noHurt=new int[2];
     int[] throughWall=new int[2];
+    boolean[] dropItem=new boolean[1];
+    int[] dropX=new int[1];
+    int[] dropY=new int[1];
 }

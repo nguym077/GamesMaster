@@ -47,14 +47,19 @@ public class Bird extends AnimationManger {
         //candyLoc_y = r.nextInt(500) + 50;
 
         // makes sure the candy drop isn't at a metal block location
-        candyLoc_y = r.nextInt(500) + 50;
-        while (candyLoc_y % 25 != 0 || candyLoc_y % 10 == 0) {
-            candyLoc_y = r.nextInt(500) + 50;
-        }
-
-        candyLoc_x = r.nextInt(500) + 50;
-        while (candyLoc_x % 25 != 0 || candyLoc_x % 10 == 0) {
-            candyLoc_x = r.nextInt(1000) + 50;
+        boolean check=false;
+        while(check==false) {
+        	candyLoc_x=r.nextInt((int)sizeX-50)/25;
+        	
+        	candyLoc_y=r.nextInt((int)sizeY-50)/25;
+        	
+        if(candyLoc_x%2==0&&candyLoc_y%2==0)
+        	check=true;
+	        dropX[0]=candyLoc_x;
+	    	dropY[0]=candyLoc_y;
+            candyLoc_x=candyLoc_x*25+25;
+            candyLoc_y=candyLoc_y*25+25;
+        	
         }
         System.out.println("candy location: " + candyLoc_x + ", " + candyLoc_y);
 
@@ -68,6 +73,8 @@ public class Bird extends AnimationManger {
         BirdAnima[ID] = new AnimationTimer() {
             int count1 = 0;
             int count2 = 0;
+            int count3=0;
+            int holdCount=0;
             int animaID = newID;
 
             int direction = -1;
@@ -79,7 +86,12 @@ public class Bird extends AnimationManger {
 
             int birdMoveRate = 20;
 
+            int dir=0;
+            boolean createBricks=false;
             public void handle(long now) {
+            	bxx=Bird1[animaID].getX();
+                byy=Bird1[animaID].getY();
+                
                 Bird1[newID].setX(bxx);
                 Bird1[newID].setY(byy);
                 Bird1[newID+1].setX(bxx);
@@ -120,23 +132,162 @@ public class Bird extends AnimationManger {
                 // forces animation to repeat
                 if(count2 >= 4*birdMoveRate)
                     count2 = 0;
-
-
-                // drops off candy at specified location
-                if (r_Bird[ID].getX() == candyLoc_x && r_Bird[ID].getY() == candyLoc_y) {
-                    droppedCandy = true;
+                
+                /*
+                bxx=Bird1[animaID].getX();
+                byy=Bird1[animaID].getY();
+                if(Bird1[animaID].getX()>=(sizeX-50))  
+                {
+                	dir=2; //go left
                 }
-
-                if (droppedCandy) {
-                    if (r_Bird[ID].getX() != 2) {   // brings bird back to origin wall
-                        r_Bird[ID].setX(bxx + r_x - birdMove);
-                        r_Bird[ID].setY(byy + r_y);
-                        bxx = bxx - birdMove;
-                        Bird1[animaID].setX(bxx);
-                        Bird1[animaID].setY(byy);
-                    } else if (r_Bird[ID].getX() == 2) {
-                        droppedCandy = false;
-
+                else if(Bird1[animaID].getY()>=(sizeY-50))
+                {
+                	dir=0; //go up
+                }
+                else if(Bird1[animaID].getX()<=(50))
+                {
+                	dir=3; //go right
+                }
+                else if(Bird1[animaID].getY()<=(50))
+                {
+                	dir=1; //go down
+                }
+                
+                if(dir==0) //up
+                {
+           
+                    Bird1[animaID].setX(bxx);
+                    Bird1[animaID].setY(byy-birdMove);
+                }
+                else if(dir==1)  //down
+                {
+                
+                    Bird1[animaID].setX(bxx);
+                    Bird1[animaID].setY(byy+birdMove);
+                }
+                else if(dir==2) //left
+                {
+                	
+                    Bird1[animaID].setX(bxx-birdMove);
+                    Bird1[animaID].setY(byy);
+                }
+                else if(dir==3)  //right
+                {
+                	
+                    Bird1[animaID].setX(bxx+birdMove);
+                    Bird1[animaID].setY(byy);
+                }
+                
+                if(count3==50)
+                {
+                	createBricks=true;
+                }
+                if(createBricks)
+                {
+                	bxx=Bird1[animaID].getX();
+                    byy=Bird1[animaID].getY();
+                	r_Bird[ID].setX(bxx+r_x);
+                	r_Bird[ID].setY(byy+r_y);
+                	if(!colliMetal(r_Bird[ID])&&!colliBrick(r_Bird[ID])&&!BirdColliEnemy(r_Bird[ID]))
+                	{
+                		System.out.println("bxy "+bxx+" "+byy);
+                		for(int i=0;i<Bricks.length;i++)
+                		{
+                			if(!activeB[i])
+                			{
+                				int bx1=(int)bxx/100,by1=(int)byy/100;
+                				bx1=bx1*100;by1=by1*100;
+                				double bx=bxx%100,by=byy%100;
+                				if(bx>0&&bx<=25)
+                				{bxx=bx1+0;}
+                				if(bx>25&&bx<=50)
+            					{bxx=bx1+25;}
+                				if(bx>50&&bx<=75)
+            					{bxx=bx1+50;}
+                				if(bx>75&&bx<=100)
+            					{bxx=bx1+75;}
+                				
+                				if( by>0&& by<=25)
+                				{byy= by1+0;}
+                				if( by>25&& by<=50)
+            					{byy= by1+25;}
+                				if( by>50&& by<=75)
+            					{byy= by1+50;}
+                				if( by>75&& by<=100)
+            					{byy= by1+75;}
+                				
+                				Bricks[i].setX(bxx);
+                				Bricks[i].setY(byy);
+                				activeB[i]=true;
+                				createBricks=false;
+                				break;
+                			}
+                		}
+                	}
+                }
+                
+                count3++;
+                if(count3>100)
+                {
+                	count3=0;
+                	if(Bird1[animaID].getX()>=(sizeX-50))  
+                    {
+                    	dir=2; //go left
+                    }
+                    else if(Bird1[animaID].getY()>=(sizeY-50))
+                    {
+                    	dir=0; //go up
+                    }
+                    else if(Bird1[animaID].getX()<=(50))
+                    {
+                    	dir=3; //go right
+                    }
+                    else if(Bird1[animaID].getY()<=(50))
+                    {
+                    	dir=1; //go down
+                    }
+                    else {
+                    	dir = r.nextInt(4);
+                    	
+                    	System.out.println("dir "+dir);
+    				}
+                    
+                }
+                
+                */
+                bxx=Bird1[animaID].getX();
+                byy=Bird1[animaID].getY();
+                // drops off candy at specified location
+                if (dropItem[0]==false&&r_Bird[ID].getX() == candyLoc_x && r_Bird[ID].getY() == candyLoc_y) {
+                	dropItem[0] = true;
+                	System.out.println("drop "+dropItem[0]+" x y "+bxx+" "+byy);
+                }
+                
+                if (dropItem[0]) {
+                   holdCount++;
+                   
+                   		if(holdCount>100)
+                   		{
+                   			holdCount=0;
+                   			dropItem[0]=false;
+                   			boolean check=false;
+                   			while(check==false) {
+                   	        	candyLoc_x=r.nextInt((int)sizeX-50)/25;
+                   	        	
+                   	        	candyLoc_y=r.nextInt((int)sizeY-50)/25;
+                   	        	
+                   	        if(candyLoc_x%2==0&&candyLoc_y%2==0)
+                   	        	check=true;
+                   	        	dropX[0]=candyLoc_x;
+                   	        	dropY[0]=candyLoc_y;
+                   	            candyLoc_x=candyLoc_x*25+25;
+                   	            candyLoc_y=candyLoc_y*25+25;
+                   	        	
+                   	        }
+                   		}
+                    	
+                        
+                        /*
                         // picks a new "random" location for next candy drop
                         candyLoc_y = r.nextInt(500) + 50;
                         while (candyLoc_y % 25 != 0 || candyLoc_y % 10 == 0) {
@@ -146,8 +297,8 @@ public class Bird extends AnimationManger {
                         while (candyLoc_x % 25 != 0 || candyLoc_x % 10 == 0) {
                             candyLoc_x = r.nextInt(1000) + 50;
                         }
-                        System.out.println("candy location: " + candyLoc_x + ", " + candyLoc_y);
-                    }
+                        */
+                      
                 } else {
                     // bird flies to candy's random location
                     if (r_Bird[ID].getY() != candyLoc_y) {
@@ -160,19 +311,36 @@ public class Bird extends AnimationManger {
                             r_Bird[ID].setY(byy + r_y - birdMove);
                             byy = byy - birdMove;
                         }
+                        r_Bird[animaID].setX(bxx);
+                        r_Bird[animaID].setY(byy);
+
                         Bird1[animaID].setX(bxx);
                         Bird1[animaID].setY(byy);
                     }
                     if (r_Bird[ID].getX() != candyLoc_x) {
-                        r_Bird[ID].setX(bxx + r_x + birdMove);
-                        r_Bird[ID].setY(byy + r_y);
-                        bxx = bxx + birdMove;
+                    	if(r_Bird[ID].getX()<candyLoc_x)
+                    	{
+                    		 r_Bird[ID].setX(bxx + r_x + birdMove);
+                             r_Bird[ID].setY(byy + r_y);
+                             bxx = bxx + birdMove;
+                    	}
+                    	else {
+                    		r_Bird[ID].setX(bxx + r_x - birdMove);
+                            r_Bird[ID].setY(byy + r_y);
+                            bxx = bxx - birdMove;
+                    	}
+                    		
+                    	r_Bird[animaID].setX(bxx);
+                        r_Bird[animaID].setY(byy);
+
                         Bird1[animaID].setX(bxx);
                         Bird1[animaID].setY(byy);
 
                         count1++;
                     }
+                    
                 }
+                
             }
         };
         BirdAnima[ID].start();

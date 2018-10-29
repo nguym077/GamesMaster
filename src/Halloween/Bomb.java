@@ -128,8 +128,8 @@ public class Bomb extends AnimationManger {
                     Fire3[Fire3ID].setY(by);
                     r_Fire3[Fire3ID].setX(bx+2.5);
                     r_Fire3[Fire3ID].setY(by+2.5);
-                    Fire_colliBrick(r_Fire3[Fire3ID]);
-                    colliEnemy(r_Fire3[Fire3ID]);
+                    Fire_colliBrick(ID,r_Fire3[Fire3ID]);
+                    colliEnemy(ID,r_Fire3[Fire3ID]);
                     //System.out.println("fire id3 "+ID+ " "+Fire3ID);
 
                     for(int i=0;i<power;i++)
@@ -143,9 +143,9 @@ public class Bomb extends AnimationManger {
                             if(colli1==false) {
                                 Fire1[Fire1ID].setX(bx);
                                 Fire1[Fire1ID].setY(by-25-i*25);
-                                if(colliBomb(r_Fire1[Fire1ID])||Fire_colliBrick(r_Fire1[Fire1ID]))
+                                if(colliBomb(r_Fire1[Fire1ID])||Fire_colliBrick(ID,r_Fire1[Fire1ID]))
                                 colli1 =true;
-                                if(colliEnemy(r_Fire1[Fire1ID]));
+                                if(colliEnemy(ID,r_Fire1[Fire1ID]));
                             }
 
                         }
@@ -158,9 +158,9 @@ public class Bomb extends AnimationManger {
                             if(colli2==false) {
                                 Fire1[Fire1ID].setX(bx);
                                 Fire1[Fire1ID].setY(by + 25 + i * 25);
-                                if(colliBomb(r_Fire1[Fire1ID])||Fire_colliBrick(r_Fire1[Fire1ID]))
+                                if(colliBomb(r_Fire1[Fire1ID])||Fire_colliBrick(ID,r_Fire1[Fire1ID]))
                                 colli2 = true;
-                                if(colliEnemy(r_Fire1[Fire1ID]));
+                                if(colliEnemy(ID,r_Fire1[Fire1ID]));
                             }
 
                         }
@@ -178,9 +178,9 @@ public class Bomb extends AnimationManger {
                             if(colli3==false) {
                                 Fire2[Fire2ID].setX(bx-i*25-25);
                                 Fire2[Fire2ID].setY(by);
-                                if(colliBomb(r_Fire2[Fire2ID])||Fire_colliBrick(r_Fire2[Fire2ID]))
+                                if(colliBomb(r_Fire2[Fire2ID])||Fire_colliBrick(ID,r_Fire2[Fire2ID]))
                                 colli3 = true;
-                                if(colliEnemy(r_Fire2[Fire2ID]));
+                                if(colliEnemy(ID,r_Fire2[Fire2ID]));
                             }
 
                         }
@@ -193,9 +193,9 @@ public class Bomb extends AnimationManger {
                             if(colli4==false) {
                                 Fire2[Fire2ID].setX(bx+i*25+25);
                                 Fire2[Fire2ID].setY(by);
-                                if(colliBomb(r_Fire2[Fire2ID])||Fire_colliBrick(r_Fire2[Fire2ID]))
+                                if(colliBomb(r_Fire2[Fire2ID])||Fire_colliBrick(ID,r_Fire2[Fire2ID]))
                                 colli4 = true;
-                                if(colliEnemy(r_Fire2[Fire2ID]));
+                                if(colliEnemy(ID,r_Fire2[Fire2ID]));
                             }
                         }
                         Fire2ID++;

@@ -30,7 +30,7 @@ public class AnimationManger extends Map {
 
 
     }
-    public boolean Fire_colliBrick(Rectangle r_view)
+    public boolean Fire_colliBrick(int ID,Rectangle r_view)
     {
         boolean check=false;
         for(int i=0;i<r_Bricks.length;i++)
@@ -42,8 +42,11 @@ public class AnimationManger extends Map {
                     //System.out.println(("brick "+ i+" x: "+r_Bricks[i].getX()+" y: "+r_Bricks[i].getY()));
                     removeImageView(Bricks[i],r_Bricks[i]);
                     activeB[i]=false;
-                    check=true;
-
+                    if(whoSetBomb[ID]!=-1)
+                    {
+                    	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+5;
+                    }
+                     check=true;
                     break;
                 }
             }
@@ -69,6 +72,46 @@ public class AnimationManger extends Map {
 
         }
         return check;
+    }
+    public void addBrick(Rectangle r_view)
+    {
+        boolean check=false;
+        for(int i=0;i<r_Bricks.length;i++)
+        {
+            if(activeB[i])
+            {
+                if (r_view.getBoundsInLocal().intersects(r_Bricks[i].getBoundsInLocal()))
+                {
+                    //System.out.println(("brick "+ i+" x: "+r_Bricks[i].getX()+" y: "+r_Bricks[i].getY()));
+                    //removeImageView(Bricks[i],r_Bricks[i]);
+                    check=true;
+                    break;
+                }
+            }
+            
+
+        }
+        if(check==false)
+        {
+        	for(int i=0;i<r_Bricks.length;i++)
+            {
+                if(!activeB[i])
+                {
+                	
+                	double getx=r_view.getX(),gety=r_view.getY();
+                    r_Bricks[i].setX(getx);
+                    r_Bricks[i].setY(gety);
+                    
+                    Bricks[i].setX(getx);
+                    Bricks[i].setY(gety);
+                    activeB[i]=true;
+                    
+                }
+            }
+        	
+        	
+        }
+        
     }
     public boolean ColliBrickAndDestroy(Rectangle r_view)
     {
@@ -101,6 +144,10 @@ public class AnimationManger extends Map {
                 item=2;
                 if( bomb_numbers[ID]!=5)
                     bomb_numbers[ID]=bomb_numbers[ID]+1;
+                if(whoSetBomb[ID]!=-1)
+                {
+                	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+50;
+                }
                 removeImageView(icon_bomb[10],r_icon_bomb[10]);
 
                 break;
@@ -110,6 +157,10 @@ public class AnimationManger extends Map {
                 item=1;
                 if( health[ID]!=5)
                 health[ID]=health[ID]+1;
+                if(whoSetBomb[ID]!=-1)
+                {
+                	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+50;
+                }
                 removeImageView(icon_health[10],r_icon_health[10]);
                 break;
             }
@@ -118,6 +169,10 @@ public class AnimationManger extends Map {
                 item=4;
                 if( player_speed[ID]!=8)
                 player_speed[ID]=player_speed[ID]+1;
+                if(whoSetBomb[ID]!=-1)
+                {
+                	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+50;
+                }
                 removeImageView(icon_speed[10],r_icon_speed[10]);
                 break;
             }
@@ -126,6 +181,10 @@ public class AnimationManger extends Map {
                 item=3;
                 if( bomb_power[ID]!=5)
                     bomb_power[ID]=bomb_power[ID]+1;
+                if(whoSetBomb[ID]!=-1)
+                {
+                	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+50;
+                }
                 removeImageView(icon_power[10],r_icon_power[10]);
                 break;
             }
@@ -133,21 +192,23 @@ public class AnimationManger extends Map {
             {
                 item=4;
                 noHurt[ID]=1000;
+                if(whoSetBomb[ID]!=-1)
+                {
+                	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+50;
+                }
                 removeImageView(icon_noHurt[10],r_icon_noHurt[10]);
                 break;
             }
-            else if(r_view.getBoundsInLocal().intersects(r_icon_throughWall[10].getBoundsInLocal()))
-            {
-                item=5;
-                throughWall[ID]=600;
-                removeImageView(icon_throughWall[10],r_icon_throughWall[10]);
-                break;
-            }
+            
             else if(r_view.getBoundsInLocal().intersects(r_icon_addLife[10].getBoundsInLocal()))
             {
                 item=6;
                 if(life[ID]!=5)
                 life[ID]=life[ID]+1;
+                if(whoSetBomb[ID]!=-1)
+                {
+                	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+50;
+                }
                 removeImageView(icon_addLife[10],r_icon_addLife[10]);
                 break;
             }
@@ -220,7 +281,7 @@ public class AnimationManger extends Map {
         return check;
     }
 
-    public boolean colliEnemy(Rectangle r_view)
+    public boolean colliEnemy(int ID,Rectangle r_view)
     {
         boolean check=false,sameBomb=false;
         /*
@@ -246,6 +307,10 @@ public class AnimationManger extends Map {
                // System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
                 check=true;
                 Bat_checkHit[i]=1;
+                if(whoSetBomb[ID]!=-1)
+                {
+                	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+100;
+                }
 
             }
         }
@@ -258,6 +323,10 @@ public class AnimationManger extends Map {
                 //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
                 check=true;
                 Vamp_checkHit[i]=1;
+                if(whoSetBomb[ID]!=-1)
+                {
+                	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+150;
+                }
 
             }
         }
@@ -271,6 +340,10 @@ public class AnimationManger extends Map {
                 //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
                 check=true;
                 Zombie_checkHit[i]=1;
+                if(whoSetBomb[ID]!=-1)
+                {
+                	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+80;
+                }
             }
         }
         for(int i=0;i<r_player.length;i++)
@@ -281,7 +354,10 @@ public class AnimationManger extends Map {
                     check = true;
                     health[i] = health[i] - 1;
                     noHurt[i] = 100;
-
+                    if(whoSetBomb[ID]!=-1&&whoSetBomb[ID]!=i)
+                    {
+                    	score[whoSetBomb[ID]]=score[whoSetBomb[ID]]+500;
+                    }
                 }
             }
         }
@@ -332,6 +408,60 @@ public class AnimationManger extends Map {
                 check=true;
                // Zombie_checkHit[i]=1;
                 break;
+            }
+        }
+        return check;
+    }
+    public boolean BirdColliEnemy(Rectangle r_view)
+    {
+        boolean check=false,sameBomb=false;
+        /*
+        for(int i=0;i<r_Ghost1.length;i++)
+        {
+            if(r_view.getBoundsInLocal().intersects(r_Ghost1[i].getBoundsInLocal()))
+            {
+                //removeImageView(Bricks[i]);
+                //System.out.println(("bomb " + i + " x: " + r_Bombs1[i].getX() + " y: " + r_Bombs1[i].getY()));
+                //System.out.println("get1 "+r_view.getId()+" get2 "+r_Bombs1[i].getId());
+                check=true;
+                Ghost_checkHit[i]=1;
+
+            }
+        }*/
+
+        for(int i=0;i<r_Bat.length;i++)
+        {
+            if(r_view.getBoundsInLocal().intersects(r_Bat[i].getBoundsInLocal()))
+            {
+                
+              check=true;
+              
+            }
+        }
+        for(int i=0;i<r_Vamp.length;i++)
+        {
+            if(r_view.getBoundsInLocal().intersects(r_Vamp[i].getBoundsInLocal()))
+            {
+               check=true;
+               
+            }
+        }
+
+        for(int i=0;i<r_Zombie.length;i++)
+        {
+            if(r_view.getBoundsInLocal().intersects(r_Zombie[i].getBoundsInLocal()))
+            {
+                 check=true;
+            }
+        }
+        for(int i=0;i<r_player.length;i++)
+        {
+            if(r_view.getBoundsInLocal().intersects(r_player[i].getBoundsInLocal()))
+            {
+               
+                    check = true;
+                
+                
             }
         }
         return check;

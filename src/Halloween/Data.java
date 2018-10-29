@@ -31,6 +31,20 @@ public class Data extends AnimationManger  {
             icon_speed[i].setX(10+25+5*5+25*5+5*i+25*i);
             icon_speed[i].setY(25);
         }
+        int in=0;
+        for(int i=0;i<5;i++)
+        {
+        	for(int j=0;j<10;j++)
+        	{
+        		in=i*10+j;
+        		icon_numbers[in].setVisible(false);
+        		icon_numbers[in].setX(10+25+5*5+25*5+5*5+25*5+25+15*i);
+                icon_numbers[in].setY(1);
+        	}
+            
+            
+        }
+        score[0]=0;
         icon_1st[0].setX(5);
         icon_1st[0].setY(1);
 
@@ -63,6 +77,18 @@ public class Data extends AnimationManger  {
             icon_speed[index].setY(25);
         }
         
+        for(int i=0;i<5;i++)
+        {
+        	
+        	for(int j=0;j<10;j++)
+        	{
+        		in=i*10+50+j;
+        		icon_numbers[in].setVisible(false);
+        		icon_numbers[in].setX(p2X+10+25+5*5+25*5+5*5+25*5+25+15*i);
+                icon_numbers[in].setY(1);
+        	}
+        }
+        score[1]=0;
         icon_2nd[0].setX(p2X);
         icon_2nd[0].setY(1);
         
@@ -70,13 +96,21 @@ public class Data extends AnimationManger  {
             int count=0,count2=0;
             int trytime=10;
             int lastDropBome=10,lastDropPower=10,lastDropHealth=10,lastDropSpeed=10;
+            int newX=0,newY=0;
+            Random drop=new Random();
+            
+            boolean dropDone=false;
+            int newItem=0;
             public void handle(long now) {
                 count++;
                 count2++;
                 //test
-
+                setNumbers(score[0], 0);
+                setNumbers(score[1], 1);
                 if(count2>50)
                 {
+                	//score[0]=score[0]+6;
+                	//score[1]=score[1]+7;
                     count2=0;
                     for(int i=0;i<10;i++)
                     {
@@ -134,12 +168,11 @@ public class Data extends AnimationManger  {
                     }
                 }
 
-                if(count>500)
+                if(count>0)
                 {
-                    count=0;
-                    int newX=0,newY=0;
-                    Random drop=new Random();
-                    int newItem=drop.nextInt(7);
+                    count=1;
+                    
+                    /*
                     boolean check=false;
                     while(check==false) {
                     newX=drop.nextInt((int)sizeX-50)/25;
@@ -148,6 +181,23 @@ public class Data extends AnimationManger  {
                     	check=true;
                     }
                     System.out.println("x "+newX+" y "+newY);
+                    */
+                    
+                    if(dropItem[0]&&dropDone==false)
+                    {
+                    	dropDone=true;
+                    	dropItem[0]=true;
+                    	newItem=drop.nextInt(6)+1;
+                    	
+                    	newX=dropX[0];
+                    	newY=dropY[0];
+                    	System.out.println("new item "+newItem+" x y "+newX+" "+newY);
+                    }
+                    if(dropItem[0]==false&&dropDone)
+                    {
+                    	dropDone=false;
+                    }
+                    
                     if(newItem==1)
                     {
                     	trytime=10;
@@ -159,6 +209,7 @@ public class Data extends AnimationManger  {
                         
                         icon_health[lastDropHealth].setX(newX*25+25);
                         icon_health[lastDropHealth].setY(newY*25+25);
+                        newItem=0;
                     }
                     else if(newItem==2)
                     {
@@ -170,6 +221,7 @@ public class Data extends AnimationManger  {
                         
                         icon_bomb[lastDropBome].setX(newX*25+25);
                         icon_bomb[lastDropBome].setY(newY*25+25);
+                        newItem=0;
                     }
                     else if(newItem==3)
                     {
@@ -180,6 +232,7 @@ public class Data extends AnimationManger  {
                            
                         icon_power[lastDropPower].setX(newX*25+25);
                         icon_power[lastDropPower].setY(newY*25+25);
+                        newItem=0;
                     }
                     else if(newItem==4)
                     {
@@ -190,6 +243,7 @@ public class Data extends AnimationManger  {
                            
                         icon_speed[lastDropSpeed].setX(newX*25+25);
                         icon_speed[lastDropSpeed].setY(newY*25+25);
+                        newItem=0;
                     }
                     else if(newItem==5)
                     {
@@ -200,6 +254,7 @@ public class Data extends AnimationManger  {
                            
                         icon_noHurt[lastDropSpeed].setX(newX*25+25);
                         icon_noHurt[lastDropSpeed].setY(newY*25+25);
+                        newItem=0;
                     }
                     /*
                     else if(newItem==6)
@@ -226,13 +281,21 @@ public class Data extends AnimationManger  {
                     */
                     else if(newItem==6)
                     {
-                        boolean set=false;
-                       
-                                newX=drop.nextInt(((int)(sizeX-50)/25));
-                                newY=drop.nextInt(((int)(sizeY-50)/25));
-                           
                         r_icon_addLife[lastDropSpeed].setX(newX*25+25);
                         r_icon_addLife[lastDropSpeed].setY(newY*25+25);
+                           
+                        icon_addLife[lastDropSpeed].setX(newX*25+25);
+                        icon_addLife[lastDropSpeed].setY(newY*25+25);
+                        newItem=0;
+                    }
+                    else if(newItem==7)
+                    {
+                    	
+                    	 r_icon_throughWall[lastDropSpeed].setX(newX*25+25);
+                         r_icon_throughWall[lastDropSpeed].setY(newY*25+25);
+                         addBrick(r_icon_throughWall[lastDropSpeed]);
+                        
+                        newItem=0;
                     }
                 }
             }
@@ -241,6 +304,58 @@ public class Data extends AnimationManger  {
 
     }
 
-
+public void setNumbers(int num,int player)
+{
+	int d=num%10-1,d10=num%100/10-1,d100=num%1000/100-1,d1000=num%10000/1000-1,d10000=num%100000/10000-1;
+	if(d==-1)d=9;if(d10==-1)d10=9;if(d100==-1)d100=9;if(d1000==-1)d1000=9;if(d10000==-1)d10000=9;
+	int in=0;
+	if(player==0)
+	{
+		for(int i=0;i<5;i++)
+		{
+			for(int j=0;j<10;j++)
+			{
+				in=i*10+j;
+				icon_numbers[in].setVisible(false);
+			}
+			
+		}
+		in=40+d;
+	    icon_numbers[in].setVisible(true);
+	    in=30+d10;
+	    icon_numbers[in].setVisible(true);
+	    in=20+d100;
+	    icon_numbers[in].setVisible(true);
+	    in=10+d1000;
+	    icon_numbers[in].setVisible(true);
+	    in=d10000;
+	    icon_numbers[in].setVisible(true);
+	}
+	
+	if(player==1)
+	{
+		for(int i=0;i<5;i++)
+		{
+			for(int j=0;j<10;j++)
+			{
+				in=i*10+j+50;
+				icon_numbers[in].setVisible(false);
+			}
+			
+		}
+		in=90+d;
+	    icon_numbers[in].setVisible(true);
+	    in=80+d10;
+	    icon_numbers[in].setVisible(true);
+	    in=70+d100;
+	    icon_numbers[in].setVisible(true);
+	    in=60+d1000;
+	    icon_numbers[in].setVisible(true);
+	    in=50+d10000;
+	    icon_numbers[in].setVisible(true);
+	}
+	
+	
+}
 
 }

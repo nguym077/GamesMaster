@@ -21,6 +21,7 @@ public class GameUI extends PumpkinMan implements PublicVar {
         LoadVamp();
         LoadZombie();
         Load_Icon();
+        Load_Number();
         LoadBird();
         LoadPlayer();
     }
@@ -471,6 +472,49 @@ public class GameUI extends PumpkinMan implements PublicVar {
             r_icon_addLife[i].setVisible(false);
 
         }
+    }
+    
+    public void Load_Number() {
+        String[] url = new String[10];
+        url[0] = "Halloween/icon/skill_numbers_1.png";
+        url[1] = "Halloween/icon/skill_numbers_2.png";
+        url[2] = "Halloween/icon/skill_numbers_3.png";
+        url[3] = "Halloween/icon/skill_numbers_4.png";
+        url[4] = "Halloween/icon/skill_numbers_5.png";
+        url[5] = "Halloween/icon/skill_numbers_6.png";
+        url[6] = "Halloween/icon/skill_numbers_7.png";
+        url[7] = "Halloween/icon/skill_numbers_8.png";
+        url[8] = "Halloween/icon/skill_numbers_9.png";
+        url[9] = "Halloween/icon/skill_numbers_10.png";
+
+        Image[] newImage = new Image[10];
+        newImage[0] = new Image(url[0]);
+        newImage[1] = new Image(url[1]);
+        newImage[2] = new Image(url[2]);
+        newImage[3] = new Image(url[3]);
+        newImage[4] = new Image(url[4]);
+        newImage[5] = new Image(url[5]);
+        newImage[6] = new Image(url[6]);
+        newImage[7] = new Image(url[7]);
+        newImage[8] = new Image(url[8]);
+        newImage[9] = new Image(url[9]);
+
+        int index=0;
+        for(int i=0;i<icon_numbers.length;i++)
+        {
+        	if(index==10)
+        		index=0;
+        	icon_numbers[i] = new ImageView(newImage[index]);
+        	icon_numbers[i].setFitWidth(15);
+        	icon_numbers[i].setFitHeight(20);
+        	icon_numbers[i].setX(-1000);
+        	icon_numbers[i].setY(0);
+            //Data.getChildren().add(icon_1st[i]);
+        	index++;
+        }
+
+
+        
     }
     public void LoadBird() {
         String[] url = new String[4];

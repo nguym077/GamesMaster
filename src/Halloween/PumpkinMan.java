@@ -20,7 +20,7 @@ public class PumpkinMan extends Application implements PublicVar{
         root =new Pane();  //this is the game pane
         data =new Pane();  //this pane will record game Data like health, power etc.
         root.setMaxSize(sizeX, sizeY);
-        root.setStyle("-fx-background-color: black");
+        root.setStyle("-fx-background-color: white");
         data.setMaxSize(sizeX, 50);
         data.setStyle("-fx-background-color: grey;");
 
@@ -223,6 +223,10 @@ public class PumpkinMan extends Application implements PublicVar{
             datai.getChildren().add(r_icon_power[i]);
             datai.getChildren().add(r_icon_health[i]);
             datai.getChildren().add(r_icon_speed[i]);
+        }
+        for(int i=0;i<icon_numbers.length;i++)
+        {
+        	datai.getChildren().add(icon_numbers[i]);
         }
     }
 
