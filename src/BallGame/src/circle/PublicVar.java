@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 public interface PublicVar {
 	int sizeX=600,sizeY=500;
@@ -23,4 +24,6 @@ public interface PublicVar {
 	Line[] line=new Line[10];
 	
 	AnimationTimer[] fireBall=new AnimationTimer[10];
+	
+	Shape[] colliArea=new Shape[10];
 }

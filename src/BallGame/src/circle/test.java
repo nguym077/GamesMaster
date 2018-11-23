@@ -44,6 +44,7 @@ public class test implements PublicVar{
 	    //setLine(5, 600, 600, 0, 600);
 	   // setLine(6, 600, 600, 600, 0);
 	    
+	    //set up fireball
 	    for(int i=0;i<C.length;i++)
 	    {
 	    	C[i] = new Circle();
@@ -55,7 +56,7 @@ public class test implements PublicVar{
 			group.getChildren().add(C[i]);
 	    }
 	    
-	    
+	    //set up rectangel
 	    for(int i=0;i<R.length;i++)
 	    {
 	    	R[i]= new Rectangle();
@@ -66,6 +67,8 @@ public class test implements PublicVar{
 	    	setR(i, -100, -100);
 		    group.getChildren().add(R[i]);
 	    }
+	    
+	    //put rectangle on the map
 	    int nx=50,ny=50;
 	    int inx=0,iny=0;
 	    setR(0, nx, ny);
@@ -79,7 +82,7 @@ public class test implements PublicVar{
 	    setR(8, nx*7, ny);
 	    	setR(9, nx*7, ny*3);
 	    
-	    
+	    /*
 	    r1= new Rectangle();
 	    r1.setFill(Color.RED);
 	    r1.setWidth(2);
@@ -87,15 +90,19 @@ public class test implements PublicVar{
 	    r1.setX(0);
 	    r1.setY(0);
 	    group.getChildren().add(r1);
+	    */
 	    
-	    
-	    System.out.println("90"+Math.sin(Math.toRadians(90)));
+	    //initial fireball animation
 	    for(int i=0;i<fireBall.length;i++)
 	    {
 	    	setCanmia(i);
 	    }
-	    startC(0, 0, 0, 10, 39);
+	    
+	    //start fireball on the map
+	    
+	    startC(0, 0, 0, 5, 39);
 	    C[0].setFill(Color.WHITE);
+	    
 	    startC(1, 0, 0, 10, 100);
 	    C[1].setFill(Color.RED);
 	    startC(2, 0, 0, 10, 200);
@@ -114,6 +121,7 @@ public class test implements PublicVar{
 	    startC(8, 0, 0, 10, 39);
 	    C[8].setFill(Color.WHITE);
 	    
+	    
 	}
 	public void setCanmia(int index)
 	{
@@ -122,10 +130,11 @@ public class test implements PublicVar{
     		
     		int count=0;
 	    	 boolean wait=false;
-	    	 boolean collidone=false;
+	    	
 	    	 int current=-1;
 	    	 boolean next=true;
     		 boolean coliC=false,coliR=false;
+    		 double collix,colliy,disx,disy,nextD;
     		public void handle(long now)
    	         {
     			if(runC[index]==true)
@@ -142,6 +151,7 @@ public class test implements PublicVar{
    	    			 cy[index]=cy[index]+motionY(index);
    	    			 //System.out.println("x "+cx[0]);
    	    			 //System.out.println("y "+cy[0]);
+   	    			 //check out border
    	    			 if(cx[index]<0)
    	    				 cx[index]=sizeX;
    	    			 if(cy[index]<0)
@@ -154,8 +164,10 @@ public class test implements PublicVar{
    		    		 C[index].setCenterY(cy[index]);
    		    		 //System.out.println("newline "+newline);
    		    		
+   		    		 //if is collision and check if that fireball left
    		    		 if(current!=-1)
    		    		 {
+   		    			
    		    			 if(coliR==true) {
    		    				current=checkleftR(current,index);
    		    				if(current==-1)
@@ -166,49 +178,48 @@ public class test implements PublicVar{
    		    				if(current==-1)
    		    					coliC=false;
    		    			 }
-   		    		 }
-   		    			 
-   		    		 if(current==-1)
-   		    		 {
-   		    			 next=true;
-   		    			 current=checkcolliR(index);
-   		    			 if(current!=-1)
-   		    				 coliR=true;
-   		    			 else if(current==-1){
-   		    				current=checkcolliC(index);
-   		    				if(current!=-1)
-      		    				 coliC=true;
-   		    			 }
-   		    				
    		    			 
    		    		 }
-   		    		Shape colli=null;
-   		    		 if((coliR||coliC)&&next)
+   		    		 
+   		    		 //if fireball not collison anything check collison
+		    		 if(current==-1)
+		    		 {
+		    			 next=true;
+		    			 current=checkcolliR(index);  //collisoon with rectangel
+		    			 if(current!=-1)
+		    				 coliR=true;
+		    			 else if(current==-1){
+		    				current=checkcolliC(index); //collison with fireball
+		    				if(current!=-1)
+	  		    				 coliC=true;
+		    			 }
+		    		 }
+   		    		
+		    		 //if find collison , find fireball new degree
+   		    		 if(current!=-1&&next)
    		    		 {
    		    			 next=false;
+   		    			 /*
    		    			 if(coliR)
    		    				 colli = Shape.intersect(R[current], C[index]);
    		    			 else if(coliC)
    		    				colli = Shape.intersect(C[current], C[index]);
-   		    			 
+   		    			 */
    		    				 
    		    			 //Shape colli = Shape.intersect(line[current], circle);
-   		    			 if(colli.getBoundsInParent().getWidth()>0)
+   		    			 if(colliArea[index].getBoundsInParent().getWidth()>0||colliArea[index].getBoundsInParent().getHeight()>0)
    		    			 {
    		    				 
-   		    				 double collix=colli.getBoundsInParent().getMinX()+colli.getBoundsInParent().getWidth()/2;
-   		    				 double colliy=colli.getBoundsInParent().getMinY()+colli.getBoundsInParent().getHeight()/2;
-   		    				 r1.setX(collix);
-   							 r1.setY(colliy); 
-   							 
+   		    				 collix=colliArea[index].getBoundsInParent().getMinX()+colliArea[index].getBoundsInParent().getWidth()/2;
+   		    				 colliy=colliArea[index].getBoundsInParent().getMinY()+colliArea[index].getBoundsInParent().getHeight()/2;
+   		    				 
    							 System.out.println("collix "+collix+" colliy "+colliy);
    							 System.out.println("centerx "+cx[index]+" centery "+cy[index]);
    							 
-   							 double x=cx[index]-collix,y=cy[index]-colliy;
-   							 double d=DEG(x,y);
-   							 
-
-   							 newDegree(d,index,x,y);
+   							 disx=cx[index]-collix;
+   							 disy=cy[index]-colliy;
+   							 nextD=DEG(disx,disy);
+   							 newDegree(nextD,index,disx,disy);
    							 
    		    			 }
    					    	
@@ -237,6 +248,7 @@ public class test implements PublicVar{
 		C[i].setCenterX(x);
 		C[i].setCenterY(y);
 	}
+	//put fireball on the map, fireball index, startx, starty, speedy, degree
 	public void startC(int i,double sx,double sy,double speedy,double degree)
 	{
 		C[i].setVisible(true);
@@ -382,8 +394,8 @@ public class test implements PublicVar{
 		int colli=-1;
 		for(int i=0;i<R.length;i++)
 		{
-			Shape colla = Shape.intersect(R[i], C[ci]);
-    		if (colla.getBoundsInParent().getWidth()>0)
+			colliArea[ci] = Shape.intersect(R[i], C[ci]);
+    		if (colliArea[ci].getBoundsInParent().getWidth()>0)
 			 {
 				System.out.println("col");
 				colli=i;
@@ -400,8 +412,8 @@ public class test implements PublicVar{
 		{
 			if(i!=ci)
 			{
-				Shape colla = Shape.intersect(C[i], C[ci]);
-	    		if (colla.getBoundsInParent().getWidth()>0)
+				colliArea[ci] = Shape.intersect(C[i], C[ci]);
+	    		if (colliArea[ci].getBoundsInParent().getWidth()>0)
 				 {
 					System.out.println("col C");
 					colli=i;
@@ -415,22 +427,24 @@ public class test implements PublicVar{
 	
 	public int checkleftR(int current,int ci)
 	{
-		Shape colla = Shape.intersect(R[current], C[ci]);
-		if (colla.getBoundsInParent().getWidth()<=0)
+		colliArea[ci]= Shape.intersect(R[current], C[ci]);
+		if (colliArea[ci].getBoundsInParent().getWidth()<=0)
 		 {
 			System.out.println("left");
 			current=-1;
 		 }	
 		return current;
 	}
+	
 	public int checkleftC(int current,int ci)
 	{
-		Shape colla = Shape.intersect(C[current], C[ci]);
-		if (colla.getBoundsInParent().getWidth()<=0)
+		colliArea[ci]= Shape.intersect(C[current], C[ci]);
+		if (colliArea[ci].getBoundsInParent().getWidth()<=0)
 		 {
 			System.out.println("left");
 			current=-1;
 		 }	
 		return current;
 	}
+	
 }
