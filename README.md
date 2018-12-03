@@ -1,32 +1,16 @@
-﻿# GamesMaster
+﻿# Games Master
 
-![Screenshot](https://github.com/nguym077/GamesMaster/blob/master/Capture.PNG)
+### Maze
+One player. Goal is to navigate through the maze to reach the "exit" point.
 
+### Concentration
+Match two tiles to eliminate them from the screen. Goal is to try to eliminate all tiles.
 
+### Chess
+Mini version of a chess game. Revised rule: no rooks and queen acts like a king + rook.
 
-For example:
- way[0][0]= 200, from that point 0,0 it can only go to right 
- 
- way[1][4]=34, from that point 14 it can only go to left and down
- 
- way[1][4]= 4 from that point 14 it can only go to left
- 
- way[1][4]= 1000, from that point 14 it can only go to up
- 
- way[1][4]= 1030, from that point 14 it can only go to up and down
- 
- way[1][4]=1234, from that point 1,4 it can go all the 4 direction.
+### Tank
+Two player game. Goal is to eliminate other player from screen using bullets from the tanks.
 
-So when user click moving button, there will be a calculation of way[I][j] to find out the allowable path, can use / and % or other way.
-For example if user click up button from point way[3][4]
-Then
-Way[3][4]/1000,  if equals 1 , it can go up
-
-if user click right button 
-(Way[3][4]/100)%10 , if equals 2, it can go right.
-
-If down button
-(Way[3][4]/10)%10, if equals 3, it can go down
-
-If left button
-Way[3][4]%10, if equals 4, it can go left
+### Pumpkin-Man
+Two player game. Goal is to eliminate other player and zombies from the screen by dropping random bombs across the screen.
