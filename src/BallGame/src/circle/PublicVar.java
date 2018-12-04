@@ -5,6 +5,8 @@ package circle;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.LineTo;
@@ -16,14 +18,24 @@ import javafx.scene.shape.Shape;
 public interface PublicVar {
 	int sizeX=1050,sizeY=500;
 	int cellSize=50;
+	double Scale=1.0;
+	
+	Pane[] root =new Pane[1];  //this is the game pane
+	Pane[] data =new Pane[1];  //this pane will record game Data like health, power etc.
+	
 	Circle[] C=new Circle[10];
+	Rectangle[] healthbar=new Rectangle[2];
 	//Trang[] C=new Circle[10];
 	
 	Path[] path = new Path[10];
 	MoveTo[] moveTo = new MoveTo[1000];
 	LineTo[] lineP=new LineTo[2000];
 	boolean[] pathActive=new boolean[10];
+	
+	Group[] mapG = new Group[1];
+	
 	Group group = new Group();
+	Group dataG = new Group();
 	double[] cx=new double[10];
 	double[] cy=new double[10];
 	double[] sp=new double[10];  //speed
@@ -38,19 +50,47 @@ public interface PublicVar {
 	AnimationTimer[] bunny=new AnimationTimer[5];
 	AnimationTimer[] hero=new AnimationTimer[1];
 	
-	Circle[] C_bunny= new Circle[5]; 
+	Circle[] C_bunny= new Circle[2]; 
 	Circle[] C_hero= new Circle[1];
 	
-	double[] bunny_x=new double[5];
-	double[] bunny_y=new double[5];
-	boolean[] runBunny=new boolean[5];
-	boolean[] bunnyBeHit=new boolean[5];
+	double[] bunny_x=new double[2];
+	double[] bunny_y=new double[2];
+	boolean[] runBunny=new boolean[2];
+	boolean[] bunnyBeHit=new boolean[2];
+	
+	double[] health=new double[1];
 	
 	double[] hero_x=new double[1];
 	double[] hero_y=new double[1];
+	boolean[] runHero=new boolean[1];
 	boolean[] heroBeHit=new boolean[1];
 	
 	int[] direction=new int[1];
 	
 	Shape[] colliArea=new Shape[10];
+	
+	int maxNumber_fireball_1=10;
+	int fireball_1_idle_imageN=5;int fireball_1_idleN=maxNumber_fireball_1*fireball_1_idle_imageN; //6*50
+	ImageView[] fireball_1_idle_L=new ImageView[fireball_1_idleN]; 
+	ImageView[] fireball_1_idle_R=new ImageView[fireball_1_idleN];
+	
+	int maxNumber_hero_1=1;
+	int hero_1_idle_imageN=3;int hero_1_idleN=maxNumber_hero_1*hero_1_idle_imageN; //6*50
+	ImageView[] hero_1_idle_L=new ImageView[hero_1_idleN]; 
+	ImageView[] hero_1_idle_R=new ImageView[hero_1_idleN];
+	
+	int maxNumber_logo_1=1;
+	int logo_1_idle_imageN=1;int logo_1_idleN=maxNumber_logo_1*logo_1_idle_imageN; //6*50
+	ImageView[] logo_1_idle_L=new ImageView[logo_1_idleN]; 
+	ImageView[] logo_1_idle_R=new ImageView[logo_1_idleN];
+	
+	int maxNumber_bird_1=1;
+	int bird_1_idle_imageN=3;int bird_1_idleN=maxNumber_bird_1*bird_1_idle_imageN; //6*50
+	ImageView[] bird_1_idle_L=new ImageView[bird_1_idleN]; 
+	ImageView[] bird_1_idle_R=new ImageView[bird_1_idleN];
+	
+	boolean[] activeBird=new boolean[1];
+	double[] bird_x=new double[1];
+	double[] bird_y=new double[1];
 }
+ 

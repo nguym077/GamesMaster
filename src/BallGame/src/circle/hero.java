@@ -3,6 +3,7 @@ package circle;
 import java.util.Random;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
@@ -27,8 +28,16 @@ public class hero implements PublicVar {
 			setHeroAnima(i);
 			
 			heroBeHit[i]=false;
+			runHero[i]=false;
 		}
 		activeHero(300,100);
+		
+		for(int i=0;i<hero_1_idle_L.length;i++)
+	    {
+	    	group.getChildren().add(hero_1_idle_L[i]);
+	    	group.getChildren().add(hero_1_idle_R[i]);
+	    }
+		
 	}
 	public void activeHero(double x,double y)
 	{
@@ -36,7 +45,8 @@ public class hero implements PublicVar {
 		
 		if(activei!=-1)
 		{
-			C_hero[activei].setVisible(true);
+			
+			//C_hero[activei].setVisible(true);
 			
 			hero_x[activei]=x;
 			hero_y[activei]=y;
@@ -57,7 +67,23 @@ public class hero implements PublicVar {
 				else
 					done=true;
 			}
+			hero_1_idle_L[0].setVisible(true);
+			hero_1_idle_L[0].setX(hero_x[0]);
+			hero_1_idle_L[0].setY(hero_y[0]);
+			runHero[0]=true;
 		}
+		
+	}
+	//de active hero
+	public void offHero()
+	{
+		for(int i=0;i<hero_1_idle_L.length;i++) 
+		{
+			hero_1_idle_L[i].setVisible(false);
+		}
+		C_hero[0].setCenterX(-1000);
+		C_hero[0].setCenterY(-1000);
+		runHero[0]=false;
 		
 	}
 	public void setHeroAnima(int index)
@@ -66,11 +92,13 @@ public class hero implements PublicVar {
 	    {
     		int count=0,count2=0,count3=0;
 	    	int move=-1;
+	    	int imagenum=0;
+	    	ImageView lastView=fireball_1_idle_R[0];
 	    	boolean next=false,moveToHero=false;
 	    	
     		public void handle(long now)
    	        {
-    			
+    			if(runHero[0])
     			count++;
     			
     			if(count>1)
@@ -87,8 +115,13 @@ public class hero implements PublicVar {
         				{
         					noMove(index, move);
         				}
+        				if(imagenum>=3)
+     		    			 imagenum=0;
+     		    		 lastView.setVisible(false);
+     		    		 lastView=idle(index,imagenum);
+     		    		 imagenum++;
     				}
-        				
+    				
     				
     			}
    	        }
@@ -136,5 +169,20 @@ public class hero implements PublicVar {
 	{
 		C_hero[i].setCenterX(x);
 		C_hero[i].setCenterY(y);
+	}
+	
+	public ImageView idle(int index,int i)
+	{
+		int newID=index*3+i;
+		ImageView view=new ImageView();
+		{
+			hero_1_idle_L[newID].setVisible(true);
+			hero_1_idle_L[newID].setX(hero_x[index]);
+			hero_1_idle_L[newID].setY(hero_y[index]);
+			//hero_1_idle_L[newID].setRotate(deg[index]+90);
+			view=hero_1_idle_L[newID];
+			}
+		
+		return view;	
 	}
 }

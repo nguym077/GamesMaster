@@ -60,6 +60,23 @@ public class Collison implements PublicVar{
 		return colli;
 	}
 	
+	public boolean ballColliHero(int ci)
+	{
+		boolean colli=false;
+		for(int i=0;i<C_hero.length;i++)
+		{
+			Shape coliA=Shape.intersect(C_hero[i], C[ci]);
+			if (coliA.getBoundsInParent().getWidth()>0)
+			 {
+				colli=true;
+				heroBeHit[i]=true;
+				break;
+			 }
+		}
+			
+		return colli;
+	}
+	
 	public boolean heroColliPath(int bunnyi)
 	{
 		boolean colli=false;

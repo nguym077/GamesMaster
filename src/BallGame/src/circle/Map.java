@@ -23,7 +23,7 @@ public class Map implements PublicVar{
 	    {
 	    	path[i]=new Path();
 	    }
-		group.getChildren().add(path[0]);
+		mapG[0].getChildren().add(path[0]);
 		
 		int nextx=0,nexty=0;
 	    System.out.println("cells "+numCells);

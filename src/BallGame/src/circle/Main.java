@@ -10,24 +10,28 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Main extends Application implements PublicVar{
-	Pane root;
-	Pane data;
+	
 	
 	public void start(Stage stage) {
-		root =new Pane();  //this is the game pane
-        data =new Pane();  //this pane will record game Data like health, power etc.
-        root.setMaxSize(sizeX, sizeY);
-        root.setStyle("-fx-background-color: white");
-        data.setMaxSize(sizeX, 50);
-        data.setStyle("-fx-background-color: grey;");
+	
+		root[0]=new Pane();
+		data[0]=new Pane();
+		mapG[0]=new Group();
+		root[0].setMaxSize(sizeX, sizeY);
+		root[0].setStyle("-fx-background-color: white");
+		data[0].setMaxSize(sizeX, 50);
+		data[0].setStyle("-fx-background-color: grey;");
         BorderPane pane = new BorderPane();
         pane.setMaxWidth(sizeX);pane.setMaxHeight(sizeY+50);
         
-        root.getChildren().add(group);
-        
+       
+        root[0].getChildren().add(mapG[0]);
+        root[0].getChildren().add(group);
+        data[0].getChildren().add(dataG);
+       
         initclass();
-        pane.setTop(root);
-        //pane.setBottom(root);
+        pane.setTop(root[0]);
+        pane.setBottom(data[0]);
         Keyboard newKeyboard = new Keyboard();
         newKeyboard.init();
         Scene scene = new Scene(pane,sizeX,sizeY+50);
@@ -57,6 +61,8 @@ public class Main extends Application implements PublicVar{
 	}
 	public void initclass()
 	{
+		loadImage newLoadImage=new loadImage();
+		newLoadImage.init();
 		Map newMap=new Map();
 		newMap.init();
 		fireball newCircle = new fireball();
@@ -65,6 +71,11 @@ public class Main extends Application implements PublicVar{
 		newBunny.init();
 		hero newHero=new hero();
 		newHero.init();
+		
+		data newData=new data();
+		newData.init();
+		bird newBird=new bird();
+		newBird.init();
 		
 	}
 	public static void main(String[] args) {

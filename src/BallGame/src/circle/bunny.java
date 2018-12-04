@@ -67,6 +67,18 @@ public class bunny extends fireball implements PublicVar{
 		}
 		
 	}
+	public void offBunny()
+	{
+		for(int i=0;i<C_bunny.length;i++)
+		{
+			C_bunny[i].setCenterX(-1000);
+			C_bunny[i].setCenterY(-1000);
+			C_bunny[i].setVisible(false);
+			bunnyBeHit[i]=false;
+			runBunny[i]=false;
+		}
+		
+	}
 	public void setBunnyAnima(int index)
 	{
 		bunny[index]=new AnimationTimer()
@@ -90,7 +102,7 @@ public class bunny extends fireball implements PublicVar{
     					bunnyBeHit[index]=false;
     					int act=rnum.nextInt(10);
     					if(act==0)
-    					activeBunny(bunny_x[index], bunny_y[index]);
+    					activeBunny(bunny_x[index]+30, bunny_y[index]+30);
     				}
     				if(count3>100)
     				{
@@ -100,7 +112,7 @@ public class bunny extends fireball implements PublicVar{
     					double disy=bunny_y[index]-hero_y[0];
     					startCtoHero(bunny_x[index], bunny_y[index], 3,disx,disy);
     				}
-    				if(count2>30||move==-1) {
+    				if(count2>100||move==-1) {
     					count2=0;
     					int target=rnum.nextInt(100);
     					if(target>=75&&target<100)

@@ -1,6 +1,7 @@
 package circle;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -9,6 +10,7 @@ public class fireball implements PublicVar{
 	Circle circle;
 	Rectangle r1,r2;
 	Collison newCollison= new Collison();
+	data newData=new data();
 	public void init()
 	{
 		for(int i=0;i<runC.length;i++)
@@ -27,8 +29,11 @@ public class fireball implements PublicVar{
 			C[i].setVisible(false);
 			group.getChildren().add(C[i]);
 	    }
-	    
-	    
+	    for(int i=0;i<fireball_1_idle_L.length;i++)
+	    {
+	    	group.getChildren().add(fireball_1_idle_L[i]);
+	    	group.getChildren().add(fireball_1_idle_R[i]);
+	    }
 	    
 	    //initial fireball animation
 	    for(int i=0;i<fireBall.length;i++)
@@ -51,8 +56,10 @@ public class fireball implements PublicVar{
 	    	
 	    	 int current=-1,countHit=0;
 	    	 boolean next=true;
-    		 boolean coliC=false,coliR=false,coliBunny=false;
+    		 boolean coliC=false,coliR=false,coliBunny=false,coliHero=false;
     		 double collix,colliy,disx,disy,nextD;
+    		 ImageView lastView=fireball_1_idle_R[0];
+    		 int imagenum=0;
     		public void handle(long now)
    	         {
     			if(runC[index]==true)
@@ -109,8 +116,17 @@ public class fireball implements PublicVar{
 			    			 if(coliBunny)
 			    				 countHit=11;
 		    			 }
-		    			
 		    			 if(coliBunny==false)
+		    			 {
+		    				 coliHero=newCollison.ballColliHero(index);
+		    				 if(coliHero)
+		    				 {
+		    					 newData.reduceHealth();
+		    					 countHit=11;
+		    				 }
+			    				 
+		    			 }
+		    			 if(coliHero==false)
 		    			 {
 		    				 current=newCollison.checkcolliPath(index); 
 			    			 if(current!=-1)
@@ -119,16 +135,23 @@ public class fireball implements PublicVar{
 			    				 countHit++;
 			    			 } 
 		    			 }
+		    			 
 		    				
 		    			 
 		    			 
 		    			 
 		    		 }
-		    		 
+		    			if(imagenum>=5)
+	   		    			 imagenum=0;
+	   		    		 lastView.setVisible(false);
+	   		    		 lastView=idle(index,imagenum);
+	   		    		 imagenum++;
+	   		    		 
 		    		 if(countHit>10)
 		    		 {
 		    			 countHit=0;
 		    			 stopC(index);
+		    			 lastView.setVisible(false);
 		    		 }
 		    			 
 		    		 //if find collison , find fireball new degree
@@ -158,9 +181,9 @@ public class fireball implements PublicVar{
    							 newDegree(nextD,index,disx,disy);
    							 
    		    			 }
-   					    	
+   		    		
    		    		 }
-   		    		 
+		    		 
    	    		 }
    	    		 
    	         }
@@ -177,7 +200,7 @@ public class fireball implements PublicVar{
 	//put fireball on the map, fireball index, startx, starty, speedy, degree
 	public void startC(int i,double sx,double sy,double speedy,double degree)
 	{
-		C[i].setVisible(true);
+		//C[i].setVisible(true);
 		runC[i]=true;
 		cx[i]=sx;cy[i]=sy;
 		sp[i]=speedy;deg[i]=degree;
@@ -188,7 +211,7 @@ public class fireball implements PublicVar{
 	{
 		if(balli>=10)
 			balli=0;
-		C[balli].setVisible(true);
+		//C[balli].setVisible(true);
 		runC[balli]=true;
 		cx[balli]=sx;cy[balli]=sy;
 		
@@ -225,8 +248,23 @@ public class fireball implements PublicVar{
 		
 		C[i].setVisible(false);
 		runC[i]=false;
-		
+		C[i].setCenterX(-1000);
+  		C[i].setCenterY(-1000);
 		//sp[balli]=speedy;deg[balli]=degree;
+	}
+	public void offFireball()
+	{
+		for(int i=0;i<C.length;i++)
+		{
+			C[i].setCenterX(-1000);
+			C[i].setCenterY(-1000);
+			C[i].setVisible(false);
+			runC[i]=false;
+		}
+		for(int i=0;i<fireball_1_idle_L.length;i++)
+		{
+			fireball_1_idle_L[i].setVisible(false);
+		}
 	}
 	public double DEG(double x,double y)
 	{
@@ -364,7 +402,20 @@ public class fireball implements PublicVar{
 	}
 	
 	
-	
+	public ImageView idle(int index,int i)
+	{
+		int newID=index*5+i;
+		ImageView view=new ImageView();
+		{
+			fireball_1_idle_L[newID].setVisible(true);
+			fireball_1_idle_L[newID].setX(cx[index]);
+			fireball_1_idle_L[newID].setY(cy[index]);
+			fireball_1_idle_L[newID].setRotate(deg[index]+90);
+			view=fireball_1_idle_L[newID];
+			}
+		
+		return view;	
+	}
 	
 	
 	
