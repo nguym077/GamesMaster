@@ -18,7 +18,7 @@ public class Main extends Application implements PublicVar{
 		data[0]=new Pane();
 		mapG[0]=new Group();
 		root[0].setMaxSize(sizeX, sizeY);
-		root[0].setStyle("-fx-background-color: white");
+		root[0].setStyle("-fx-background-color: black");
 		data[0].setMaxSize(sizeX, 50);
 		data[0].setStyle("-fx-background-color: grey;");
         BorderPane pane = new BorderPane();
@@ -76,6 +76,8 @@ public class Main extends Application implements PublicVar{
 		newData.init();
 		bird newBird=new bird();
 		newBird.init();
+		egg newEgg=new egg();
+		newEgg.init();
 		
 	}
 	public static void main(String[] args) {

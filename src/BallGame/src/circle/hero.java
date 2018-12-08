@@ -115,6 +115,8 @@ public class hero implements PublicVar {
         				{
         					noMove(index, move);
         				}
+        				newCollison.heroColliEgg(index);
+        				
         				if(imagenum>=3)
      		    			 imagenum=0;
      		    		 lastView.setVisible(false);

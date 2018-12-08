@@ -47,7 +47,7 @@ public class bird implements PublicVar{
 	public boolean Move(int i)
 	{
 		boolean stop=false;
-		bird_x[i]=bird_x[i]+5;
+		bird_x[i]=bird_x[i]+15;
 		bird_y[i]=bird_y[i]+0;
 		
 		if( (bird_x[i]>sizeX-30)||(bird_y[i]>sizeY-30) )

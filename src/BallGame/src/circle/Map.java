@@ -14,8 +14,34 @@ public class Map implements PublicVar{
 	Random rWall=new Random();
 	public void init()
 	{
+		wallImage();
 		//drawCells();
 		drawWalls();
+		
+	}
+	public void newMap()
+	{
+		drawWalls();
+	}
+	public void offMap()
+	{
+		mapG[0].getChildren().removeAll(path[0]);
+		for(int i=0;i<wall_1_idle_L.length;i++)
+		{
+			wall_1_idle_L[i].setVisible(false);
+		}
+		
+	}
+	public void wallImage()
+	{
+		for(int i=0;i<wall_1_idle_L.length;i++)
+		{
+			group.getChildren().add(wall_1_idle_L[i]);
+			wall_1_idle_L[i].setVisible(false);
+			wall_1_idle_L[i].setX(-1000);
+			wall_1_idle_L[i].setY(-1000);
+		}
+		
 	}
 	public void drawWalls()
 	{
@@ -56,7 +82,7 @@ public class Map implements PublicVar{
 		for(int i=0;i<lineX.length;i++)
 	    {
 	    	lineX[i] = new Line();
-	    	lineX[i].setStroke(Color.GREY);
+	    	lineX[i].setStroke(Color.WHITE);
 		    lineX[i].setStrokeWidth(1);
 		    group.getChildren().add(lineX[i]);
 		    setLineX(i,i*cellSize,0,i*cellSize,sizeY);
@@ -64,7 +90,7 @@ public class Map implements PublicVar{
 		for(int i=0;i<lineY.length;i++)
 	    {
 	    	lineY[i] = new Line();
-	    	lineY[i].setStroke(Color.GREY);
+	    	lineY[i].setStroke(Color.WHITE);
 		    lineY[i].setStrokeWidth(1);
 		    group.getChildren().add(lineY[i]);
 		    setLineY(i,0,i*cellSize,sizeX,i*cellSize);
@@ -88,14 +114,14 @@ public class Map implements PublicVar{
 	int linei=0,movei=0;
 	//initial wall on the map
 	
+	int wall_1=0;
 	public void addHorizontalWall(int sx,int sy)
 	{
 		moveTo[movei] = new MoveTo(sx, sy);
-		
 		path[0].getElements().add(moveTo[movei]);
 	    movei=movei+1;
 	    
-	    lineP[linei] = new LineTo(sx+cellSize, sy);  
+	    lineP[linei] = new LineTo(sx+cellSize, sy);
 	    path[0].getElements().add(lineP[linei]);
 	    linei=linei+1;
 	    lineP[linei] = new LineTo(sx+cellSize,sy+cellSize/10);
@@ -107,8 +133,17 @@ public class Map implements PublicVar{
 	    lineP[linei] = new LineTo(sx,sy);
 	    path[0].getElements().add(lineP[linei]);
 	    linei=linei+1;
+	    
+	    int wall=wall_1*4;
+	    wall_1_idle_L[wall].setX(sx);
+	    wall_1_idle_L[wall].setY(sy);
+	    wall_1_idle_L[wall].setVisible(true);
+	    wall_1++;
+	    
+	    System.out.println("wall "+wall+" "+"xy "+sx+" "+sy);
 	}
 	
+	int wall_2=0;
 	public void addVerticalWall(int sx,int sy)
 	{
 		moveTo[movei] = new MoveTo(sx, sy);
@@ -128,7 +163,14 @@ public class Map implements PublicVar{
 	    lineP[linei] = new LineTo(sx,sy);
 	    path[0].getElements().add(lineP[linei]);
 	    linei=linei+1;
+	    
+	    int wall=wall_2*4+1;
+	    wall_1_idle_L[wall].setX(sx);
+	    wall_1_idle_L[wall].setY(sy);
+	    wall_1_idle_L[wall].setVisible(true);
+	    wall_2++;
 	}
+	int wall_4=0;
 	public void addDiagonalWall_1(int sx,int sy)
 	{
 		
@@ -156,7 +198,13 @@ public class Map implements PublicVar{
 	    path[0].getElements().add(lineP[linei]);
 	    linei=linei+1;
 	    
+	    int wall=wall_4*4+2;
+	    wall_1_idle_L[wall].setX(sx);
+	    wall_1_idle_L[wall].setY(sy);
+	    wall_1_idle_L[wall].setVisible(true);
+	    wall_4++;
 	}
+	int wall_3=0;
 	public void addDiagonalWall_2(int sx,int sy)
 	{
 		
@@ -184,6 +232,11 @@ public class Map implements PublicVar{
 	    path[0].getElements().add(lineP[linei]);
 	    linei=linei+1;
 	    
+	    int wall=wall_3*4+3;
+	    wall_1_idle_L[wall].setX(sx);
+	    wall_1_idle_L[wall].setY(sy);
+	    wall_1_idle_L[wall].setVisible(true);
+	    wall_3++;
 	}
 	public void moveWall(int i,int nx,int ny)
 	{

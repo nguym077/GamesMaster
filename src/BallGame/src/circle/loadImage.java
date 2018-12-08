@@ -22,6 +22,9 @@ public class loadImage implements PublicVar{
 		hero_1_load_idle();
 		logo_1_load_idle();
 		bird_1_load_idle();
+		bunny_1_load_idle();
+		wall_1_load_idle();
+		egg_1_load_idle();
 	}
 	
 	public void fireball_1_load_idle()
@@ -65,6 +68,39 @@ public class loadImage implements PublicVar{
 		view_L=bird_1_idle_L;view_R=bird_1_idle_R;
 		eachNumber=bird_1_idle_imageN;length=bird_1_idle_L.length;
 		xl=0;xr=0;yl=0;yr=0;scales=0.5;
+		degL=0;degR=0;
+		create_imageview();
+	}
+	public void bunny_1_load_idle()
+	{
+		//System.out.println("enemy_1_load_shoot");
+		front="bunny_";
+		back_L="_L.png";back_R="_R.png";
+		view_L=bunny_1_idle_L;view_R=bunny_1_idle_R;
+		eachNumber=bunny_1_idle_imageN;length=bunny_1_idle_L.length;
+		xl=9;xr=19;yl=20;yr=20;scales=1.0;
+		degL=0;degR=0;
+		create_imageview();
+	}
+	public void wall_1_load_idle()
+	{
+		//System.out.println("enemy_1_load_shoot");
+		front="wall_";
+		back_L=".png";back_R=".png";
+		view_L=wall_1_idle_L;view_R=wall_1_idle_R;
+		eachNumber=wall_1_idle_imageN;length=wall_1_idle_L.length;
+		xl=0;xr=0;yl=50;yr=50;scales=1.0;
+		degL=0;degR=0;
+		create_imageview();
+	}
+	public void egg_1_load_idle()
+	{
+		//System.out.println("enemy_1_load_shoot");
+		front="egg_";
+		back_L=".png";back_R=".png";
+		view_L=egg_1_idle_L;view_R=egg_1_idle_R;
+		eachNumber=egg_1_idle_imageN;length=egg_1_idle_L.length;
+		xl=21;xr=0;yl=36;yr=36;scales=0.5;
 		degL=0;degR=0;
 		create_imageview();
 	}

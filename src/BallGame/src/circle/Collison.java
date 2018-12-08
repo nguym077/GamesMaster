@@ -42,6 +42,18 @@ public class Collison implements PublicVar{
 		 }	
 		return colli;
 	}
+	public boolean eggColliPath(int eggi)
+	{
+		boolean colli=false;
+		Shape coliA=Shape.intersect(C_egg[eggi], path[0]);
+		if (coliA.getBoundsInParent().getWidth()>0)
+		 {
+			colli=true;
+			
+			
+		 }	
+		return colli;
+	}
 	
 	public boolean ballColliBunny(int ci)
 	{
@@ -85,6 +97,24 @@ public class Collison implements PublicVar{
 		 {
 			colli=true;
 		 }	
+		return colli;
+	}
+	
+	public boolean heroColliEgg(int heroi)
+	{
+		boolean colli=false;
+		for(int i=0;i<C_egg.length;i++)
+		{
+			Shape coliA=Shape.intersect(C_hero[heroi], C_egg[i]);
+			if (coliA.getBoundsInParent().getWidth()>0)
+			 {
+				colli=true;
+				eggBeHit[i]=true;
+				getEggNum[0]=getEggNum[0]+1;
+				break;
+			 }
+		}
+			
 		return colli;
 	}
 }

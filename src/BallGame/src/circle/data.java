@@ -59,31 +59,34 @@ public class data implements PublicVar{
 	}
 	public void reduceHealth()
 	{
-		health[0]=health[0]-20;
+		health[0]=health[0]-50;
 		double w=healthbar[1].getWidth();
-		w=w+20;
+		w=w+50;
 		healthbar[1].setWidth(w);
 		healthbar[1].setHeight(20);
 		double hx=healthbar[1].getX();
-		hx=hx-20;
+		hx=hx-50;
 		healthbar[1].setX(hx);
 		healthbar[1].setY(10);
 	}
 	public void gameOver()
 	{
-		mapG[0].getChildren().removeAll(path[0]);
+		
 		Map newMap=new Map();
+		newMap.offMap();
 		fireball newFireball=new fireball();
 		newFireball.offFireball();
 		bunny newBunny=new bunny();
 		newBunny.offBunny();
 		hero newHero=new hero();
 		newHero.offHero();
+		egg newEgg=new egg();
+		newEgg.offEgg();
 	}
 	public void newGame()
 	{
 		Map newMap=new Map();
-		newMap.init();
+		newMap.newMap();
 		
 		health[0]=200;
 		
@@ -97,8 +100,12 @@ public class data implements PublicVar{
 		bunny newBunny=new bunny();
 		newBunny.activeBunny(100, 100);
 		
+		egg newEgg=new egg();
+		newEgg.newGame();
+		
 		hero newHero=new hero();
 		newHero.activeHero(300, 300);
+		
 		
 		
 	}
@@ -123,6 +130,8 @@ public class data implements PublicVar{
 	}
 	public void run()
 	{
+		gamelevel[0]=1;
+		getEggNum[0]=0;
 		AnimationTimer dataRun=new AnimationTimer()
 	    {
     		int count=0;
@@ -130,12 +139,26 @@ public class data implements PublicVar{
     		
     		public void handle(long now)
     		{
-    			if(health[0]<=0&&restart==false) {
+    			
+    			if( (gamelevel[0]==getEggNum[0]||health[0]<=0)&&restart==false) {
     				restart=true;
+    				
+    				if(gamelevel[0]==getEggNum[0])
+    				{
+    					gamelevel[0]=gamelevel[0]+1;
+        				if(gamelevel[0]>10)
+        					gamelevel[0]=10;
+    				}
+    				else if(health[0]<=0)
+    				{
+    					gamelevel[0]=1;
+    				}
     				gameOver();
     				showLogo();
     				showBird();
     			}
+    			
+    			
     			if(restart)
     			{
     				boolean done=false;
