@@ -84,7 +84,7 @@ public class Enemy_Bat extends AnimationManger {
                     removeImageView(Bat1[newID+2],r_Bat[ID]);
                     stopAnima(ID,BatAnima[ID]);
                     direction=-2;
-                    setBat(125, 125);
+                    //setBat(125, 125);
                 }
                 if(direction==-1)
                 {

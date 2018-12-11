@@ -203,8 +203,8 @@ public class Data extends AnimationManger  {
                     	trytime=10;
                         boolean set=false;
                         
-                            r_icon_health[lastDropHealth].setX(newX*25+25);
-                            r_icon_health[lastDropHealth].setY(newY*25+25);
+                            r_icon_health[lastDropHealth].setX(newX*25+25+2.5);
+                            r_icon_health[lastDropHealth].setY(newY*25+25+2.5);
                            
                         
                         icon_health[lastDropHealth].setX(newX*25+25);
@@ -215,8 +215,8 @@ public class Data extends AnimationManger  {
                     {
                         boolean set=false;
                         
-                            r_icon_bomb[lastDropBome].setX(newX*25+25);
-                            r_icon_bomb[lastDropBome].setY(newY*25+25);
+                            r_icon_bomb[lastDropBome].setX(newX*25+25+2.5);
+                            r_icon_bomb[lastDropBome].setY(newY*25+25+2.5);
                           
                         
                         icon_bomb[lastDropBome].setX(newX*25+25);
@@ -227,8 +227,8 @@ public class Data extends AnimationManger  {
                     {
                         boolean set=false;
                        
-                            r_icon_power[lastDropPower].setX(newX*25+25);
-                            r_icon_power[lastDropPower].setY(newY*25+25);
+                            r_icon_power[lastDropPower].setX(newX*25+25+2.5);
+                            r_icon_power[lastDropPower].setY(newY*25+25+2.5);
                            
                         icon_power[lastDropPower].setX(newX*25+25);
                         icon_power[lastDropPower].setY(newY*25+25);
@@ -238,8 +238,8 @@ public class Data extends AnimationManger  {
                     {
                         boolean set=false;
                         
-                            r_icon_speed[lastDropSpeed].setX(newX*25+25);
-                            r_icon_speed[lastDropSpeed].setY(newY*25+25);
+                            r_icon_speed[lastDropSpeed].setX(newX*25+25+2.5);
+                            r_icon_speed[lastDropSpeed].setY(newY*25+25+2.5);
                            
                         icon_speed[lastDropSpeed].setX(newX*25+25);
                         icon_speed[lastDropSpeed].setY(newY*25+25);
@@ -249,8 +249,8 @@ public class Data extends AnimationManger  {
                     {
                         boolean set=false;
                        
-                            r_icon_noHurt[lastDropSpeed].setX(newX*25+25);
-                            r_icon_noHurt[lastDropSpeed].setY(newY*25+25);
+                            r_icon_noHurt[lastDropSpeed].setX(newX*25+25+2.5);
+                            r_icon_noHurt[lastDropSpeed].setY(newY*25+25+2.5);
                            
                         icon_noHurt[lastDropSpeed].setX(newX*25+25);
                         icon_noHurt[lastDropSpeed].setY(newY*25+25);
@@ -281,8 +281,8 @@ public class Data extends AnimationManger  {
                     */
                     else if(newItem==6)
                     {
-                        r_icon_addLife[lastDropSpeed].setX(newX*25+25);
-                        r_icon_addLife[lastDropSpeed].setY(newY*25+25);
+                        r_icon_addLife[lastDropSpeed].setX(newX*25+25+2.5);
+                        r_icon_addLife[lastDropSpeed].setY(newY*25+25+2.5);
                            
                         icon_addLife[lastDropSpeed].setX(newX*25+25);
                         icon_addLife[lastDropSpeed].setY(newY*25+25);
@@ -291,8 +291,8 @@ public class Data extends AnimationManger  {
                     else if(newItem==7)
                     {
                     	
-                    	 r_icon_throughWall[lastDropSpeed].setX(newX*25+25);
-                         r_icon_throughWall[lastDropSpeed].setY(newY*25+25);
+                    	 r_icon_throughWall[lastDropSpeed].setX(newX*25+25+2.5);
+                         r_icon_throughWall[lastDropSpeed].setY(newY*25+25+2.5);
                          addBrick(r_icon_throughWall[lastDropSpeed]);
                         
                         newItem=0;
