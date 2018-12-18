@@ -14,3 +14,6 @@ Two player game. Goal is to eliminate other player from screen using bullets fro
 
 ### Pumpkin-Man
 Two player game. Goal is to eliminate other player and zombies from the screen by dropping random bombs across the screen.
+
+### Bunny Game
+One player game. Goal is to get all the baskets while trying not to get hit by a carrot by the bad guy.
